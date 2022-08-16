@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script type="text/javascript" src="./assets/js/bootstrap.bundle.js"></script>
+    <style>
+        .quartaLogosizeMain {
+            height: 120px;
+            width: 360px;
+            display: block;
+            margin: auto;
+        }
+
+        .uscLogosizeNav {
+            height: 100px;
+            width: 150px;
+            display: block;
+            margin: auto;
+        }
+
+        .submitPaymentbtn:hover {
+            background-color: #737689;
+            transition: 0.5s;
+        }
+
+        .submitPaymentbtn {
+            width: 500px;
+            text-align: center;
+            background-color: #176802
+        }
+
+        .uscLogosizeMain {
+            height: 150px;
+            width: 220px;
+            display: block;
+            margin: auto;
+        }
+
+        @font-face {
+            font-family: Telegraf;
+            src: url("Telegraf/Regular.otf") format("opentype");
+        }
+
+        body {
+            font-family: 'Telegraf';
+        }
+
+        .me-3 .quartabtn {
+            color: #4c9e38;
+            margin-right: 50px;
+        }
+
+        .quartabtn:hover {
+            background-color: #176802;
+            color: #ffffff;
+        }
+    </style>
+
+    <script>
+        function seePass() {
+            var x = document.getElementById("passInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+    <link rel="icon" type="image/png" />
+    <title>Help Center</title>
+</head>
+
+
+<body>
+    <!--NavBAR-->
+    <div class="ms-3 me-3">
+        <nav class="navbar bg-light">
+            <div class="container-fluid ms-3 me-3">
+
+                <div class="navbar-brand" href="#" style="max-width: 20%">
+                    <img src="assets/pictures/quarta.png" alt="" height="40">
+                </div>
+
+                <div class="me-3" style="width: 70%">
+                    <a type="button" class="btn btn-link text-decoration-none quartabtn" href="index.html">HOME</a>
+                    <a type="button" class="btn btn-link text-decoration-none quartabtn" href="#">ABOUT</a>
+                    <a type="button" class="btn btn-link text-decoration-none quartabtn" href="#">CONTACT US</a>
+                    <a type="button" class="btn btn-link text-decoration-none quartabtn" href="#">FAQ's</a>
+                    <a type="button" class="btn btn-link text-decoration-none quartabtn" href="helpCenter.html">HELP
+                        CENTER</a>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <!--NavBAR-->
+
+    <!--Input Area-->
+    <div class="ms-3 me-3">
+        <div class="card border mb-3 container-fluid mt-5 " style="max-width: 60rem; padding: 2px;">
+            <div class="card-body">
+                <div class="card container-fluid border-white mt-4">
+                    <div class="card border-white mb-3 container-fluid" style="max-width: 60rem; margin-top: 5px;">
+
+                        <div>
+                            <h2 style="text-align: center; font-weight: bold;">How may we help you?</h2>
+                        </div>
+                        <br>
+
+                        <form method="post" enctype="multipart/form-data">
+
+
+                            <div class="form-row">
+                                <input type="text" style="max-width: 50%; margin: auto; display: block;"
+                                    class="form-control" name="userInput" id="userInput" required>
+                            </div>
+
+                            <br>
+
+                            <div class="form-row text-center">
+                                <button type="submit" class="btn btn-outline-success">Submit</button>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary submitPaymentbtn mt-4"
+                                    onclick="window.location.href='requestCopyEreceipt.html'">REQUEST ANOTHER COPY OF
+                                    E-RECEIPT</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Input Area-->
+    <script src="./loginPage.js"></script>
+</body>
+
+</html>
