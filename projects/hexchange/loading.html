@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./scriptIndex.js"></script>
+  <title>Hexchange Color Changer</title>
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1514/7094/t/20/assets/logo.png?v=110720304488310096101646734876"/>
+  <style>
+    .button {
+    position: relative;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+    }
+
+    .button:active {
+    background: transparent;
+    }
+
+    .button__text {
+    font: bold 20px "Quicksand", san-serif;
+    color: transparent;
+    transition: all 0.2s;
+    }
+
+    .button--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+    }
+
+    .button--loading::after {
+    content: "";
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: green;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+    }
+
+    @keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+    }
+  </style>
+</head>
+
+<body style="background-color: white;">
+    <nav class="items-center bg-white shadow md:flex md: md:justify-between" style="padding:10px;">
+
+        <div class="ml-5" style="margin-top: 5px;">
+        <span class="text-2xl cursor-pointer">
+            <a href="./index.html"> <img class="inline h-10" src="https://cdn.shopify.com/s/files/1/1514/7094/t/20/assets/logo.png?v=110720304488310096101646734876">
+            Hex Changer</a>
+        </span>
+        </div>
+
+        <ul class="flex justify-center mt-1">
+            <li class="mx-5 my-6">
+                <a class="text-xl font-[Consolas] hover:text-cyan-500 duration-500"><button id="Simple">Simple</button></a> 
+            </li>
+            <li class="mx-5 my-6">
+                <a class="text-xl font-[Consolas] hover:text-cyan-500 duration-500"><button id="Hex">Hex</button></a> 
+            </li>
+        </ul>
+    </nav>
+    <script>
+        document.getElementById("Simple").onclick = function() {clickedSimple()};
+        document.getElementById("Hex").onclick = function() {clickedHex()};
+        document.getElementById("index").onclick = function() {clickedIndex()};
+    </script>
+
+        <main style="min-height: calc(100vh - 15rem); display: grid; place-items: center;">
+            
+            <button disabled type="button" class="button button--loading" onclick="this.classList.toggle('button--loading')">
+                <span class="button__text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </button>
+        </main>
+</body>

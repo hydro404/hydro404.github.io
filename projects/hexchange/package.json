@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "postcss ./src/css/styles.css -o ./public/styles.css --watch"
+    "watch": "postcss ./src/css/styles.css -o ./styles.css --watch"
   },
   "keywords": [],
   "author": "",

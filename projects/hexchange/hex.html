@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>Hexchange Color Changer</title>
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1514/7094/t/20/assets/logo.png?v=110720304488310096101646734876"/>
+</head>
+
+<body style="background-color: #7570A1;">
+    <nav class="items-center bg-white shadow md:flex md: md:justify-between" style="padding:10px;">
+
+        <div class="ml-5" style="margin-top: 5px;">
+        <span class="text-2xl cursor-pointer">
+            <button id="index" class="text-xl duration-500 hover:text-cyan-500"> <img class="inline h-10" src="https://cdn.shopify.com/s/files/1/1514/7094/t/20/assets/logo.png?v=110720304488310096101646734876">
+            Hex Changer</button>
+        </span>
+        </div>
+
+        <ul class="flex justify-center mt-1">
+            <li class="mx-5 my-6">
+                <a class="text-xl duration-500 hover:text-cyan-500"><button id="Simple">Simple</button></a> 
+            </li>
+            <li class="mx-5 my-6">
+                <a class="text-xl duration-500 hover:text-cyan-500"><button id="Hex">Hex</button></a> 
+            </li>
+        </ul>
+    </nav>
+    <script>
+        document.getElementById("Simple").onclick = function() {clickedSimple()};
+        document.getElementById("Hex").onclick = function() {clickedHex()};
+        document.getElementById("index").onclick = function() {clickedIndex()};
+
+        $(document).ready(function() {
+        $('#lowes').hide().fadeIn(2000, function() {
+            // Animation complete
+        });
+        });
+    </script>
+        <main id="lowes" style="min-height: calc(100vh - 15rem); display: grid; place-items: center;">
+            <div class="">
+                <h2 class="px-2 py-3 text-white bg-black rounded-lg md:text-3xl">Background Color : 
+                    <span id="color" style="text-transform: capitalize;">#7570A1</span>
+                </h2>
+                <div class='flex items-center justify-center mt-5'>
+                    <button onclick="getRandomHex()" id="btn" class="px-4 py-2 text-xl font-semibold text-black bg-transparent border border-black rounded active:bg-gray-600 hover:bg-black hover:text-white hover:border-transparent" style="letter-spacing: 2px;">
+                        Click Me
+                    </button>
+                </div>
+            </div>
+            
+        </main>
+</body>

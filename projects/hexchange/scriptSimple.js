@@ -1,13 +1,4 @@
-const colors = ["green", "red", "silver", "gray", "white", "maroon","purple", "fuchsia", "lime", "olive", "navy", "blue", "teal", "aqua"
-
-
-
-
-
-
-
-
-];
+const colors = ["green", "red", "silver", "gray", "white", "maroon","purple", "fuchsia", "lime", "olive", "navy", "blue", "teal", "aqua"];
 const btn = document.getElementById("btn");
 
 function getRandomNumber() {
@@ -19,4 +10,3 @@ function myFunction() {
   document.body.style.backgroundColor = colors[randomNumber];
   document.getElementById("color").innerHTML = colors[randomNumber];
 }
-

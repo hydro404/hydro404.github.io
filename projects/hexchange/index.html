@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <title>Hexchange Color Changer</title>
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/1514/7094/t/20/assets/logo.png?v=110720304488310096101646734876"/>
+</head>
+
+<body style="background-color: white;">
+    <nav class="items-center bg-white shadow md:flex md: md:justify-between" style="padding:10px;">
+
+        <div class="ml-5" style="margin-top: 5px;">
+        <span class="text-2xl font-[Consolas] cursor-pointer">
+            <button id="index" class="text-xl duration-500 hover:text-cyan-500"> <img class="inline h-10" src="https://cdn.shopify.com/s/files/1/1514/7094/t/20/assets/logo.png?v=110720304488310096101646734876">
+                Hex Changer</button>
+        </span>
+        </div>
+
+        <ul class="flex justify-center mt-1">
+            <li class="mx-5 my-6">
+                <a class="text-xl font-[Consolas] hover:text-cyan-500 duration-500"><button id="Simple">Simple</button></a> 
+            </li>
+            <li class="mx-5 my-6">
+                <a class="text-xl font-[Consolas] hover:text-cyan-500 duration-500"><button id="Hex">Hex</button></a> 
+            </li>
+        </ul>
+    </nav>
+    <script>
+        document.getElementById("Simple").onclick = function() {clickedSimple()};
+        document.getElementById("Hex").onclick = function() {clickedHex()};
+        document.getElementById("index").onclick = function() {clickedIndex()};
+        
+        $(document).ready(function() {
+        $('#lowes').hide().fadeIn(2000, function() {
+            // Animation complete
+        });
+        });
+    </script>
+
+        <main id="lowes" class="" style="min-height: calc(100vh - 15rem); display: grid; place-items: center;">
+            <div class="md:columns-2" style="width: 50%;">
+                <img class="mt-5 mb-10 md:w-48" style="" src="https://i.ibb.co/WB6qB5q/image-removebg-preview.png">
+                <h1 class="text-2xl text-center md:text-4xl sm:text-3xl"><b>Welcome to Hexchanger!</b></h1>
+                <p class="mt-5 text-justify md:text-xl">A color hex code is a hexadecimal way to represent a color in RGB format by combining three values – the amounts of red, green and blue in a particular shade of color.</p>
+            </div>
+        </main>
+</body>
