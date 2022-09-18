@@ -60,7 +60,7 @@ li {
   
   .nav_items {
     color: white;
-    margin-left: 30px;
+    margin-left: 45px;
   }
   
   .pad{
@@ -134,7 +134,7 @@ li {
     color: black;
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 768px) {
     nav ul {
       display: none;
     }
@@ -184,3 +184,24 @@ li {
    .winter{
     margin-top: 50px;
    }
+
+   .button {
+    background-color: #E94560; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: Consolas, monaco, monospace;
+    border-radius: 15px;
+  }
+  
+  .button:hover {
+    background-color: #533483;
+    color: white;
+  }
