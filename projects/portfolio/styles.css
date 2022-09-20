@@ -1,10 +1,11 @@
 .container {
-    width: 100%;
+    width: 90%;
     height: auto;
     display: flex;
-    min-height: 100vh;
+    min-height: 10vh;
     align-items: center;
     flex-direction: column;
+    margin: 10px;
 }
 
 * {
@@ -18,13 +19,13 @@ body {
     background-color: #16213E;
 }
 
-a {
-    text-decoration: none;
-}
+  a {
+      text-decoration: none;
+  }
 
-li {
-    list-style: none;
-}
+  li {
+      list-style: none;
+  }
 
     .navbar {
     display: flex;
@@ -134,7 +135,29 @@ li {
     color: black;
   }
 
+  .lowespic{
+    width: 60%;
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home_text{
+    text-align: justify;
+    color:white;
+    font-size: 16px;
+    width: 100%;
+  }
+
   @media only screen and (max-width: 768px) {
+
+    .home_text{
+      text-align: justify;
+      color:white;
+      font-size: 10px;
+      width: 100%;
+    }
     nav ul {
       display: none;
     }
@@ -144,13 +167,22 @@ li {
       z-index: 10;
     }
     
-      .buttonW{
+    .buttonW{
           width: 100%;
-      }
+    }
       
-      .card-margin-top {
+    .card-margin-top {
           margin-top: 4rem;
-      }
+    }
+
+    .lowespic{
+      width: 150px;
+      height: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
   }
   
   /* DROPDOWN MENU */
@@ -205,3 +237,15 @@ li {
     background-color: #533483;
     color: white;
   }
+
+  .row {
+	  display: flex;
+    width:100%;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+	}
+	.column {
+	  padding: 5px;
+    width: 80%;
+	}
