@@ -1,20 +1,27 @@
-.container {
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    flex-direction: column;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  .container {
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      flex-direction: column;
   }
 
-body {
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+  body {
+      background-color: #16213E;
+  }
+
+  .consolas{
     font-family: Consolas, monaco, monospace;
-    background-color: #16213E;
-}
+  }
+
+  .font1{
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
   a {
       text-decoration: none;
@@ -69,6 +76,10 @@ body {
   ul li:hover {
     transform: scale(1.2);
     transition: 0.2s;
+  }
+  
+  ul li a:hover{
+    color: #E94560;
   }
   
   #hamburger-icon {
@@ -135,19 +146,18 @@ body {
 
 
   .home_text{
-    text-align: justify;
+    text-align: center;
     color:white;
-    font-size: 16px;
     width: 100%;
   }
 
   @media only screen and (max-width: 768px) {
 
     .home_text{
-      text-align: justify;
+      text-align: center;
       color:white;
-      font-size: 10px;
-      width: 100%;
+      font-size: 17px;
+      width: 100%  
     }
     nav ul {
       display: none;
@@ -176,8 +186,22 @@ body {
 
     .row{
       flex-wrap:wrap;
+      padding: 25px;
     }
 
+    .lowespng{
+      width: 100%;
+    }
+
+    .app{
+      text-align: center;
+      font-size: 30px;
+      font-family: Consolas, monaco, monospace;
+    }
+
+    .bgbutton{
+      font-size: 20px;
+    }
     
   }
 
@@ -188,8 +212,9 @@ body {
     .home_text{
       text-align: justify;
       color:white;
-      width: 85%;
+      width: 100%;
       padding: 5px;
+      margin-right: 20px;
     }
 
     .lowespic{
@@ -199,7 +224,21 @@ body {
       margin-left: auto;
       margin-right: auto;
     }
+    .lowespng{
+      margin-left: 50px;
+    }
+    .row{
+      padding: 50px;
+    }
     
+    .app{
+      text-align: center;
+      font-size: 80px;
+      font-family: Consolas, monaco, monospace;
+    }
+    .bgbutton{
+      font-size: 50px;
+    }
   }
   
   /* DROPDOWN MENU */
@@ -207,7 +246,7 @@ body {
     position: relative; 
    }
    .dropdown {
-    background-color: rgb(1, 139, 139);
+    background-color: #E94560;
     padding: 0.5em 0;
     position: absolute; /*WITH RESPECT TO PARENT*/
     display: none;
@@ -222,9 +261,20 @@ body {
     padding: 0.5em 1em;
     width: 8em;
     text-align: center;
+    border-radius: 8px;
    }
+
+   .dropdown li a{
+    color: white;
+   }
+
+   .dropdown li a:hover{
+    color: white;
+   }
+
+
    .dropdown li:hover {
-    background-color: #4c9e9e;
+    background-color: #E94560;
    }
    .projects:hover .dropdown {
     display: block;
@@ -246,7 +296,6 @@ body {
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
-    font-family: Consolas, monaco, monospace;
     border-radius: 15px;
   }
   
@@ -259,10 +308,73 @@ body {
 	  display:flex;
     width:100%;
     height: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
 	}
 	.column {
 	  padding: 5px;
-    width: 100%;
 	}
+
+
+
+  /*  LOADING */
+  .lbutton {
+    position: relative;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+    }
+
+    .lbutton:active {
+    background: transparent;
+    }
+
+    .lbutton__text {
+    font: bold 20px "Quicksand", san-serif;
+    color: transparent;
+    transition: all 0.2s;
+    }
+
+    .lbutton--loading .button__text {
+    visibility: hidden;
+    opacity: 0;
+    }
+
+    .lbutton--loading::after {
+    content: "";
+    position: absolute;
+    width: 5vw;
+    height: 5vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #E94560;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+    }
+
+    @keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+    }
+
+    .fadein {
+        opacity: 0;
+        -moz-transition: opacity 1.5s;
+        -webkit-transition: opacity 1.5s;
+        -o-transition: opacity 1.5s;
+        transition: opacity 1.5s;
+    }
+    
+    #lowes.loaded .fadein {
+        opacity: 1;
+    }

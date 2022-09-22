@@ -7,35 +7,29 @@
     <link rel = "icon" href = "./img/code.png" type = "image/x-icon">
     <link rel="stylesheet" href="./styles.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script type="application/javascript" src="./lowes.js" ></script>
-
-    <script src="./script.js"></script>
-
-
     <title>Hydro - Software Engineer</title>
 </head>
+
 <body>
-        <nav class="navbar">
+    <nav class="navbar">
         <!-- LOGO -->
         <div class="logo">
             <img src="./img/code2.png">
-            <a id="index" style="margin-left: 10px; color: white; cursor: pointer;" class="consolas">Hydro</a>
+            <a href="./index.html" style="margin-left: 10px; color: white;" class="consolas">Hydro</a>
         </div>
         <!-- NAVIGATION MENU -->
         
         <ul style="margin-right: 15px;">
           <!-- USING CHECKBOX HACK -->
             <li class="pad">
-                <a id="about" class="nav_items font1">ABOUT</a>
+                <a class="nav_items font1" href="./about.html">ABOUT</a>
             </li>
             <li class="pad">
                 <a class="nav_items font1" href="#">CONTACT ME</a>
             </li>
             <li class="projects pad">
                 <a class="nav_items font1" href="#" style="padding-bottom: 51px;">PROJECTS</a>
-                <ul class="dropdown font1">
+                <ul class="dropdown">
                     <li><a href="/">Dropdown 1 </a></li>
                     <li><a href="/">Dropdown 2</a></li>
                     <li><a href="/">Dropdown 2</a></li>
@@ -56,7 +50,7 @@
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
-            <ul class="mobil-menu font1">
+            <ul class="mobil-menu">
                 <li class="pad"><a href="./about.html" style="color:white;">ABOUT</a></li>
                 <li class="pad"><a href="#" style="color:white;">CONTACT ME</a></li>
                 <li class="pad"><a href="#" style="color:white;">PROJECTS</a></li>
@@ -67,60 +61,16 @@
           
         </ul>
       </nav>
-      
     <script>
-        function toggleMobileMenu(menu) {
-            menu.classList.toggle('open');
-        }
-
-        document.getElementById("about").onclick = function() {clickedAbout()};
+        document.getElementById("Simple").onclick = function() {clickedSimple()};
+        document.getElementById("Hex").onclick = function() {clickedHex()};
         document.getElementById("index").onclick = function() {clickedIndex()};
-        
-        $(document).ready(function() {
-        $('#lowes').hide().fadeIn(2000, function() {
-            // Animation complete
-        });
-        });
     </script>
-    
-    <main id="lowes">   
-        <div>
-            <div class="container">
 
-                <div class="row">
-
-                    <div style="align-items: center;" class="lowespng">
-                        <img class="lowespic" src="img/lowes.png">
-                    </div>
-                    <div class="column" style="align-items: center; margin:auto; padding: 20px; flex: 50%">
-                        <h1 class="home_text font1 app" id="app">
-                            Kamusta?
-                        </h1>
-                        <div>
-                        <h1 class="home_text font1" style="margin-top: 10px;">
-                            I am Luis Anthony N. Grado, a 20-year old BS Information Technology student at Bicol University.
-                        </h1>
-                        </div>
-
-                        <div style="margin-top: 20px; text-align: center;">
-                        <button class="nav_items button font1" onclick="play();" ><span class="bgbutton"><b>CLICK ME</b></span></button>
-                        <audio id="audio" src="./bg.mp3"></audio>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div>
-            <div class="container">
-
-                
-            </div>
-
-        </div>
-    </main>
-    
+        <main style="min-height: calc(100vh - 15rem); display: grid; place-items: center;">
+            
+            <button disabled type="button" class="lbutton lbutton--loading" onclick="this.classList.toggle('lbutton--loading')">
+                <span class="button__text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </button>
+        </main>
 </body>
-</html>
