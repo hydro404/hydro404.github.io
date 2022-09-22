@@ -1,11 +1,8 @@
 .container {
-    width: 90%;
-    height: auto;
-    display: flex;
-    min-height: 10vh;
+    width: 100%;
+    height: 100%;
     align-items: center;
     flex-direction: column;
-    margin: 10px;
 }
 
 * {
@@ -61,11 +58,11 @@ body {
   
   .nav_items {
     color: white;
-    margin-left: 45px;
+    margin-left: 30px;
   }
   
   .pad{
-    padding: 5px;
+    padding: 3px;
     margin-left: 0px;
   }
   
@@ -109,6 +106,7 @@ body {
     justify-content: flex-start;
     margin-right: 10px;
     transition: all 1.5s ease;
+    border-radius: 10px;
   }
   
   .mobil-menu {
@@ -135,13 +133,6 @@ body {
     color: black;
   }
 
-  .lowespic{
-    width: 60%;
-    height: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   .home_text{
     text-align: justify;
@@ -176,8 +167,34 @@ body {
     }
 
     .lowespic{
-      width: 150px;
-      height: 100%;
+      width: 300px;
+      height: 350px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .row{
+      flex-wrap:wrap;
+    }
+
+    
+  }
+
+
+
+  @media only screen and (width > 768px) {
+
+    .home_text{
+      text-align: justify;
+      color:white;
+      width: 85%;
+      padding: 5px;
+    }
+
+    .lowespic{
+      width: 430px;
+      height: 500px;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -221,7 +238,7 @@ body {
     background-color: #E94560; /* Green */
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 12px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -239,7 +256,7 @@ body {
   }
 
   .row {
-	  display: flex;
+	  display:flex;
     width:100%;
     height: 100%;
     margin-top: 50px;
@@ -247,5 +264,5 @@ body {
 	}
 	.column {
 	  padding: 5px;
-    width: 80%;
+    width: 100%;
 	}
