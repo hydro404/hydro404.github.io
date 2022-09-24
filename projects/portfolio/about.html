@@ -21,20 +21,20 @@
         <!-- LOGO -->
         <div class="logo">
             <img src="./img/code2.png">
-            <a id="index" style="margin-left: 10px; color: white; cursor: pointer;" class="consolas">Hydro</a>
+            <a id="index" class="consolas logotext">Hydro</a>
         </div>
         <!-- NAVIGATION MENU -->
         
-        <ul style="margin-right: 15px;">
+        <ul class="rightnav">
           <!-- USING CHECKBOX HACK -->
             <li class="pad">
-                <a id="about" class="nav_items font1" style="cursor: pointer;">ABOUT</a>
+                <a id="about" class="nav_items font1">ABOUT</a>
             </li>
             <li class="pad">
                 <a class="nav_items font1" href="#">CONTACT ME</a>
             </li>
             <li class="projects pad">
-                <a class="nav_items font1" href="#" style="padding-bottom: 51px;">PROJECTS</a>
+                <a class="nav_items font1 projectspad" href="#">PROJECTS</a>
                 <ul class="dropdown font1">
                     <li><a href="/">Dropdown 1 </a></li>
                     <li><a href="/">Dropdown 2</a></li>
@@ -47,8 +47,8 @@
                 <a class="nav_items font1" href="./Grado_CV.pdf" download="grado_cv.pdf">DOWNLOAD CV</a>
             </li>
 
-            <li class="pad" style="transform: none;">
-                <a  target="_blank" class="nav_items button font1" style="margin-left: 20px;" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
+            <li class="pad">
+                <a  target="_blank" class="nav_items button font1 leavemsg" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
             </li>
         </ul>
 
@@ -57,11 +57,11 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
             <ul class="mobil-menu font1">
-                <li class="pad"><a href="./about.html" style="color:white;">ABOUT</a></li>
-                <li class="pad"><a href="#" style="color:white;">CONTACT ME</a></li>
-                <li class="pad"><a href="#" style="color:white;">PROJECTS</a></li>
-                <li class="pad"><a href="./Grado_CV.pdf" style="color:white;" download="grado_cv.pdf">DOWNLOAD CV</a></li>
-                <li class="pad"><a href="#" style="color:white;">LEAVE A MESSAGE</a></li>
+                <li class="pad"><a href="./about.html">ABOUT</a></li>
+                <li class="pad"><a href="#" >CONTACT ME</a></li>
+                <li class="pad"><a href="#" >PROJECTS</a></li>
+                <li class="pad"><a href="./Grado_CV.pdf"  download="grado_cv.pdf">DOWNLOAD CV</a></li>
+                <li class="pad"><a href="#" >LEAVE A MESSAGE</a></li>
             </ul>
           </div>
           
@@ -83,22 +83,23 @@
         });
     </script>
     
-    <main id="lowes">   
+    <main id="lowes">
+        <!--1st PAGE-->  
         <div>
             <div class="container pageone">
 
                 <div class="row">
 
-                    <div style="align-items: center;" class="lowespng">
+                    <div class="lowespng">
                         <img class="lowespic" src="img/lowes.png">
                     </div>
 
-                    <div class="column" style="align-items: center; margin:auto; padding: 20px; flex: 50%">
+                    <div class="column colapp">
                         <h1 class="home_text font1 app" id="app">
                             Kamusta?
                         </h1>
                         <div>
-                        <h1 class="home_text font1" style="margin-top: 30px;">
+                        <h1 class="home_text font1 introlowes">
                             I am Luis Anthony N. Grado, a passionate Web Developer from Bicol, Philippines.
                         </h1>
                         </div>
@@ -111,21 +112,21 @@
 
                 </div>
             </div>
-
-        </div>
-
+        </div> <!--1st PAGE-->  
+        
+        <!--2nd PAGE-->
         <div>
-            <div class="container pagetwo" style="background-color: white;">
+            <div class="container pagetwo">
                 <div>
                     <div class="font1 recentproj">
                         <h1>Recent Projects</h1>
                     </div>
 
-                    <div class="row" style="align-items: center;">
+                    <div class="row">
 
                         <div class="column pagetwo_col">
                             <div class="card">
-                                <img src="./img/stressedlowes.jpg" alt="Avatar" style="width:100%">
+                                <img src="./img/stressedlowes.jpg" alt="Avatar" class="projcard">
                                 <div class="containercard">
                                   <h4><b>John Doe</b></h4> 
                                   <p>Architect & Engineer</p> 
@@ -135,7 +136,7 @@
 
                         <div class="column pagetwo_col">
                             <div class="card">
-                                <img src="./img/stressedlowes.jpg" alt="Avatar" style="width:100%">
+                                <img src="./img/stressedlowes.jpg" alt="Avatar" class="projcard">
                                 <div class="containercard">
                                   <h4><b>John Doe</b></h4> 
                                   <p>Architect & Engineer</p> 
@@ -147,8 +148,8 @@
                 </div>
                 
             </div>
-
-        </div>
+        </div> <!--2nd PAGE-->
+        
     </main>
     
 </body>

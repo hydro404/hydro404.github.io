@@ -21,23 +21,23 @@
         <!-- LOGO -->
         <div class="logo">
             <img src="./img/code2.png">
-            <a id="index" style="margin-left: 10px; color: white; cursor: pointer;" class="consolas">Hydro</a>
+            <a id="index" class="consolas logotext">Hydro</a>
         </div>
         <!-- NAVIGATION MENU -->
         
-        <ul style="margin-right: 15px;">
+        <ul class="rightnav">
           <!-- USING CHECKBOX HACK -->
             <li class="pad">
-                <a id="about" class="nav_items font1" style="cursor: pointer;">ABOUT</a>
+                <a id="about" class="nav_items font1">ABOUT</a>
             </li>
             <li class="pad">
                 <a class="nav_items font1" href="#">CONTACT ME</a>
             </li>
             <li class="projects pad">
-                <a class="nav_items font1" href="#" style="padding-bottom: 51px;">PROJECTS</a>
+                <a class="nav_items font1 projectspad" href="#">PROJECTS</a>
                 <ul class="dropdown font1">
-                    <li><a href="/">Dropdown 1 </a></li>
-                    <li><a href="/">Dropdown 2</a></li>
+                    <li><a href="/">E-Receipt System </a></li>
+                    <li><a href="/">Hex Changer</a></li>
                     <li><a href="/">Dropdown 2</a></li>
                     <li><a href="/">Dropdown 3</a></li>
                     <li><a href="/">Dropdown 4</a></li>
@@ -47,8 +47,8 @@
                 <a class="nav_items font1" href="./Grado_CV.pdf" download="grado_cv.pdf">DOWNLOAD CV</a>
             </li>
 
-            <li class="pad" style="transform: none;">
-                <a  target="_blank" class="nav_items button font1" style="margin-left: 20px;" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
+            <li class="pad">
+                <a  target="_blank" class="nav_items button font1 leavemsg" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
             </li>
         </ul>
 
@@ -57,11 +57,11 @@
             <div class="bar2"></div>
             <div class="bar3"></div>
             <ul class="mobil-menu font1">
-                <li class="pad"><a href="./about.html" style="color:white;">ABOUT</a></li>
-                <li class="pad"><a href="#" style="color:white;">CONTACT ME</a></li>
-                <li class="pad"><a href="#" style="color:white;">PROJECTS</a></li>
-                <li class="pad"><a href="./Grado_CV.pdf" style="color:white;" download="grado_cv.pdf">DOWNLOAD CV</a></li>
-                <li class="pad"><a href="#" style="color:white;">LEAVE A MESSAGE</a></li>
+                <li class="pad"><a href="./about.html">ABOUT</a></li>
+                <li class="pad"><a href="#" >CONTACT ME</a></li>
+                <li class="pad"><a href="#" >PROJECTS</a></li>
+                <li class="pad"><a href="./Grado_CV.pdf"  download="grado_cv.pdf">DOWNLOAD CV</a></li>
+                <li class="pad"><a href="#" >LEAVE A MESSAGE</a></li>
             </ul>
           </div>
           
@@ -83,63 +83,68 @@
         });
     </script>
     
-    <main id="lowes">   
+    <main id="lowes">
+        <!--1st PAGE-->  
         <div>
             <div class="container pageone">
 
                 <div class="row">
 
-                    <div style="align-items: center;" class="lowespng">
+                    <div class="lowespng">
                         <img class="lowespic" src="img/lowes.png">
                     </div>
 
-                    <div class="column" style="align-items: center; margin:auto; padding: 20px; flex: 50%">
+                    <div class="column colapp">
                         <h1 class="home_text font1 app" id="app">
                             Kamusta?
                         </h1>
                         <div>
-                        <h1 class="home_text font1" style="margin-top: 30px;">
+                        <h1 class="home_text font1 introlowes">
                             I am Luis Anthony N. Grado, a passionate Web Developer from Bicol, Philippines.
                         </h1>
                         </div>
 
                         <div class="marginbook">
                             
-                        <a class="nav_items button font1" href="https://calendly.com/hydrogn00/consultation"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"></path></svg><span class="bgbutton">&nbsp;Book a Meeting</span></a>
+                        <a class="nav_items button font1" target="_blank" href="https://calendly.com/hydrogn00/consultation"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-week-fill" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM8.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm3 0a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM3 10.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"></path></svg><span class="bgbutton">&nbsp;Book a Meeting</span></a>
                         </div>
                     </div>
 
                 </div>
             </div>
-
-        </div>
-
+        </div> <!--1st PAGE-->  
+        
+        <!--2nd PAGE-->
         <div>
-            <div class="container pagetwo" style="background-color: white;">
+            <div class="container pagetwo">
                 <div>
                     <div class="font1 recentproj">
                         <h1>Recent Projects</h1>
                     </div>
 
-                    <div class="row" style="align-items: center;">
+                    <div class="rowtwo">
 
                         <div class="column pagetwo_col">
-                            <div class="card">
-                                <img src="./img/stressedlowes.jpg" alt="Avatar" style="width:100%">
-                                <div class="containercard">
-                                  <h4><b>John Doe</b></h4> 
-                                  <p>Architect & Engineer</p> 
-                                </div>
+                            <div class="card" style="padding: 4%;">
+                                <a href="https://usc-ereceiptportal.online/" target="_blank">
+                                    <img src="./img/quarta.png" id="quarta" class="projcard">
+                                    <div class="containercard">
+                                    <h1 class="projtitle font1"><b>E-Receipt System</b></h1> 
+                                    <p class="projdesc font1">The e-receipt system, developed by Quarta BU, is designed to help Bicol University College Student Organizations in keeping track of students' payments.</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 
                         <div class="column pagetwo_col">
-                            <div class="card">
-                                <img src="./img/stressedlowes.jpg" alt="Avatar" style="width:100%">
-                                <div class="containercard">
-                                  <h4><b>John Doe</b></h4> 
-                                  <p>Architect & Engineer</p> 
-                                </div>
+                            <div class="card" style="padding: 4%;">
+                                <a href="https://usc-ereceiptportal.online/" target="_blank">
+                                    <img src="./img/hex.png" id="quarta" class="projcard">
+                                    <div class="containercard">
+                                    <h1 class="projtitle font1"><b>Hex Changer</b></h1> 
+                                    <p class="projdesc font1">The e-receipt system, developed by Quarta BU, is designed to help Bicol University College Student Organizations in keeping track of students' payments.</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
     
@@ -147,9 +152,12 @@
                 </div>
                 
             </div>
-
-        </div>
+        </div> <!--2nd PAGE-->
+        
     </main>
+    <footer>
+
+    </footer>
     
 </body>
 </html>
