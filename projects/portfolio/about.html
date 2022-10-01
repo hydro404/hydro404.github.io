@@ -9,6 +9,10 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
     <script type="application/javascript" src="./lowes.js" ></script>
 
     <script src="./script.js"></script>
@@ -28,27 +32,27 @@
         <ul class="rightnav">
           <!-- USING CHECKBOX HACK -->
             <li class="pad">
-                <a id="about" class="nav_items font1">ABOUT</a>
+                <a id="about" class="nav_items retrofont cursorz buttonnavz">ABOUT</a>
             </li>
             <li class="pad">
-                <a class="nav_items font1" href="#">CONTACT ME</a>
+                <a class="nav_items retrofont cursorz buttonnavz" href="#">CONTACT ME</a>
             </li>
             <li class="projects pad">
-                <a class="nav_items font1 projectspad" href="#">PROJECTS</a>
-                <ul class="dropdown font1">
-                    <li><a href="/">E-Receipt System </a></li>
-                    <li><a href="/">Hex Changer</a></li>
-                    <li><a href="/">Telegram Bot Message Forwarder</a></li>
-                    <li><a href="/">Anonymous message with mySQL</a></li>
-                    <li><a href="/">Dropdown 4</a></li>
+                <a class="nav_items retrofont buttonnavz cursorz " href="#">PROJECTS</a>
+                <ul class="dropdown retrofont">
+                    <li><a href="/" class="cursorz">E-Receipt System </a></li>
+                    <li><a href="/" class="cursorz">Hex Changer</a></li>
+                    <li><a href="/" class="cursorz">Telegram Bot Message Forwarder</a></li>
+                    <li><a href="/" class="cursorz">Anonymous message with mySQL DB</a></li>
+                    <li><a href="/" class="cursorz">Smiggle</a></li>
                   </ul>
                 </li>
             <li class="pad">
-                <a class="nav_items font1" href="./Grado_CV.pdf" download="grado_cv.pdf">DOWNLOAD CV</a>
+                <a class="nav_items retrofont cursorz buttonnavz" href="./Grado_CV.pdf" download="grado_cv.pdf">DOWNLOAD CV</a>
             </li>
 
-            <li class="pad" style="transform: none;">
-                <a  target="_blank" class="nav_items button font1 leavemsg" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
+            <li class="pad" style="transform: none; padding-left: 0;">
+                <a target="_blank" class="nav_items retrofont leavemsg cursorz button" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
             </li>
         </ul>
 
@@ -116,7 +120,7 @@
         
         <!--2nd PAGE-->
         <div>
-            <div class="container pagetwo">
+            <div class="container pagetwo" style="padding-bottom: 25px;">
                 <div>
                     <div class="font1 recentproj">
                         <h1>Recent Projects</h1>
@@ -127,7 +131,7 @@
                         <div class="column">
                             
                                 <a href="https://usc-ereceiptportal.online/" target="_blank">
-                                    <img src="./img/quarta.png" id="quarta" class="projcard">
+                                    <img src="./img/quarta.png" class="projcard projpic">
                                     <div class="containercard">
                                     <h1 class="projtitle font1"><b>E-Receipt System</b></h1> 
                                     <p class="projdesc font1">The e-receipt system, developed by Quarta BU, is designed to help Bicol University College Student Organizations in keeping track of students' payments.</p>
@@ -139,7 +143,8 @@
                         <div class="column">
                             
                                 <a href="https://usc-ereceiptportal.online/" target="_blank">
-                                    <img src="./img/hex.png" id="quarta" class="projcard">
+                                    <img src="./img/hex.png" class="projcard projpic">
+                                    
                                     <div class="containercard">
                                     <h1 class="projtitle font1"><b>Hex Changer</b></h1> 
                                     <p class="projdesc font1">A practice project in which a simple button, when clicked, executes a function that creates a random color and then sets the background/color of a pre-selected element to that random color.
@@ -151,7 +156,7 @@
 
                         
                     </div>
-                    <div style="text-align: center;">
+                    <div class="viewbtn">
                         <a class="button-19" href="./projects.html">View All</a>
                     </div>
 
@@ -164,14 +169,14 @@
 
     <footer class="social-footer">
 
-            <h2 class="consolas logotext">Grado.</h2>
+            <h2 class="consolas footertext">Grado.</h2>
 
         <div class="social-footer-icons">
           <ul class="menu simple">
-            <li style="transform: none;"><a href="https://www.facebook.com/luisanthony.grado"><i class="fa-brands fa-facebook fa-xl" aria-hidden="true"></i></a></li>
-            <li style="transform: none;"><a href="https://discordapp.com/users/856273572426154014/"><i class="fa-brands fa-discord fa-xl" aria-hidden="true"></i></a></li>
-            <li style="transform: none;"><a href="https://github.com/Hydrogn"><i class="fa-brands fa-github fa-xl" aria-hidden="true"></i></a></li>
-            <li style="transform: none;"><a href="https://ph.linkedin.com/in/luis-anthony-grado"><i class="fa-brands fa-linkedin-in fa-xl" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://www.facebook.com/luisanthony.grado" target="_blank"><i class="fa-brands fa-facebook fa-xl cursorz" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://discordapp.com/users/856273572426154014/" target="_blank"><i class="fa-brands fa-discord fa-xl cursorz" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://github.com/Hydrogn" target="_blank"><i class="fa-brands fa-github fa-xl cursorz" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://ph.linkedin.com/in/luis-anthony-grado" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl cursorz" aria-hidden="true"></i></a></li>
           </ul>
         </div>
       </footer>

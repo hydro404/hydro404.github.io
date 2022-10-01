@@ -17,20 +17,37 @@
     background-color: #16213E;
   }
 
+  html{
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII=),auto;
+  }
 
 
   body::-webkit-scrollbar {
     /*display: none;*/
   }
 
-  .consolas{
-    font-family: Consolas, monaco, monospace;
+  a:hover{
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC),auto;
   }
 
+  .cursorz:hover{
+    cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC),auto;
+  }
+
+  .consolas{
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .retrofont{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+  }
+
+  /*font-family: 'Press Start 2P', cursive;*/
   .font1{
     font-family: Arial, Helvetica, sans-serif;
   }
-
+  
   a {
       text-decoration: none;
   }
@@ -67,6 +84,12 @@
     color: white;
     cursor: pointer;
    }
+
+   .footertext{
+    margin-left: 10px;
+    color: white;
+   }
+
    ul {
     list-style: none;
     height: 100%;
@@ -169,10 +192,55 @@
   }
 
   .projcard{
-    width:100%;
+    width: 100%;
   }
 
+  .projtitle{
+    font-size: 25px;
+    color: black;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .marginbook{
+    margin-top: 20px;
+    text-align: center; 
+    width: 100%;
+  }
   
+  .lowespic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projdesc{
+    color: black;
+    text-align: center;
+  }
+
+  .containercard {
+    padding: 25px 45px;
+  }
+
+  .projpic{
+    width: 100%;
+    height: 200px;
+  }
+
+  .rowtwo{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 3%;
+    padding: 4%;
+    padding-bottom: 10px !important;
+  }
+
+  .viewbtn{
+    text-align: center;
+    margin-top: 15px;
+  }
 
   /* for MOBILE & TABLET */
   @media only screen and (max-width: 768px) {
@@ -214,6 +282,8 @@
     }
 
     .rowtwo{
+        display: flex;
+        grid-auto-flow: none;
         flex-wrap:wrap;
         padding: 25px;
     }
@@ -253,7 +323,7 @@
       padding-bottom: 50px;
     }
 
-    #quarta{
+    .projpic{
       width: 100%;
       height: 120px;
     }
@@ -277,7 +347,7 @@
     }
 
     .column{
-      margin-bottom: 50px;
+      margin-bottom: 25px;
     }
     
     ul li a:hover{
@@ -288,9 +358,35 @@
     .containercard {
       padding: 25px 18px;
     }
+
+    .logotext, .footertext{
+      font-size: 18px;
+    }
+
+    .viewbtn{
+      margin-top: 0px;
+    }
   }
 
+  @media only screen and (min-width : 800px) and (max-width: 1024px) {
+    .projpic {
+      width: 100% !important;
+      height: 201px !important;
+  }
+  }
 
+  @media only screen and (min-width : 770px) and (max-width: 1160px) {
+    .retrofont {
+      font-size: 11px !important;
+    }
+  }
+
+  @media only screen and (width : 768px) {
+    .projpic {
+      width: 100% !important;
+      height: 201px !important;
+  }
+  }
 
   /* for LAPTOPS */
   @media only screen and (width > 768px) {
@@ -347,7 +443,7 @@
       padding-bottom: 120px;
     }
 
-    #quarta{
+    .projpic{
       width: 100%;
       height: 280px;
     }
@@ -439,7 +535,7 @@
 
 
    .dropdown li:hover {
-    background-color: #E94560;
+    background-color: transparent;
    }
    .projects:hover .dropdown {
     display: block;
@@ -457,12 +553,26 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 14px;
+    margin: 0px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 10px;
   }
+
+  .buttonnavz {
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 0px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
   
   .button:hover {
     background-color: #533483;
@@ -484,10 +594,6 @@
 
   .columnz{
     padding: 5px;
-  }
-
-  .projectspad{
-    padding-bottom: 51px;
   }
 
   .leavemsg{
