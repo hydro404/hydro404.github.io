@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Responsive Web Practice</title>
+        <script type="text/javascript" src="./js/bootstrap.bundle.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+        <link rel = "icon" href = "https://i.ibb.co/7yfT3Pm/depositphotos-81700460-stock-illustration-monogram-l-logo-letter.webp" type = "image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+           function countChar(val) {
+            var len = val.value.length;
+            if (len >= 500) {
+                val.value = val.value.substring(0, 500);
+            } else {
+                $('#charNum').text(len+"/300");
+            }
+        };
+        </script>
+    </head>
+
+    <body>
+        <div class="card border-dark mb-1 container-fluid mt-2" style="max-width: 18rem; padding: 7px;">
+            <div>
+            <img src="https://i.ibb.co/7vtKkBQ/3db6c87e-4294-43ef-871c-62ea8277f7d9.jpg" class="card-img-top" alt="L">
+            <div class="card-body text-dark">
+              <h5 class="card-title" style="font-family: Consolas;">Luis Anthony N. Grado</h5>
+            </div>
+        </div>
+            <form method="post" action="function.php">
+                    <div class="form-group">
+                        <label for="field" style="font-family: Consolas; text-align: center; display: block; margin-bottom: 10px">
+                            Got a message for me?
+                        </label>
+                        <p class="card-text" style="text-align: center;">Leave a message anonymously.</p>
+                        <p class="card-text" style="text-align: center;">The messages will be automatically sent to my Telegram Bot.</p>
+                        <div class="mb-3">
+                            <label for="Username" class="form-label">Username</label>
+                            <input type="text" name="Username" class="form-control" required>
+                          </div>
+                        <p>Message</p>
+                        
+                        <textarea name="Message" maxlength="300" onkeyup="countChar(this)" class="form-control" rows="3" required></textarea>
+                        <div class="mb-4" style="height: 20px;  margin-top: 5px; text-align: center;" id="charNum" ></div>
+                    </div>
+
+                <div class="form-row text-center">
+                    <div class="col-12">
+                        <input type="submit" value="Submit" class="btn btn-secondary" required></input>
+                        
+                    </div>
+                 </div>
+
+            </form>
+    </body>
+</html>
