@@ -1,6 +1,11 @@
 
-body{
-  font-family: Consolas,monaco,monospace; 
+*{
+	font-family: Consolas,monaco,monospace; 
+}
+
+#imgLogo{
+	height: 150px;
+	width: 150px;
 }
 
 .fa {
