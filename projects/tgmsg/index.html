@@ -3,10 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Responsive Web Practice</title>
+        <title>Hello World!</title>
         <script type="text/javascript" src="./js/bootstrap.bundle.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
         <link rel = "icon" href = "https://i.ibb.co/7yfT3Pm/depositphotos-81700460-stock-illustration-monogram-l-logo-letter.webp" type = "image/x-icon">
+        
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./styles.css">
 
@@ -32,14 +33,14 @@
         </script>
     </head>
 
-    <body>
+    <body id="body">
         <div class="card border-dark mb-1 container-fluid mt-2" style="max-width: 18rem; padding: 7px;">
             <div>
             <img src="https://i.ibb.co/7vtKkBQ/3db6c87e-4294-43ef-871c-62ea8277f7d9.jpg" class="card-img-top" alt="L">
-            <div class="card-body text-dark">
+            <div class="card-body text-dark text-center">
               <h5 class="card-title" style="font-family: Consolas;">Luis Anthony N. Grado</h5>
             </div>
-        </div>
+        </div>      <form>
                     <div class="form-group">
                         <label for="field" style="font-family: Consolas; text-align: center; display: block; margin-bottom: 10px">
                             Got a message for me?
@@ -48,23 +49,45 @@
                         <p class="card-text" style="text-align: center;">The messages will be automatically sent to my Telegram Bot.</p>
                         <div class="mb-3">
                             <label for="Username" class="form-label">Username</label>
-                            <input type="text" name="Username" class="form-control" required>
+                            <input type="text" name="Username" id="user" class="form-control" required>
                           </div>
                         <p>Message</p>
                         
-                        <textarea name="Message" maxlength="300" onkeyup="countChar(this)" class="form-control" rows="3" required></textarea>
-                        <div class="mb-4" style="height: 20px;  margin-top: 5px; text-align: center;" id="charNum" ></div>
+                        <textarea id="msg" name="Message" maxlength="300" onkeyup="countChar(this)" class="form-control" rows="3" required></textarea>
+                        <div class="mb-2" style="height: 20px;  margin-top: 5px; text-align: center;" id="charNum" >0/300</div>
                     </div>
 
                 <div class="form-row text-center">
                     <div class="col-12">
-                        <button class="btn btn-secondary" id="sendBtn" onclick="myFunction()"><a data-toggle = "modal" href="#myModal" style="text-decoration: none; color: white;">Submit</a></button>
+
+                        <button type="button" class="btn btn-primary" id="modalBtn" onclick="myFunction()"data-toggle="modal" data-target="#myModal">
+                            Submit
+                        </button>
                         
                     </div>
                 </div> 
+            </form>
+                <script>
+                    const button = document.getElementById('modalBtn');
+                    button.disabled = true;
+
+                    var user = document.getElementById("user");
+                    var msg = document.getElementById("msg");
+
+                    function compare() {
+                        button.disabled = user.value === '' || msg.value === '';
+                    }
+
+                    user.addEventListener('keyup', compare);
+                    msg.addEventListener('keyup', compare);
+
+                </script>
     </body>
-                <!-- Modal HTML -->
-                <div id="myModal" class="modal fade">
+                <!-- Button trigger modal -->
+                
+                
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-confirm">
                         <div class="modal-content">
                             <div class="modal-header justify-content-center">
