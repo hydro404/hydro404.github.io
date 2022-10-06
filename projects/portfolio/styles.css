@@ -199,6 +199,10 @@
     background-color: white;
   }
 
+  .pageoneAbout{
+    background-color: #16213E;
+  }
+
   .projcard{
     width: 100%;
   }
@@ -315,6 +319,11 @@
       padding-bottom: 20px;
     }
 
+    .pageoneAbout{
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
     .marginbook{
       margin-top: 20px;
       text-align: center; 
@@ -368,13 +377,46 @@
     }
 
     .logotext, .footertext{
-      font-size: 18px;
+      font-size: 20px;
     }
 
     .viewbtn{
       margin-top: 0px;
     }
-  }
+
+    .aa{
+      display: block;
+    }
+
+    .titleheader {
+      font-size: 30px !important;
+      margin-bottom: 20px;
+    }
+
+    .ab{
+      margin-bottom: 20px;
+    }
+    
+    .labelfont{
+      font-size: 20px;
+    }
+
+    .containerz {
+      padding: 7px 5px;
+    }
+    
+    .card{
+      margin-right: 3px !important;
+    }
+
+    .ac{
+      padding:20px;
+    }
+
+    .deets{
+      font-size: 16px;
+    }
+  } /*MOBILE */
 
   @media only screen and (min-width : 900px) and (max-width: 1024px) {
     .lowespic {
@@ -451,6 +493,11 @@
       padding-bottom: 60px;
     }
 
+    .pageoneAbout{
+      padding-top: 40px;
+      padding-bottom: 30px;
+    }
+
     .marginbook{
       margin-top: 40px;
       text-align: center; 
@@ -505,7 +552,37 @@
     .simple{
       margin-right: 30px;
     }
-  }
+
+    .aa{
+      display: flex;
+      column-gap: 150px;
+    }
+    .columnAbout {
+      float: left;
+    }
+
+    .labelfont{
+      font-size: 30px !important;
+    }
+
+    .perfont{
+      font-size: 30px;
+    }
+
+    .containerz {
+      padding: 20px 20px;
+    }
+    .card{
+      margin-right: 10px;
+    }
+    .ac{
+      padding:20px;
+    }
+
+    .deets{
+      font-size: 24px;
+    }
+  } /*PC*/
 
   @media only screen and (min-width: 769px) and (max-width : 920px) {
 
@@ -840,9 +917,6 @@
     }
 
     /* Should be removed. Only for demonstration */
-    .columnAbout {
-      float: left;
-    }
     
     /* Clear floats after the columns */
     .rowAbout:after {
@@ -865,4 +939,90 @@
       border-radius: 10px;
     }
 
+    .labelfont{
+      font-size: 20px;
+    }
+
+    /* ABOUT PAGE */
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: fit-content;
+      background-color: #533483;
+    }
     
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+
+    .titleheader{
+      padding-left:3%; padding-bottom:1%; color: white; font-size: 50px;
+    }
+
+    .aa{
+      padding-left:2%; padding-right:2%; text-align: justify;
+    }
+
+    .ab{
+      padding:20px; background-color: #0F3460; border-radius: 10px; height: 100%;
+    }
+
+    .mb10{
+      margin-bottom:10px;
+    }
+    
+    .mt20{
+      margin-top: 20px;
+    }
+
+    .font30{
+      font-size: 30px;
+    }
+
+    .font35{
+      font-size: 35px;
+    }
+    
+    .font40{
+      font-size: 40px;
+    }
+
+    .deets{
+      margin-top: 5px; color: white; padding: 0px 12px;
+    }
+    
+    .ac{
+      border-radius: 10px; background-color: #0F3460; height: 100%;
+    }
+
+    .ad{
+      margin-top: 20px; padding-left: 2%; padding-right: 2%; width: 100%;
+    }
+
+    .ae{
+      padding:20px; border-radius: 10px; background-color: #0F3460;
+    }
+
+    .pl50{
+      padding-left: 50px;
+    }
+
+    .pr50{
+      padding-right: 50px;
+    }
+
+    .br10{
+      border-radius: 10px;
+    }
+
+    .fullwidth{
+      width: 100%;
+    }
+
+    .p20{
+      padding: 20px;
+    }
+
+    .af{
+      display: flex; width: 100%; align-items: center; justify-content: center;
+    }

@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    
     <script type="application/javascript" src="./lowes.js" ></script>
 
     <script src="./script.js"></script>
@@ -21,7 +20,7 @@
     <title>Hydro - Software Engineer</title>
 </head>
 <body>
-        <nav class="navbar">
+    <nav class="navbar">
         <!-- LOGO -->
         <div class="logo">
             <img src="./img/code2.png">
@@ -35,13 +34,13 @@
                 <a id="about" class="nav_items retrofont cursorz buttonnavz">ABOUT</a>
             </li>
             <li class="pad">
-                <a class="nav_items retrofont cursorz buttonnavz" href="#">CONTACT ME</a>
+                <a id="contact" class="nav_items retrofont cursorz buttonnavz" href="#">CONTACT ME</a>
             </li>
             <li class="projects pad">
                 <a class="nav_items retrofont buttonnavz cursorz " href="#">PROJECTS</a>
                 <ul class="dropdown retrofont">
-                    <li><a href="/" class="cursorz">E-Receipt System </a></li>
-                    <li><a href="/" class="cursorz">Hex Changer</a></li>
+                    <li><a href="https://usc-ereceiptportal.online/" class="cursorz" target="_blank">E-Receipt System </a></li>
+                    <li><a href="https://hydrogn.github.io/projects/hexchange/" class="cursorz" target="_blank">Hex Changer</a></li>
                     <li><a href="/" class="cursorz">Telegram Bot Message Forwarder</a></li>
                     <li><a href="/" class="cursorz">Anonymous message with mySQL DB</a></li>
                     <li><a href="/" class="cursorz">Smiggle</a></li>
@@ -52,7 +51,7 @@
             </li>
 
             <li class="pad" style="transform: none; padding-left: 0;">
-                <a target="_blank" class="nav_items retrofont leavemsg cursorz button" role="button" href="https://gradooo.sayout.net/"><b>LEAVE A MESSAGE</b></a>
+                <a class="nav_items retrofont leavemsg cursorz button" role="button" href="https://hydrogn.github.io/projects/tgmsg/" target="_blank"><b>LEAVE A MESSAGE</b></a>
             </li>
         </ul>
 
@@ -60,12 +59,12 @@
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
-            <ul class="mobil-menu font1">
+            <ul class="mobil-menu retrostyle">
                 <li class="pad"><a id="aboutmenu">ABOUT</a></li>
-                <li class="pad"><a href="#" >CONTACT ME</a></li>
+                <li class="pad"><a id="contactmenu" href="#" >CONTACT ME</a></li>
                 <li class="pad"><a href="#" >PROJECTS</a></li>
                 <li class="pad"><a href="./Grado_CV.pdf"  download="grado_cv.pdf">DOWNLOAD CV</a></li>
-                <li class="pad"><a href="#" >LEAVE A MESSAGE</a></li>
+                <li class="pad"><a href="https://hydrogn.github.io/projects/tgmsg/" >LEAVE A MESSAGE</a></li>
             </ul>
           </div>
           
@@ -79,6 +78,10 @@
 
         document.getElementById("about").onclick = function() {clickedAbout()};
         document.getElementById("aboutmenu").onclick = function() {clickedAbout()};
+
+        document.getElementById("contact").onclick = function() {clickedContact()};
+        document.getElementById("contactmenu").onclick = function() {clickedContact()};
+
         document.getElementById("index").onclick = function() {clickedIndex()};
         
         $(document).ready(function() {
@@ -88,7 +91,7 @@
         });
     </script>
     
-    <main id="lowes">
+    <main id="lowes" style="height:100%">
         <!--1st PAGE-->  
         <div>
             <div class="container pageone">
@@ -142,7 +145,7 @@
 
                         <div class="column">
                             
-                                <a href="https://usc-ereceiptportal.online/" target="_blank">
+                                <a href="https://hydrogn.github.io/projects/hexchange/" target="_blank">
                                     <img src="./img/hex.png" class="projcard projpic">
                                     
                                     <div class="containercard">
