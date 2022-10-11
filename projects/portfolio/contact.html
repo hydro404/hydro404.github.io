@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "icon" href = "./img/code.png" type = "image/x-icon">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <script src="./script.js"></script>
+
+
+    <title>Hydro - Software Engineer</title>
+</head>
+<body>
+        <nav class="navbar">
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="./img/code2.png">
+            <a id="index" class="consolas logotext">Hydro</a>
+        </div>
+        <!-- NAVIGATION MENU -->
+        
+        <ul class="rightnav">
+          <!-- USING CHECKBOX HACK -->
+            <li class="pad">
+                <a id="about" class="nav_items retrofont cursorz buttonnavz">ABOUT</a>
+            </li>
+            <li class="pad">
+                <a id="contact" class="nav_items retrofont cursorz buttonnavz" href="#">CONTACT ME</a>
+            </li>
+            <li class="projects pad">
+                <a class="nav_items retrofont buttonnavz cursorz " href="#">PROJECTS</a>
+                <ul class="dropdown retrofont">
+                    <li><a href="https://usc-ereceiptportal.online/" class="cursorz" target="_blank">E-Receipt System </a></li>
+                    <li><a href="https://hydrogn.github.io/projects/hexchange/" class="cursorz" target="_blank">Hex Changer</a></li>
+                    <li><a href="/" class="cursorz" target="_blank">Telegram Bot Message Forwarder</a></li>
+                    <li><a href="/" class="cursorz" target="_blank">Anonymous message with mySQL DB</a></li>
+                    <li><a href="/" class="cursorz" target="_blank">Smiggle</a></li>
+                  </ul>
+                </li>
+            <li class="pad">
+                <a class="nav_items retrofont cursorz buttonnavz" href="./Grado_CV.pdf" download="grado_cv.pdf">DOWNLOAD CV</a>
+            </li>
+
+            <li class="pad" style="transform: none; padding-left: 0;">
+                <a class="nav_items retrofont leavemsg cursorz button" role="button" href="https://hydrogn.github.io/projects/tgmsg/" target="_blank"><b>LEAVE A MESSAGE</b></a>
+            </li>
+        </ul>
+
+          <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <ul class="mobil-menu retrostyle">
+                <li class="pad"><a id="aboutmenu">ABOUT</a></li>
+                <li class="pad"><a id="contactmenu" href="#" >CONTACT ME</a></li>
+                <li class="pad"><a href="#" >PROJECTS</a></li>
+                <li class="pad"><a href="./Grado_CV.pdf"  download="grado_cv.pdf">DOWNLOAD CV</a></li>
+                <li class="pad"><a href="https://hydrogn.github.io/projects/tgmsg/" >LEAVE A MESSAGE</a></li>
+            </ul>
+          </div>
+          
+        </ul>
+      </nav>
+      
+    <script>
+        function toggleMobileMenu(menu) {
+            menu.classList.toggle('open');
+        }
+
+        document.getElementById("about").onclick = function() {clickedAbout()};
+        document.getElementById("aboutmenu").onclick = function() {clickedAbout()};
+
+        document.getElementById("contact").onclick = function() {clickedContact()};
+        document.getElementById("contactmenu").onclick = function() {clickedContact()};
+
+        document.getElementById("index").onclick = function() {clickedIndex()};
+        
+        $(document).ready(function() {
+        $('#lowes').hide().fadeIn(2000, function() {
+            // Animation complete
+        });
+        });
+    </script>
+    
+    <main id="lowes" class="wholepage">
+        <!--1st PAGE-->  
+        <div>
+            <div class="container pageoneAbout">
+                <h1 class="retrostyle titleheader">Contact</h1>
+                    <div class="ba">
+                        <div class="ae" style="text-align: center;">
+                            <div class="buttonFormat mb10">
+                            <p class="retrostyle labelfont contactheader">Get in touch, let's talk.</p>
+                            </div>
+
+                            <div class="mt20" style="padding: 5px;">
+                                <form action="mailto:luisanthonygrado@gmail.com" method="GET">
+                                    <div class="form" style="border-radius: 10px; padding: 20px;">
+                
+                                        <div class="mt20">
+                                            <div class="signupFrm">
+                                                <form action="" class="formtwo">
+                                                  <h1 class="sendmelabel font1 mb20">Send an email to Luis!</h1>
+                                                    
+                                                    <div class="inputContainer" style="width: 100%">
+                                                        <input type="text" class="input" placeholder="a" name="subject">
+                                                        <label for="subject" class="label">Subject</label>
+                                                    </div>
+
+                                                    <div class="inputContainer" style="width: 100%">
+                                                        <input type="text" class="input" placeholder="a" name="name" id="name">
+                                                        <label for="name" class="label">Full Name</label>
+                                                    </div>
+                                                    
+                                                    <div class="inputContainer" style="width: 100%">
+                                                        <input type="text" class="input" placeholder="a" name="email" id="email">
+                                                        <label for="email" class="label">Email</label>
+                                                    </div>
+
+                                                    <div class="inputContainer" style="width: 100%; padding: 10px;">
+                                                        <textarea type="text" class="input" placeholder="a" name="body"></textarea>
+                                                            <label for="message" class="label">Message</label>
+                                                    </div>
+                                                </form>
+                                        </div>  
+                                        
+                                        <div class="viewbtn" style="width: 100%; text-align: center; margin-top: 30px;">
+                                            <button type="submit" value="Submit" class="button-19 cursorz">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                        <div class="ae mt20" style="text-align: center;">
+                            
+                            <p class="font1 labelfont text-white">Feel free to send me an <span class="mail" onclick="window.location.href='mailto:luisanthonygrado@gmail.com';">email</span> or <span class="mail" onclick="window.location.href='https://calendly.com/hydrogn00/consultation';">schedule</span> a free consultation with me.</p>
+                        </div>
+                    
+
+                </div>
+            </div> <!--1st PAGE-->  
+        
+    </main>
+
+    <footer class="social-footer">
+
+            <h2 class="consolas footertext">Grado.</h2>
+
+        <div class="social-footer-icons">
+          <ul class="menu simple">
+            <li style="transform: none;"><a href="https://www.facebook.com/luisanthony.grado" target="_blank"><i class="fa-brands fa-facebook fa-xl cursorz" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://discordapp.com/users/856273572426154014/" target="_blank"><i class="fa-brands fa-discord fa-xl cursorz" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://github.com/Hydrogn" target="_blank"><i class="fa-brands fa-github fa-xl cursorz" aria-hidden="true"></i></a></li>
+            <li style="transform: none;"><a href="https://ph.linkedin.com/in/luis-anthony-grado" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl cursorz" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </footer>
+    
+</body>
+</html>

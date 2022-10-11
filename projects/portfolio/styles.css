@@ -44,7 +44,7 @@
   }
 
   .retrostyle{
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', cursive !important;
   }
 
   /*font-family: 'Press Start 2P', cursive;*/
@@ -168,12 +168,12 @@
     right: 0;
     height: auto;
     flex-wrap: wrap;
-    padding: 30px;
+    padding: 22px;
     overflow: hidden;
     background-color: #E94560;
     opacity: 0.9;
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
     transition: all 1.5s ease;
   }
   
@@ -252,6 +252,10 @@
   .viewbtn{
     text-align: center;
     margin-top: 15px;
+  }
+
+  .deetstwo{
+    text-align: justify !important;
   }
 
   /* for MOBILE & TABLET */
@@ -368,53 +372,86 @@
     }
     
     ul li a:hover{
-      color: white;
-      cursor: pointer;
+      color: white !important;
+      cursor: pointer !important;
     }
 
     .containercard {
-      padding: 25px 18px;
+      padding: 25px 18px !important;
     }
 
     .logotext, .footertext{
-      font-size: 20px;
+      font-size: 20px !important;
     }
 
     .viewbtn{
-      margin-top: 0px;
+      margin-top: 0px !important;
     }
 
     .aa{
-      display: block;
+      display: block !important;
     }
 
     .titleheader {
       font-size: 30px !important;
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
+      margin-left: 20px !important;
     }
 
     .ab{
-      margin-bottom: 20px;
+      margin-bottom: 20px !important;
     }
     
     .labelfont{
-      font-size: 20px;
+      font-size: 20px !important;
     }
 
     .containerz {
-      padding: 7px 5px;
+      padding: 10px 5px !important;
     }
     
     .card{
-      margin-right: 3px !important;
+      margin-right: 6px !important;
+      margin-top: 10px !important;
     }
 
     .ac{
-      padding:20px;
+      padding:20px !important;
     }
 
     .deets{
+      font-size: 16px !important;
+      text-align: justify !important;
+    }
+
+    .deetstwo{
       font-size: 16px;
+      text-align: justify !important;
+    }
+
+    .ba{
+      padding-left: 2% !important;
+      padding-right: 2% !important;
+    }
+
+    .dblock{
+      flex-wrap: wrap !important;
+    }
+
+    .pzero{
+      padding: 10px!important;
+    }
+
+    .wholepage{
+      height: 100%;
+    }
+
+    .labelfont {
+      font-size: 16px !important;
+    }
+
+    .sendmelabel{
+      font-size: 20px !important;
     }
   } /*MOBILE */
 
@@ -581,6 +618,23 @@
 
     .deets{
       font-size: 24px;
+    }
+
+    .deetstwo{
+      font-size: 24px;
+      margin-top: 50px !important;
+    }
+
+    .ba{
+      padding-left: 20%; padding-right: 20%;
+    }
+
+    .wholepage{
+      min-height: calc(100vh - 9.5rem);
+    }
+
+    .sendmelabel{
+      font-size: 30px;
     }
   } /*PC*/
 
@@ -884,6 +938,8 @@
       -webkit-justify-content: space-between;
           -ms-flex-pack: justify;
               justify-content: space-between;
+            position: absolute;
+            width: 100%;
     }
     
     .social-footer .social-footer-icons li:last-of-type {
@@ -949,6 +1005,7 @@
       transition: 0.3s;
       width: fit-content;
       background-color: #533483;
+      border-radius: 5px;
     }
     
     .card:hover {
@@ -970,9 +1027,17 @@
     .mb10{
       margin-bottom:10px;
     }
+
+    .mb20{
+      margin-bottom:20px;
+    }
     
     .mt20{
       margin-top: 20px;
+    }
+
+    .mt10{
+      margin-top: 10px;
     }
 
     .font30{
@@ -988,7 +1053,11 @@
     }
 
     .deets{
-      margin-top: 5px; color: white; padding: 0px 12px;
+      margin-top: 10px; color: white; padding: 0px 12px;
+    }
+
+    .deetstwo{
+      margin-top: 10px; color: white; padding: 0px 12px;
     }
     
     .ac{
@@ -1026,3 +1095,224 @@
     .af{
       display: flex; width: 100%; align-items: center; justify-content: center;
     }
+
+    .text-center{
+      text-align: center;
+    }
+
+    /*CONTACT FORM*/
+    
+    .ba{
+      margin-top: 20px; width: 100%;
+    }
+
+    .form{
+      background-color: #ffffff;
+      width: 100%;
+      padding: 1%;
+  }
+  
+  .textleft{
+      text-align: left;
+      margin-left: 20px;
+  }
+  
+  .signupFrm {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formtwo {
+    background-color: white;
+    width: 400px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+  }
+  
+  .title {
+    font-size: 50px;
+    margin-bottom: 50px;
+  }
+
+  .inputContainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+  }
+  
+  .input {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #DADCE0;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 10px 20px;
+    outline: none;
+    background: none;
+    z-index: 1;
+  }
+  
+  /* Hide the placeholder texts (a) */
+  
+  ::placeholder {
+    color: transparent;
+  }
+
+  .label {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 0 4px;
+    background-color: white;
+    color: #DADCE0;
+    font-size: 16px;
+    transition: 0.5s;
+    z-index: 0;
+  }
+
+  .input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: purple;
+  }
+
+  .input:focus {
+    border: 2px solid purple;
+  }
+
+  .input:not(:placeholder-shown)+ .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  
+
+  /*CONTACT PAGE */
+
+  .contactheader{
+
+  }
+
+  textarea{
+    resize: vertical;
+  }
+
+  .mail{
+    text-decoration: underline;
+  }
+  .mail:hover{
+    color:#E94560;
+  }
+  
+  .text-white{
+    color: white;
+  }
+  /* LOWES
+  
+  .fa {
+      padding: 10px;
+      font-size: 20px;
+      width: 20px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+  }
+   */
+  .modal-confirm {		
+    color: #434e65;
+    width: 525px;
+  }
+  .modal-confirm .modal-content {
+    padding: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+  }
+  .modal-confirm .modal-header {
+    background: #47c9a2;
+    border-bottom: none;   
+    position: relative;
+    text-align: center;
+    margin: -20px -20px 0;
+    border-radius: 5px 5px 0 0;
+    padding: 35px;
+  }
+  .modal-confirm h4 {
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0;
+  }
+  .modal-confirm .form-control, .modal-confirm .btn {
+    min-height: 40px;
+    border-radius: 3px; 
+  }
+  .modal-confirm .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    text-shadow: none;
+    opacity: 0.5;
+  }
+  .modal-confirm .close:hover {
+    opacity: 0.8;
+  }
+  .modal-confirm .icon-box {
+    color: #fff;		
+    width: 95px;
+    height: 95px;
+    display: inline-block;
+    border-radius: 50%;
+    z-index: 9;
+    border: 5px solid #fff;
+    padding: 15px;
+    text-align: center;
+  }
+  .modal-confirm .icon-box i {
+    font-size: 64px;
+    margin: -4px 0 0 -4px;
+  }
+  .modal-confirm.modal-dialog {
+    margin-top: 80px;
+  }
+  .modal-confirm .btn, .modal-confirm .btn:active {
+    color: #fff;
+    border-radius: 4px;
+    background: #eeb711 !important;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 6px 20px;
+    border: none;
+  }
+  .modal-confirm .btn:hover, .modal-confirm .btn:focus {
+    background: #eda645 !important;
+    outline: none;
+  }
+  .modal-confirm .btn span {
+    margin: 1px 3px 0;
+    float: left;
+  }
+  .modal-confirm .btn i {
+    margin-left: 1px;
+    font-size: 20px;
+    float: right;
+  }
+  .trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+  }
