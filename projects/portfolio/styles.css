@@ -21,11 +21,6 @@
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABFklEQVRYR9WXURLDIAhE6/0PbSdOtUpcd1Gnpv1KGpTHBpCE1/cXq+vrMph7dGvXZTtpfW10DCA5jrH1H0Jhs5E0hnZdCR+vb5S8Nn8mQCeS9BdSalYJqMBjAGzq59xAESN7VFVUgV8AZB/dZBR7QTFDCqGquvUBVVoEtgIwpQRzmANSFHgWQKExHdIrPeuMvQNDarXe6nC/AutgV3JW+6bgqQLeV8FekRtgV+ToDKEKnACYKsfZjjkam7a0ZpYTytwmgainpC3HvwBocgKOxqRjehoR9DFKNFYtOwCGYCszobeCbl26N6yyQ6g8X/Wex/rBPsNEV6qAMaJPMynIHQCoSqS9JSMmwef51LflTgCRszU7DvAGiV6mHWfsaVUAAAAASUVORK5CYII=),auto;
   }
 
-
-  /*body::-webkit-scrollbar {
-    display: none;
-  }*/
-
   a:hover{
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC),auto;
   }
@@ -56,6 +51,595 @@
     font-family: Inter var,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   }
   
+
+    /* For Desktop View */
+  @media screen and (min-width: 1024px) {
+    .home_text{
+      padding: 5px !important;
+      margin-right: 20px !important;
+    }
+
+    .lowespic{
+      width: 430px !important;
+      height: 500px !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .row{
+      padding: 50px !important;
+    }
+    .bgbutton{
+      font-size: 20px !important;
+    }
+
+    .recentproj{
+      font-size: 90px !important;
+    }
+
+    .pageone{
+      padding-top: 9.1rem !important;
+      padding-bottom: 9.1rem !important;
+    }
+
+    .pageoneAbout{
+      padding-top: 40px !important;
+      padding-bottom: 30px !important;
+    }
+
+    .marginbook{
+      margin-top: 40px !important;
+    }
+
+    .pagetwo{
+      padding: 50px !important;
+      padding-top: 120px !important;
+    }
+
+    .projpic{
+      width: 100% !important;
+      height: 280px !important;
+    }
+
+    #hex{
+      width: 100% !important;
+      height: 280px !important;
+    }
+
+    .projtitle{
+      font-size: 32px !important;
+      color: black !important;
+      margin-bottom: 50px !important;
+      margin-top: 25px !important;
+      text-align: center !important;
+    }
+
+    .projdesc{
+      color: black !important;
+      text-align: justify !important;
+    }
+
+    .rowtwo{
+      display: grid !important;
+      grid-auto-flow: column !important;
+      gap: 3% !important;
+      padding: 4% !important;
+    }
+
+    ul li a:hover{
+      color: #E94560 !important;
+      cursor: pointer !important;
+    }
+
+    .containercard {
+      padding: 25px 45px !important;
+    }
+
+    .simple{
+      margin-right: 30px !important;
+    }
+
+    .aa{
+      display: flex !important;
+      column-gap: 20px !important;
+    }
+    .columnAbout {
+      float: left;
+    }
+
+    .labelfont{
+      font-size: 30px !important;
+    }
+
+    .perfont{
+      font-size: 30px !important;
+    }
+
+    .containerz {
+      padding: 20px 20px !important;
+    }
+    .card{
+      margin-right: 10px !important;
+    }
+    .ac{
+      padding:20px !important;
+    }
+
+    .deets{
+      font-size: 24px !important;
+    }
+
+    .deetstwo{
+      font-size: 24px !important;
+      margin-top: 50px !important;
+    }
+
+    .ba{
+      padding-left: 30%; padding-right: 30% !important;
+    }
+
+    .wholepage{
+      min-height: calc(100vh - 9.5rem) !important;
+    }
+
+    .sendmelabel{
+      font-size: 30px !important;
+    }
+
+    .cardpads{
+      padding-right: 50px!important; padding-left: 50px!important;
+    }
+
+    .lofont{
+      font-size: 20px !important;
+    }
+  } /*DESKTOP*/
+
+
+
+  /* For Tablet View */
+  @media screen and (min-device-width: 600px)
+  and (max-device-width: 1024px) {
+  
+    .home_text{
+      font-size: 20px !important;
+    }
+    nav ul {
+      display: none !important;
+    }
+  
+    #hamburger-icon {
+      display: block !important;
+      z-index: 10;
+    }
+    
+    .buttonW{
+          width: 100% !important;
+    }
+      
+    .card-margin-top {
+          margin-top: 4rem !important;
+    }
+
+    .lowespic{
+      width: 274px !important;
+      height: 319px !important;
+      display: block !important;
+    }
+
+    .row{
+      padding: 15px !important;
+    }
+
+    .rowtwo{
+        padding: 15px !important;
+    }
+
+    .app{
+      text-align: center !important;
+      font-size: 35px !important;
+      font-family: Consolas, monaco, monospace !important;
+    }
+
+    .bgbutton{
+      font-size: 20px !important; 
+    }
+
+    .pageone{
+      padding-top: 20px !important;
+      padding-bottom: 20px !important;
+    }
+
+    .pageoneAbout{
+      padding-top: 20px !important;
+      padding-bottom: 20px!important;
+    }
+
+    .marginbook{
+      margin-top: 20px !important;
+    }
+
+    .recentproj{
+      font-size: 50px !important;
+    }
+
+    .pagetwo{
+      padding: 25px !important;
+      padding-top: 50px !important;
+    }
+
+    .projpic{
+      width: 100% !important;
+      height: 120px !important;
+    }
+  
+    #hex{
+      width: 100% !important;
+      height: 120px !important;
+    }
+
+    .projtitle{
+      font-size: 20px !important;
+      color: black !important;
+      margin-bottom: 25px !important;
+      margin-top: 15px !important;
+      text-align: center !important;
+    }
+
+    .projdesc{
+      text-align: justify !important;
+      color: black !important;
+    }
+
+    .column{
+      margin-bottom: 25px !important;
+    }
+    
+    ul li a:hover{
+      color: white !important;
+      cursor: pointer !important;
+    }
+
+    .containercard {
+      padding: 25px 18px !important;
+    }
+
+    .logotext, .footertext{
+      font-size: 20px !important;
+    }
+
+    .viewbtn{
+      margin-top: 0px !important;
+    }
+
+    .aa{
+      display: block !important;
+    }
+
+    .titleheader {
+      font-size: 30px !important;
+      margin-bottom: 20px !important;
+      margin-left: 20px !important;
+    }
+
+    .ab{
+      margin-bottom: 20px !important;
+    }
+    
+    .labelfont{
+      font-size: 20px !important;
+    }
+
+    .containerz {
+      padding: 10px 5px !important;
+    }
+    
+    .card{
+      margin-right: 6px !important;
+      margin-top: 10px !important;
+      flex: 1 0 21%;
+    }
+
+    .ac{
+      padding:20px !important;
+    }
+
+    .deets{
+      font-size: 16px !important;
+      text-align: justify !important;
+    }
+
+    .deetstwo{
+      font-size: 16px;
+      text-align: justify !important;
+    }
+
+    .ba{
+      padding-left: 10% !important;
+      padding-right: 10% !important;
+    }
+
+    .dblock{
+      flex-wrap: wrap !important;
+    }
+
+    .pzero{
+      padding: 10px!important;
+    }
+
+    .wholepage{
+      height: 100% !important;
+    }
+
+    .labelfont {
+      font-size: 16px !important;
+    }
+
+    .sendmelabel{
+      font-size: 20px !important;
+    }
+    .simple li {
+      margin-right: 10px!important;
+    }
+
+    .social-footer{
+      padding-left: 5px!important; padding-right: 5px!important;
+      padding-top: 1 rem!important; padding-bottom: 1rem!important;
+    }
+
+    .cardpads{
+      padding-right: 30px!important; padding-left: 30px!important;
+    }
+  }
+
+  /* For Mobile Portrait View */
+  @media screen and (max-device-width: 600px){
+    
+    .home_text{
+      font-size: 20px !important;
+    }
+    nav ul {
+      display: none !important;
+    }
+  
+    #hamburger-icon {
+      display: block !important;
+      z-index: 10;
+    }
+    
+    .buttonW{
+          width: 100% !important;
+    }
+      
+    .card-margin-top {
+          margin-top: 4rem !important;
+    }
+
+    .lowespic{
+      width: 250px !important;
+      height: 300px !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .row{
+      flex-wrap:wrap !important;
+      padding: 25px !important;
+    }
+
+    .rowtwo{
+        display: flex !important;
+        flex-wrap:wrap !important;
+        padding: 15px !important;
+    }
+
+    .lowespng{
+      width: 100% !important;
+    }
+
+    .app{
+      text-align: center !important;
+      font-size: 35px !important;
+      font-family: Consolas, monaco, monospace !important;
+    }
+
+    .bgbutton{
+      font-size: 20px !important; 
+    }
+
+    .pageone{
+      padding-top: 20px !important;
+      padding-bottom: 20px !important;
+    }
+
+    .pageoneAbout{
+      padding-top: 20px !important;
+      padding-bottom: 20px!important;
+    }
+
+    .marginbook{
+      margin-top: 20px !important;
+    }
+
+    .recentproj{
+      font-size: 30px !important;
+    }
+
+    .pagetwo{
+      padding: 25px !important;
+      padding-top: 50px !important;
+    }
+
+    .projpic{
+      width: 100% !important;
+      height: 120px !important;
+    }
+  
+    #hex{
+      width: 100% !important;
+      height: 120px !important;
+    }
+
+    .projtitle{
+      font-size: 20px !important;
+      color: black !important;
+      margin-bottom: 25px !important;
+      margin-top: 15px !important;
+      text-align: center !important;
+    }
+
+    .projdesc{
+      text-align: justify !important;
+      color: black !important;
+    }
+
+    .column{
+      margin-bottom: 25px !important;
+    }
+    
+    ul li a:hover{
+      color: white !important;
+      cursor: pointer !important;
+    }
+
+    .containercard {
+      padding: 25px 18px !important;
+    }
+
+    .logotext, .footertext{
+      font-size: 20px !important;
+    }
+
+    .viewbtn{
+      margin-top: 0px !important;
+    }
+
+    .aa{
+      display: block !important;
+    }
+
+    .titleheader {
+      font-size: 30px !important;
+      margin-bottom: 20px !important;
+      margin-left: 20px !important;
+    }
+
+    .ab{
+      margin-bottom: 20px !important;
+    }
+    
+    .labelfont{
+      font-size: 20px !important;
+    }
+
+    .containerz {
+      padding: 10px 5px !important;
+    }
+    
+    .card{
+      margin-right: 6px !important;
+      margin-top: 10px !important;
+      flex: 1 0 20%;
+    }
+
+    .ac{
+      padding:20px !important;
+    }
+
+    .deets{
+      font-size: 16px !important;
+      text-align: justify !important;
+    }
+
+    .deetstwo{
+      font-size: 16px;
+      text-align: justify !important;
+    }
+
+    .ba{
+      padding-left: 5% !important;
+      padding-right: 5% !important;
+    }
+
+    .dblock{
+      flex-wrap: wrap !important;
+    }
+
+    .pzero{
+      padding: 10px!important;
+    }
+
+    .wholepage{
+      height: 100% !important;
+    }
+
+    .labelfont {
+      font-size: 16px !important;
+    }
+
+    .lofont{
+      font-size: 16px !important;
+    }
+
+    .sendmelabel{
+      font-size: 20px !important;
+    }
+    .simple li {
+      margin-right: 10px!important;
+    }
+
+    .social-footer{
+      padding-left: 5px!important; padding-right: 5px!important;
+      padding-top: 1 rem!important; padding-bottom: 1rem!important;
+    }
+
+    .cardpads{
+      padding-right: 20px!important; padding-left: 20px!important;
+    }
+
+  } /*MOBILE*/
+
+  @media only screen and (min-width : 900px) and (max-width: 1024px) {
+    .lowespic {
+      width: 286px;
+      height: 334px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+
+
+  @media only screen and (min-width : 800px) and (max-width: 1000px) {
+    .projpic {
+      width: 100% !important;
+      height: 301px !important;
+    }
+  }
+
+  @media only screen and (min-width : 770px) and (max-width: 1160px) {
+    .retrofont {
+      font-size: 11px !important;
+    }
+
+    .app{
+      text-align: center;
+      font-size: 45px;
+      font-family: Consolas, monaco, monospace;
+    }
+  }
+
+  @media only screen and (width : 768px) {
+    .projpic {
+      width: 100% !important;
+      height: 201px !important;
+  }
+  }
+
+
   a {
       text-decoration: none;
   }
@@ -151,7 +735,7 @@
   }
   
   .open .mobil-menu {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -223,8 +807,6 @@
   
   .lowespic{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .projdesc{
@@ -245,7 +827,8 @@
     display: grid;
     grid-auto-flow: column;
     gap: 3%;
-    padding: 4%;
+    padding-top: 4%; padding-bottom: 4%;
+    padding-right: 4%; padding-left: 4%;
     padding-bottom: 10px !important;
   }
 
@@ -256,420 +839,6 @@
 
   .deetstwo{
     text-align: justify !important;
-  }
-
-  /* for MOBILE & TABLET */
-  @media only screen and (max-width: 768px) {
-
-    .home_text{
-      text-align: center;
-      color:white;
-      font-size: 20px;
-      width: 100%  
-    }
-    nav ul {
-      display: none;
-    }
-  
-    #hamburger-icon {
-      display: block;
-      z-index: 10;
-    }
-    
-    .buttonW{
-          width: 100%;
-    }
-      
-    .card-margin-top {
-          margin-top: 4rem;
-    }
-
-    .lowespic{
-      width: 250px;
-      height: 300px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .row{
-      flex-wrap:wrap;
-      padding: 25px;
-    }
-
-    .rowtwo{
-        display: flex;
-        grid-auto-flow: none;
-        flex-wrap:wrap;
-        padding: 25px;
-    }
-
-    .lowespng{
-      width: 100%;
-    }
-
-    .app{
-      text-align: center;
-      font-size: 35px;
-      font-family: Consolas, monaco, monospace;
-    }
-
-    .bgbutton{
-      font-size: 20px;
-    }
-
-    .pageone{
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    .pageoneAbout{
-      padding-top: 20px;
-      padding-bottom: 20px;
-    }
-
-    .marginbook{
-      margin-top: 20px;
-      text-align: center; 
-      width: 100%;
-    }
-
-    .recentproj{
-      font-size: 30px;
-    }
-
-    .pagetwo{
-      padding: 25px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-
-    .projpic{
-      width: 100%;
-      height: 120px;
-    }
-  
-    #hex{
-      width: 100%;
-      height: 120px;
-    }
-
-    .projtitle{
-      font-size: 25px;
-      color: black;
-      margin-bottom: 25px;
-      margin-top: 15px;
-      text-align: center;
-    }
-
-    .projdesc{
-      text-align: justify;
-      color: black;
-    }
-
-    .column{
-      margin-bottom: 25px;
-    }
-    
-    ul li a:hover{
-      color: white !important;
-      cursor: pointer !important;
-    }
-
-    .containercard {
-      padding: 25px 18px !important;
-    }
-
-    .logotext, .footertext{
-      font-size: 20px !important;
-    }
-
-    .viewbtn{
-      margin-top: 0px !important;
-    }
-
-    .aa{
-      display: block !important;
-    }
-
-    .titleheader {
-      font-size: 30px !important;
-      margin-bottom: 20px !important;
-      margin-left: 20px !important;
-    }
-
-    .ab{
-      margin-bottom: 20px !important;
-    }
-    
-    .labelfont{
-      font-size: 20px !important;
-    }
-
-    .containerz {
-      padding: 10px 5px !important;
-    }
-    
-    .card{
-      margin-right: 6px !important;
-      margin-top: 10px !important;
-    }
-
-    .ac{
-      padding:20px !important;
-    }
-
-    .deets{
-      font-size: 16px !important;
-      text-align: justify !important;
-    }
-
-    .deetstwo{
-      font-size: 16px;
-      text-align: justify !important;
-    }
-
-    .ba{
-      padding-left: 2% !important;
-      padding-right: 2% !important;
-    }
-
-    .dblock{
-      flex-wrap: wrap !important;
-    }
-
-    .pzero{
-      padding: 10px!important;
-    }
-
-    .wholepage{
-      height: 100%;
-    }
-
-    .labelfont {
-      font-size: 16px !important;
-    }
-
-    .sendmelabel{
-      font-size: 20px !important;
-    }
-  } /*MOBILE */
-
-  @media only screen and (min-width : 900px) and (max-width: 1024px) {
-    .lowespic {
-      width: 286px;
-      height: 334px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-
-
-  @media only screen and (min-width : 800px) and (max-width: 1024px) {
-    .projpic {
-      width: 100% !important;
-      height: 201px !important;
-  }
-  }
-
-  @media only screen and (min-width : 770px) and (max-width: 1160px) {
-    .retrofont {
-      font-size: 11px !important;
-    }
-
-    .app{
-      text-align: center;
-      font-size: 45px;
-      font-family: Consolas, monaco, monospace;
-    }
-  }
-
-  @media only screen and (width : 768px) {
-    .projpic {
-      width: 100% !important;
-      height: 201px !important;
-  }
-  }
-
-  /* for LAPTOPS */
-  @media only screen and (width > 768px) {
-
-    .home_text{
-      text-align: center;
-      color:white;
-      width: 100%;
-      padding: 5px;
-      margin-right: 20px;
-    }
-
-    .lowespic{
-      width: 430px;
-      height: 500px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .lowespng{
-      margin-left: 50px;
-    }
-    .row{
-      padding: 50px;
-    }
-    .bgbutton{
-      font-size: 20px;
-    }
-
-    .recentproj{
-      font-size: 90px;
-    }
-
-    .pageone{
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-
-    .pageoneAbout{
-      padding-top: 40px;
-      padding-bottom: 30px;
-    }
-
-    .marginbook{
-      margin-top: 40px;
-      text-align: center; 
-      width: 100%;
-    }
-
-    .pagetwo{
-      padding: 50px;
-      padding-top: 120px;
-      padding-bottom: 120px;
-    }
-
-    .projpic{
-      width: 100%;
-      height: 280px;
-    }
-
-    #hex{
-      width: 100%;
-      height: 280px;
-    }
-
-    .projtitle{
-      font-size: 32px;
-      color: black;
-      margin-bottom: 50px;
-      margin-top: 25px;
-      text-align: center;
-    }
-
-    .projdesc{
-      color: black;
-      text-align: justify;
-    }
-
-    .rowtwo{
-      display: grid;
-      grid-auto-flow: column;
-      gap: 3%;
-      padding: 4%;
-    }
-
-    ul li a:hover{
-      color: #E94560;
-      cursor: pointer;
-    }
-
-    .containercard {
-      padding: 25px 45px;
-    }
-
-    .simple{
-      margin-right: 30px;
-    }
-
-    .aa{
-      display: flex;
-      column-gap: 150px;
-    }
-    .columnAbout {
-      float: left;
-    }
-
-    .labelfont{
-      font-size: 30px !important;
-    }
-
-    .perfont{
-      font-size: 30px;
-    }
-
-    .containerz {
-      padding: 20px 20px;
-    }
-    .card{
-      margin-right: 10px;
-    }
-    .ac{
-      padding:20px;
-    }
-
-    .deets{
-      font-size: 24px;
-    }
-
-    .deetstwo{
-      font-size: 24px;
-      margin-top: 50px !important;
-    }
-
-    .ba{
-      padding-left: 20%; padding-right: 20%;
-    }
-
-    .wholepage{
-      min-height: calc(100vh - 9.5rem);
-    }
-
-    .sendmelabel{
-      font-size: 30px;
-    }
-  } /*PC*/
-
-  @media only screen and (min-width: 769px) and (max-width : 920px) {
-
-    .app{
-      text-align: center;
-      font-size: 60px;
-      font-family: Consolas, monaco, monospace;
-    }
-
-    .lowespic {
-      width: 222px;
-      height: 420px;
-      height: 280px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-  }
-
-  @media only screen and (width > 1024px) {
-    .app{
-      text-align: center;
-      font-size: 60px;
-      font-family: Consolas, monaco, monospace;
-    }
-    
-  }
-
-  @media only screen and (width > 1618px) {
-    .pageone{
-      padding-top: 150px; padding-bottom: 150px;
-    }
   }
   
   /* DROPDOWN MENU */
@@ -770,10 +939,10 @@
     margin-left: 20px;
   }
 
-  .rightnav{
-    margin-right: 15px;
+  .leavemsg:hover{
+    color: white !important;
   }
-
+  
   .colapp{
     align-items: center;
     margin:auto;
@@ -897,6 +1066,7 @@
       white-space: nowrap;
     }
     
+    
     .button-19:after {
       background-clip: padding-box;
       background-color: #E94560;
@@ -972,7 +1142,6 @@
       margin-right: 20px;
     }
 
-    /* Should be removed. Only for demonstration */
     
     /* Clear floats after the columns */
     .rowAbout:after {
@@ -999,6 +1168,10 @@
       font-size: 20px;
     }
 
+    .lofont{
+      font-size: 20px;
+    }
+
     /* ABOUT PAGE */
     .card {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -1006,6 +1179,10 @@
       width: fit-content;
       background-color: #533483;
       border-radius: 5px;
+    }
+
+    .cardpads{
+      padding-right: 50px; padding-left: 50px;
     }
     
     .card:hover {
@@ -1069,7 +1246,7 @@
     }
 
     .ae{
-      padding:20px; border-radius: 10px; background-color: #0F3460;
+      padding:20px; border-radius: 10px; background-color: #0F3460; text-align: center;
     }
 
     .pl50{
@@ -1200,10 +1377,6 @@
 
   /*CONTACT PAGE */
 
-  .contactheader{
-
-  }
-
   textarea{
     resize: vertical;
   }
@@ -1217,102 +1390,4 @@
   
   .text-white{
     color: white;
-  }
-  /* LOWES
-  
-  .fa {
-      padding: 10px;
-      font-size: 20px;
-      width: 20px;
-      text-align: center;
-      text-decoration: none;
-      margin: 5px 2px;
-      border-radius: 50%;
-  }
-   */
-  .modal-confirm {		
-    color: #434e65;
-    width: 525px;
-  }
-  .modal-confirm .modal-content {
-    padding: 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-  }
-  .modal-confirm .modal-header {
-    background: #47c9a2;
-    border-bottom: none;   
-    position: relative;
-    text-align: center;
-    margin: -20px -20px 0;
-    border-radius: 5px 5px 0 0;
-    padding: 35px;
-  }
-  .modal-confirm h4 {
-    text-align: center;
-    font-size: 36px;
-    margin: 10px 0;
-  }
-  .modal-confirm .form-control, .modal-confirm .btn {
-    min-height: 40px;
-    border-radius: 3px; 
-  }
-  .modal-confirm .close {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    color: #fff;
-    text-shadow: none;
-    opacity: 0.5;
-  }
-  .modal-confirm .close:hover {
-    opacity: 0.8;
-  }
-  .modal-confirm .icon-box {
-    color: #fff;		
-    width: 95px;
-    height: 95px;
-    display: inline-block;
-    border-radius: 50%;
-    z-index: 9;
-    border: 5px solid #fff;
-    padding: 15px;
-    text-align: center;
-  }
-  .modal-confirm .icon-box i {
-    font-size: 64px;
-    margin: -4px 0 0 -4px;
-  }
-  .modal-confirm.modal-dialog {
-    margin-top: 80px;
-  }
-  .modal-confirm .btn, .modal-confirm .btn:active {
-    color: #fff;
-    border-radius: 4px;
-    background: #eeb711 !important;
-    text-decoration: none;
-    transition: all 0.4s;
-    line-height: normal;
-    border-radius: 30px;
-    margin-top: 10px;
-    padding: 6px 20px;
-    border: none;
-  }
-  .modal-confirm .btn:hover, .modal-confirm .btn:focus {
-    background: #eda645 !important;
-    outline: none;
-  }
-  .modal-confirm .btn span {
-    margin: 1px 3px 0;
-    float: left;
-  }
-  .modal-confirm .btn i {
-    margin-left: 1px;
-    font-size: 20px;
-    float: right;
-  }
-  .trigger-btn {
-    display: inline-block;
-    margin: 100px auto;
   }

@@ -1,4 +1,4 @@
-var text = ["Hola", "Konnichiwa", "Annyeong", "Hallo", "Namastē", "Kaixo", "Ciao", "Yassas", "Zdraveite", "Hafa adai", "Dobro Jutro", "God dag", "Kamusta"];
+var text = ["Hola", "Konnichiwa", "Annyeong", "Hallo", "Namastē", "Kaixo", "Ciao", "Yassas", "Zdraveite", "Hafa adai", "Salve", "God dag", "Kamusta"];
 var counter = 0;
 var inst = setInterval(change, 500);
 
