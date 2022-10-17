@@ -22,9 +22,9 @@
 <body>
     <nav class="navbar">
         <!-- LOGO -->
-        <div class="logo">
+        <div id="index" class="logo cursorz">
             <img src="./img/code2.png">
-            <a id="index" class="consolas logotext">Hydro</a>
+            <p class="consolas logotext">Hydro</p>
         </div>
         <!-- NAVIGATION MENU -->
         
@@ -81,6 +81,9 @@
 
         document.getElementById("contact").onclick = function() {clickedContact()};
         document.getElementById("contactmenu").onclick = function() {clickedContact()};
+        
+        document.getElementById("projects").onclick = function() {clickedProjects()};
+        document.getElementById("projectsmenu").onclick = function() {clickedProjects()};
 
         document.getElementById("index").onclick = function() {clickedIndex()};
         
@@ -132,35 +135,27 @@
                     </div>
 
                     <div class="rowtwo">
-
                         <div class="column">
-                            
-                                <a href="https://usc-ereceiptportal.online/" target="_blank">
-                                    <img src="./img/quarta.png" class="projcard projpic">
-                                    <div class="containercard">
+                            <a href="https://usc-ereceiptportal.online/" target="_blank">
+                                <img src="./img/quarta.png" class="projcard projpic">
+                                <div class="containercard">
                                     <h1 class="projtitle font1"><b>E-Receipt System</b></h1> 
                                     <p class="projdesc font1">The e-receipt system, developed by Quarta BU, is designed to help Bicol University College Student Organizations in keeping track of students' payments.</p>
-                                    </div>
-                                </a>
-                           
+                                </div>
+                            </a>
                         </div>
 
                         <div class="column">
-                            
-                                <a href="https://hydrogn.github.io/projects/hexchange/" target="_blank">
-                                    <img src="./img/hex.png" class="projcard projpic">
-                                    
-                                    <div class="containercard">
+                            <a href="https://hydrogn.github.io/projects/hexchange/" target="_blank">
+                                <img src="./img/hex.png" class="projcard projpic">
+                                <div class="containercard">
                                     <h1 class="projtitle font1"><b>Hex Changer</b></h1> 
-                                    <p class="projdesc font1">A practice project in which a simple button, when clicked, executes a function that creates a random color and then sets the background/color of a pre-selected element to that random color.
-                                    </p>
-                                    </div>
-                                </a>
-                            
+                                    <p class="projdesc font1">A practice project in which a simple button, when clicked, executes a function that creates a random color and then sets the background/color of a pre-selected element to that random color.</p>
+                                </div>
+                            </a>
                         </div>
-
-                        
                     </div>
+
                     <div class="viewbtn">
                         <a class="button-19 btnhoviolet" href="./projects.html">View All</a>
                     </div>

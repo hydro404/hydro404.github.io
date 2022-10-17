@@ -21,9 +21,9 @@
 <body>
         <nav class="navbar">
         <!-- LOGO -->
-        <div class="logo">
+        <div id="index" class="logo cursorz">
             <img src="./img/code2.png">
-            <a id="index" class="consolas logotext">Hydro</a>
+            <p class="consolas logotext">Hydro</p>
         </div>
         <!-- NAVIGATION MENU -->
         
@@ -81,6 +81,9 @@
         document.getElementById("contact").onclick = function() {clickedContact()};
         document.getElementById("contactmenu").onclick = function() {clickedContact()};
 
+        document.getElementById("projects").onclick = function() {clickedProjects()};
+        document.getElementById("projectsmenu").onclick = function() {clickedProjects()};
+        
         document.getElementById("index").onclick = function() {clickedIndex()};
         
         $(document).ready(function() {
@@ -101,25 +104,25 @@
                     <div>
                         <div class="ab">
                             <div class="text-center">
-                            <div class="buttonFormat mb10">
+                            <div class="buttonFormat mb10 fullwidth">
                                 <p class="retrostyle labelfont">CONTACT</p>
                             </div>
                             </div>
                             <p class="font1 deets">Feel free to send me an <span class="mail" onclick="window.location.href='mailto:luisanthonygrado@gmail.com';">email</span> for any sort of help or inquiries and I'll get back as soon as I am available.</p>
                             <div class="text-center">
-                            <div class="buttonFormat mb10 mt20">
+                            <div class="buttonFormat mb10 mt20 fullwidth">
                                 <p class="retrostyle labelfont">EXPERIENCE</p>
                             </div>
                             </div>
-                            <p class="font1 deets">I am a 2-year experienced web developer with the habit of exploring technologies and frameworks within the field of web development. I mostly work at Responsive Web Design but I can also adapt as a Backend Developer.</p>
+                            <p class="font1 deets">I am a 3rd year IT student experienced web developer with the habit of exploring technologies and frameworks within the field of web development. I mostly work at Responsive Web Design but I can also adapt as a Backend Developer.</p>
                         
                         </div>
                         
                     </div>
 
                     <div class="columnAbout">
-                        <div class="ac" style="text-align: center;">
-                            <div class="buttonFormat mb10">
+                        <div class="ac">
+                            <div class="buttonFormat mb10 fullwidth">
                                 <p class="retrostyle labelfont">PERSONAL INFORMATION</p>
                             </div>
                             <br>
@@ -138,58 +141,70 @@
                 </div>
 
                     <div class="ad">
-                        <div class="ae" style="text-align: center;">
-                            <div class="buttonFormat mb10">
+                        <div class="ae">
+                            <div class="buttonFormat mb10 fullwidth">
                             <p class="retrostyle labelfont">TECHNOLOGY STACK</p>
                             </div>
-
-                            <div class="cardpads">
                                 
-                            <div class="p20 br10 fullwidth pzero">
-                                <div class="af dblock">
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                        <i class="fa-brands fa-html5 fa-2xl"> </i>
+                            <div class="br10 fullwidth">
+                                <div class="grid-container px1">
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-html5 fa-m"> </i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">HTML 5</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-css3-alt fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-css3-alt fa-m"></i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">CSS 3</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-bootstrap fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-bootstrap fa-m"></i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">BOOTSTRAP</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-figma fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-figma fa-m"></i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">FIGMA</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-regular fa-c fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-regular fa-c fa-sm"></i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">C</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-java fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-java fa-m"> </i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">JAVA</p>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-python fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-python fa-m"> </i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">PYTHON</p>
                                         </div>
                                     </div>
-                                    <div class="card dblock" style="margin-right: 0px !important;">
-                                        <div class="containerz" style="text-align: center">
-                                            <i class="fa-brands fa-php fa-2xl"></i>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-php fa-m"> </i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">PHP</p>
                                         </div>
                                     </div>
+                                    <div class="grid-item">
+                                        <i class="fa-brands fa-js"></i>
+                                        <div class="containerz">
+                                            <p class="font1 cardtext text-white">JAVASCRIPT</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            </div>
-                        </div>
+                        
                         </div>
                     </div>
 

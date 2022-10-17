@@ -21,9 +21,9 @@
 <body>
         <nav class="navbar">
         <!-- LOGO -->
-        <div class="logo">
+        <div id="index" class="logo cursorz">
             <img src="./img/code2.png">
-            <a id="index" class="consolas logotext">Hydro</a>
+            <p class="consolas logotext">Hydro</p>
         </div>
         <!-- NAVIGATION MENU -->
         
@@ -80,6 +80,9 @@
 
         document.getElementById("contact").onclick = function() {clickedContact()};
         document.getElementById("contactmenu").onclick = function() {clickedContact()};
+
+        document.getElementById("projects").onclick = function() {clickedProjects()};
+        document.getElementById("projectsmenu").onclick = function() {clickedProjects()};
 
         document.getElementById("index").onclick = function() {clickedIndex()};
         

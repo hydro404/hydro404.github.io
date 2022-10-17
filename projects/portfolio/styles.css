@@ -85,7 +85,7 @@
 
     .pageoneAbout{
       padding-top: 40px !important;
-      padding-bottom: 30px !important;
+      padding-bottom: 20px !important;
     }
 
     .marginbook{
@@ -157,7 +157,7 @@
     }
 
     .containerz {
-      padding: 20px 20px !important;
+      padding-top: 20px!important;
     }
     .card{
       margin-right: 10px !important;
@@ -167,11 +167,11 @@
     }
 
     .deets{
-      font-size: 24px !important;
+      font-size: 22px !important;
     }
 
     .deetstwo{
-      font-size: 24px !important;
+      font-size: 22px !important;
       margin-top: 50px !important;
     }
 
@@ -187,12 +187,23 @@
       font-size: 30px !important;
     }
 
-    .cardpads{
-      padding-right: 50px!important; padding-left: 50px!important;
-    }
-
     .lofont{
       font-size: 20px !important;
+    }
+
+    .logotext, .footertext{
+      font-size: 28px !important;
+    }
+
+    .cardtext{
+      font-size: 16px!important;
+    }
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 5fr));
+    }
+
+    .pa{
+      padding-left: 3%; padding-right: 3%;
     }
   } /*DESKTOP*/
 
@@ -306,7 +317,7 @@
     }
 
     .logotext, .footertext{
-      font-size: 20px !important;
+      font-size: 18px !important;
     }
 
     .viewbtn{
@@ -332,7 +343,7 @@
     }
 
     .containerz {
-      padding: 10px 5px !important;
+      padding-top: 10px !important;
     }
     
     .card{
@@ -388,10 +399,24 @@
       padding-top: 1 rem!important; padding-bottom: 1rem!important;
     }
 
-    .cardpads{
-      padding-right: 30px!important; padding-left: 30px!important;
+    .cardtext{
+      font-size: 14px!important;
     }
-  }
+
+    .grid-container{
+      grid-template-columns: repeat(auto-fit, minmax(120px, 5fr));
+    }
+
+    .px1{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+
+    .wholepage{
+      min-height: 100%;
+    }
+
+  } /*TABLET */
 
   /* For Mobile Portrait View */
   @media screen and (max-device-width: 600px){
@@ -509,7 +534,7 @@
     }
 
     .logotext, .footertext{
-      font-size: 20px !important;
+      font-size: 18px !important;
     }
 
     .viewbtn{
@@ -572,7 +597,7 @@
     }
 
     .wholepage{
-      height: 100% !important;
+      min-height: calc(94vh - 10rem) !important;
     }
 
     .labelfont {
@@ -595,13 +620,23 @@
       padding-top: 1 rem!important; padding-bottom: 1rem!important;
     }
 
-    .cardpads{
-      padding-right: 20px!important; padding-left: 20px!important;
+    .cardtext{
+      font-size: 14px !important;
     }
 
+    .grid-container {
+      /*grid-template-columns: auto auto auto auto;*/
+      grid-template-columns: repeat(auto-fit, minmax(90px, 5fr));
+      grid-gap: 1rem;
+    }
+
+    .px1{
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
   } /*MOBILE*/
 
-  @media only screen and (min-width : 900px) and (max-width: 1024px) {
+  /*@media only screen and (min-width : 900px) and (max-width: 1024px) {
     .lowespic {
       width: 286px;
       height: 334px;
@@ -610,16 +645,24 @@
       margin-right: auto;
     }
   }
+  
 
 
-
+  */
   @media only screen and (min-width : 800px) and (max-width: 1000px) {
     .projpic {
       width: 100% !important;
       height: 301px !important;
     }
-  }
 
+    .titleheader {
+      font-size: 30px !important;
+      margin-top: 40px !important;
+      margin-bottom: 40px !important;
+      margin-left: 20px !important;
+    }
+  }
+  /*
   @media only screen and (min-width : 770px) and (max-width: 1160px) {
     .retrofont {
       font-size: 11px !important;
@@ -638,6 +681,7 @@
       height: 201px !important;
   }
   }
+  */
 
 
   a {
@@ -674,7 +718,6 @@
    .logotext{
     margin-left: 10px;
     color: white;
-    cursor: pointer;
    }
 
    .footertext{
@@ -869,7 +912,7 @@
    }
 
    .dropdown li a:hover{
-    color: white;
+    color: white !important;
    }
 
 
@@ -1046,7 +1089,7 @@
       color: #FFFFFF;
       cursor: pointer;
       display: inline-block;
-      font-family: din-round,sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
       font-weight: 700;
       letter-spacing: .8px;
@@ -1180,10 +1223,6 @@
       background-color: #533483;
       border-radius: 5px;
     }
-
-    .cardpads{
-      padding-right: 50px; padding-left: 50px;
-    }
     
     .card:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -1238,7 +1277,7 @@
     }
     
     .ac{
-      border-radius: 10px; background-color: #0F3460; height: 100%;
+      border-radius: 10px; background-color: #0F3460; height: 100%; text-align: center;
     }
 
     .ad{
@@ -1269,6 +1308,9 @@
       padding: 20px;
     }
 
+    .px1{
+      padding-top: 20px; padding-bottom: 20px;
+    }
     .af{
       display: flex; width: 100%; align-items: center; justify-content: center;
     }
@@ -1277,6 +1319,30 @@
       text-align: center;
     }
 
+    .grid-container {
+      display: grid;
+      grid-gap: 1rem;
+    }
+
+    .cardtext{
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .grid-item {
+      background-color: #533483;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 30px; /*RESPONSIVE */
+    }
+  
+    .containerz{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3em;
+      word-wrap: break-word;
+    }
     /*CONTACT FORM*/
     
     .ba{
@@ -1389,5 +1455,22 @@
   }
   
   .text-white{
-    color: white;
+    color: white !important;
+  }
+
+  /*PROJECTS PAGE */
+
+  .pa{
+    margin-top: 20px; width: 100%;
+  }
+  .grid-container2 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 5fr));
+  }
+
+  .grid-item2 {
+    background-color: #533483;
+    border-radius: 10px;
+    padding: 10px;
   }
