@@ -41,6 +41,12 @@
 }
 
 
+.main-text{
+  background: -webkit-linear-gradient(#FFBDA0, #FF6CD6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; font-weight: 900 !important;
+}
+
 /*LOWES CSS*/
 
 .navbar {
@@ -231,9 +237,6 @@ ul li:hover {
     margin-right: auto !important;
   }
 
-  .row{
-    padding: 50px !important;
-  }
   .bgbutton{
     font-size: 20px !important;
   }
@@ -403,9 +406,6 @@ and (max-device-width: 1024px) {
     display: block !important;
   }
 
-  .row{
-    padding: 15px !important;
-  }
 
   .rowtwo{
       padding: 15px !important;
@@ -613,10 +613,6 @@ and (max-device-width: 1024px) {
     margin-right: auto !important;
   }
 
-  .row{
-    flex-wrap:wrap !important;
-    padding: 25px !important;
-  }
 
   .rowtwo{
       display: flex !important;
