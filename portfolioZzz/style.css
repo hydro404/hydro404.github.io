@@ -153,7 +153,8 @@ ul li:hover {
   flex-wrap: wrap;
   padding: 22px;
   overflow: hidden;
-  background-color: #E94560;
+  /* background-color: black; */
+  background: -webkit-linear-gradient(#032374, #032374);
   opacity: 0.9;
   margin-top: 10px;
   font-size: 14px;
@@ -174,7 +175,7 @@ ul li:hover {
   position: relative; 
  }
  .dropdown {
-  background-color: #E94560;
+  background: -webkit-linear-gradient(#032374, #032374);
   padding: 0.5em 0;
   position: absolute !important; /*WITH RESPECT TO PARENT*/
   display: none;
