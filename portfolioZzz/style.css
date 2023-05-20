@@ -2,6 +2,19 @@
     font-family: 'Poppins' !important;
 }
 
+/* h1{
+  font-family: Poppins;
+  font-weight: 700;
+  /* line-height: 48px;
+  letter-spacing: 0em;
+  text-align: left; */
+
+/*} */
+h1{
+  font-family: Poppins !important;
+  font-weight: 700 !important;
+}
+
 .twentypx{
     font-size: 20px !important;
     color: #041E44 !important;
@@ -47,7 +60,22 @@
   -webkit-text-fill-color: transparent; font-weight: 900 !important;
 }
 
-/*LOWES CSS*/
+/*CSS*/
+
+.text-justify{
+  text-align: justify !important;
+}
+
+.text-right{
+  text-align: right !important;
+}
+
+@media (min-width: 768px){
+  .text-md-right {
+    text-align: right!important;
+  }
+}
+
 
 .navbar {
   display: flex;
@@ -169,6 +197,19 @@ ul li:hover {
   color: white;
 }
 
+
+.bg-2{
+  background-color: #3E6296 !important;
+}
+
+.profBox{
+  transition: all .2s ease-in-out;
+}
+
+.profBox:hover{
+  background-image: linear-gradient(#FF7686, #D72F93) !important;
+  transform: scale(1.1);
+}
 
 /* DROPDOWN MENU */
 .projects {
@@ -296,6 +337,11 @@ ul li:hover {
   }
 
   ul li a:hover{
+    color: #E94560 !important;
+    cursor: pointer !important;
+  }
+
+  .dropdown li a:hover{
     color: #E94560 !important;
     cursor: pointer !important;
   }
