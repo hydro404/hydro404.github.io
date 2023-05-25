@@ -2,14 +2,17 @@
     font-family: 'Poppins' !important;
 }
 
-/* h1{
-  font-family: Poppins;
-  font-weight: 700;
-  /* line-height: 48px;
-  letter-spacing: 0em;
-  text-align: left; */
+html, body {
+  height: 100%;
+}
 
-/*} */
+.centered-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+}
+
 h1{
   font-family: Poppins !important;
   font-weight: 700 !important;
@@ -264,6 +267,38 @@ ul li:hover {
   border-radius: 10px;
 }
 
+.social-footer {
+  background-color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+        position: absolute;
+  width: 100%;
+  padding: 1rem;
+}
+
+.social-footer .social-footer-icons li:last-of-type {
+  margin-right: 0;
+}
+
+.social-footer .social-footer-icons .fa {
+  font-size: 1.3rem;
+  color: #fefefe;
+  margin-right: 10rem;
+}
+
+.social-footer .social-footer-icons .fa:hover {
+  color: #E94560;
+  transition: color 0.1s ease-in;
+}
+
+
 /* For Desktop View */
 @media screen and (min-width: 1024px) {
   .home_text{
@@ -271,13 +306,6 @@ ul li:hover {
     margin-right: 20px !important;
   }
 
-  .lowespic{
-    width: 430px !important;
-    height: 500px !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
 
   .bgbutton{
     font-size: 20px !important;
@@ -426,7 +454,6 @@ ul li:hover {
 /* For Tablet View */
 @media screen and (min-device-width: 600px)
 and (max-device-width: 1024px) {
-
   .home_text{
     font-size: 20px !important;
   }
@@ -445,12 +472,6 @@ and (max-device-width: 1024px) {
     
   .card-margin-top {
         margin-top: 4rem !important;
-  }
-
-  .lowespic{
-    width: 274px !important;
-    height: 319px !important;
-    display: block !important;
   }
 
 
@@ -652,23 +673,11 @@ and (max-device-width: 1024px) {
         margin-top: 4rem !important;
   }
 
-  .lowespic{
-    width: 250px !important;
-    height: 300px !important;
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
 
   .rowtwo{
       display: flex !important;
       flex-wrap:wrap !important;
       padding: 15px !important;
-  }
-
-  .lowespng{
-    width: 100% !important;
   }
 
   .app{
@@ -843,19 +852,6 @@ and (max-device-width: 1024px) {
   }
 } /*MOBILE*/
 
-/*@media only screen and (min-width : 900px) and (max-width: 1024px) {
-  .lowespic {
-    width: 286px;
-    height: 334px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-
-
-*/
 @media only screen and (min-width : 800px) and (max-width: 1000px) {
   .projpic {
     width: 100% !important;

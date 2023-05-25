@@ -34,6 +34,10 @@
   background-color: #041E44 !important;
 }
 
+[data-theme="dark"] .bg-footer {
+  background-color: #041E44 !important;
+}
+
 [data-theme="dark"] .bg-white {
   background-color: #041E44 !important;
 }
@@ -43,4 +47,8 @@
 }
 [data-theme="dark"] .bg-carousel {
   background-color: #1d3457 !important;
+}
+
+[data-theme="dark"] .text-dark {
+  color: white !important;
 }
