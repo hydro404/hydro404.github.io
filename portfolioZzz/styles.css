@@ -1358,7 +1358,7 @@ and (max-device-width: 1024px) {
   position: absolute;
   left: 15px;
   bottom: 10px;
-  width: 22px;
+  width: 50px;
   height: 4px;
   background: #8d8d8d;
 }
@@ -1419,6 +1419,17 @@ input:focus-visible + label {
   text-align: center;
   background-image: linear-gradient(#FFBDA0, #FF6CD6)
 }
+
+.tabset > label {
+  /* Additional styles for the label if needed */
+  display: inline-block;  /* To ensure label is inline */
+  margin-right: 8px;      /* Spacing between label and SVG */
+}
+
+.label-icon {
+  vertical-align: middle; /* Aligns the SVG to the middle of adjacent text */
+}
+
 
 .columnblank {
   flex-basis: calc(33.33% - 20px);

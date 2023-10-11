@@ -50,6 +50,16 @@ function resetTheme() {
       paths.forEach(function(path) {
           path.setAttribute("stroke", "white");
     });
+
+    const svgIds = ["#fave", "#projects2", "#archiv", "#addressSVG", "#phoneSVG", "#emailSVG"];
+    // Loop through each SVG ID
+    svgIds.forEach(svgId => {
+        let paths = document.querySelectorAll(svgId + " path");
+        paths.forEach(function(path) {
+            path.setAttribute("fill", "white");
+            path.setAttribute("stroke", "white");
+        });
+    });
   } else {
     document.body.removeAttribute("data-theme");
     localStorage.removeItem("darkSwitch");
@@ -57,6 +67,16 @@ function resetTheme() {
     let paths = document.querySelectorAll("#mySVG path");
       paths.forEach(function(path) {
           path.setAttribute("stroke", "black");
+    });
+
+    const svgIds = ["#fave", "#projects2", "#archiv", "#addressSVG", "#phoneSVG" , "#emailSVG"];
+    // Loop through each SVG ID
+    svgIds.forEach(svgId => {
+        let paths = document.querySelectorAll(svgId + " path");
+        paths.forEach(function(path) {
+            path.setAttribute("fill", "black");
+            path.setAttribute("stroke", "black");
+        });
     });
   }
 }
@@ -75,11 +95,31 @@ window.addEventListener("load", function () {
       paths.forEach(function(path) {
           path.setAttribute("stroke", "white");
     });
+
+    const svgIds = ["#fave", "#projects2", "#archiv", "#addressSVG", "#phoneSVG", "#emailSVG"];
+    // Loop through each SVG ID
+    svgIds.forEach(svgId => {
+        let paths = document.querySelectorAll(svgId + " path");
+        paths.forEach(function(path) {
+            path.setAttribute("fill", "white");
+            path.setAttribute("stroke", "white");
+        });
+    });
   } else {
     document.body.removeAttribute("data-theme");
     let paths = document.querySelectorAll("#mySVG path");
       paths.forEach(function(path) {
           path.setAttribute("stroke", "black");
+    });
+
+    const svgIds = ["#fave", "#projects2", "#archiv", "#addressSVG", "#phoneSVG", "#emailSVG"];
+    // Loop through each SVG ID
+    svgIds.forEach(svgId => {
+        let paths = document.querySelectorAll(svgId + " path");
+        paths.forEach(function(path) {
+            path.setAttribute("fill", "black");
+            path.setAttribute("stroke", "black");
+        });
     });
   }
 
