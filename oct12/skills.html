@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Francine Belgica</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./styles.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="./img/logo.png">
+        <link rel="stylesheet" href="./dark-mode/dark-mode.css">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body class="poppins" id="body">
+
+        <div class="container pt-2 px-3 px-sm-2" style="min-height: 90vh !important;">
+            <nav class="navbar sticky-top bg-white">
+              <!-- LOGO -->
+              <div id="index" class="logo cursorz">
+                <a href="./index.html">
+                <svg width="40" height="55" viewBox="0 0 46 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M41.2812 19.5938C37.349 19.5938 34.4583 19.0599 32.6094 17.9922C29.7708 16.3255 28.3516 12.849 28.3516 7.5625V0.453125H45.8125V19.5938H41.2812ZM0.148438 19.5547C0.148438 10.4401 3.41667 4.56771 9.95312 1.9375C12.2969 0.973958 15.1615 0.492188 18.5469 0.492188H21.1641V61H0.148438V19.5547ZM28.3516 28.7734H40.5V41.0781H28.3516V28.7734Z" fill="url(#paint0_linear_1_426)"/>
+                  <defs>
+                  <linearGradient id="paint0_linear_1_426" x1="-7" y1="18.1563" x2="43.1137" y2="57.151" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#2D5CD7"/>
+                  <stop offset="1" stop-color="#CF92FF"/>
+                  </linearGradient>
+                  </defs>
+                </svg>
+                </a>
+              </div>
+              <!-- NAVIGATION MENU -->
+              
+              <ul class="rightnav">
+                <!-- USING CHECKBOX HACK -->
+                <li class="pad">
+                  <a class="nav_items twentypx cursorz buttonnavz" href="./index.html">Home</a>
+                </li>
+                  <li class="pad">
+                      <a class="nav_items twentypx cursorz buttonnavz" href="./skills.html">Skills</a>
+                  </li>
+                  <li class="projects pad">
+                    <a class="nav_items twentypx buttonnavz cursorz " href="./projects.html">Projects</a>
+                  </li>
+                  <li class="pad">
+                      <a class="nav_items twentypx cursorz buttonnavz" href="./connect.html">Connect</a>
+                  </li>
+                  <li class="pad">
+                    <a class="nav_items twentypx cursorz buttonnavz" href="./belgica_cv.pdf" download>Download CV</a>
+                  </li>
+      
+                  <li class="pad" style="transform: none; padding-left: 20px; ">
+                    <div class="form-check form-switch mt-1">
+                      <input type="checkbox" class="form-check-input" id="darkSwitch">
+                    </div>
+                  </li>
+              </ul>
+      
+                <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+                  <div class="bar1"></div>
+                  <div class="bar2"></div>
+                  <div class="bar3"></div>
+                  <ul class="mobil-menu" id="mobil-menu_id">
+                      <li class="pad"><a class="text-decoration-none" href="./index.html">Home</a></li>
+                      <li class="pad"><a class="text-decoration-none" href="./skills.html">Skills</a></li>
+                      <li class="pad"><a class="text-decoration-none" href="./projects.html">Projects</a></li>
+                      <li class="pad"><a class="text-decoration-none" href="./connect.html">Connect</a></li>
+                      <li class="pad"><a class="text-decoration-none" href="./belgica_cv.pdf" download>Download CV</a></li>
+                      <li class="pad text-center form-check form-switch" style="padding-left: 2px;">
+                          <input type="checkbox" class="form-check-input" id="darkSwitch2" style="margin-left: 0 !important;">
+                      </li>
+                      <script src="./dark-mode/dark-mode-switch.js"></script>
+                  </ul>
+                </div>
+                
+              </ul>
+            </nav>
+            <div class="mt-3 pt-3 row d-flex flex-row justify-content-center align-items-center">
+              <div class="mt-3 col-12">
+                <p class="text-justify">My passion lies in crafting beautiful, user-friendly websites where form meets function seamlessly.
+                   Whether you need a website developed from scratch, a captivating user interface, visually appealing graphics, seamless 
+                   networking integration, or engaging video content, I am here to bring your vision to life. </p>
+              </div>
+            </div>
+            <!--HOME-->
+            <div class="container-fluid pt-0 pt-md-4 mt-0">
+              <div class="row">
+                <div class="col-12 centered-box">
+                  
+                  <!--DESIGN-->
+                  <!--Skills-->
+                  <div class="container w-100 pb-md-0 pb-3 px-0 mb-4" id="skills" style="margin-top: 20px;">
+      
+                    <div class="card border-0 py-3 py-md-5 px-3 px-md-5 w-100 bg-carousel ">
+      
+                      <div class="row">
+      
+                        <div class="col-12 col-md-4">
+                          <div class="profBox card border-0 p-3 bg-2">
+                            <img src="./img/icon2.png" width="48" height="48">                   
+                            <div class="card-body">
+                              <h5 class="card-text text-white mb-2">Web Development</h5>
+                              <p class="card-text text-white mb-0">Bootstrap, ReactJS, Jquery</p>
+                              <p class="card-text text-white">2021 - Present</p>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-12 col-md-4">
+                          <div class="profBox card border-0 p-3 bg-2">
+                            <img src="./img/icon1.png" width="48" height="48">                     
+                            <div class="card-body">
+                              <h5 class="card-text text-white mb-2">UI/UX Design</h5>
+                              <p class="card-text text-white mb-0">Figma, Adobe XD</p>
+                              <p class="card-text text-white">2020 - Present</p>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-12 col-md-4">
+                          <div class="profBox card border-0 p-3 bg-2">
+                            <img src="./img/icon2.png" width="48" height="48">                      
+                            <div class="card-body">
+                              <h5 class="card-text text-white mb-2">Graphics Design</h5>
+                              <p class="card-text text-white mb-0">Adobe Photoshop</p>
+                              <p class="card-text text-white">2020 - Present</p>
+                            </div>
+                          </div>
+                        </div>
+      
+                      </div>
+      
+                      <div class="row mt-0 mt-md-5">
+      
+                        <div class="col-12 col-md-4">
+                          <div class="profBox card border-0 p-3 bg-2">
+                            <img src="./img/icon3.png" width="48" height="48">                   
+                            <div class="card-body">
+                              <h5 class="card-text text-white mb-2">Networking</h5>
+                              <p class="card-text text-white mb-0">Cisco Packet Tracer</p>
+                              <p class="card-text text-white">2021 - Present</p>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-12 col-md-4">
+                          <div class="profBox card border-0 p-3 bg-2">
+                            <img src="./img/icon4.png" width="48" height="48">                                      
+                            <div class="card-body">
+                              <h5 class="card-text text-white mb-2">Video Editing</h5>
+                              <p class="card-text text-white mb-0">Adobe Premiere Pro, FX</p>
+                              <p class="card-text text-white">2020 - Present</p>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <div class="col-12 col-md-4">
+                          <div class="profBox card border-0 p-3 bg-2">
+                            <img src="./img/icon5.png" width="48" height="48">                                            
+                            <div class="card-body">
+                              <h5 class="card-text text-white mb-2">App Development</h5>
+                              <p class="card-text text-white mb-0">Android Studio, Java</p>
+                              <p class="card-text text-white">2021 - Present</p>
+                            </div>
+                          </div>
+                        </div>
+      
+                      </div>
+      
+                    </div>
+      
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--DESIGN-->
+            <!--HOME-->
+        </div>
+        
+        <footer class="px-md-5 social-footer bg-footer">
+            <div style="display: inline-flex;">
+                <svg width="25px" height="25px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <g id="SVGRepo_iconCarrier"> <path d="M2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" stroke="#ffffff" stroke-width="1.5"/> <path d="M14 15.6672C13.475 15.8812 12.8952 16 12.2857 16C9.91878 16 8 14.2091 8 12C8 9.79086 9.91878 8 12.2857 8C12.8952 8 13.475 8.11876 14 8.33283" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/> </g>
+                    
+                </svg>
+                <h4 class="footertext mb-0 text-dark">Belgica 2023</h4>
+            </div>
+            
+            
+          <div class="social-footer-icons">
+            <ul class="menu simple mb-0">
+              <li style="transform: none;" class="me-2"><a href="https://www.facebook.com/ishafrance.belgica" target="_blank"><i class="fa-brands fa-facebook fa-xl cursorz" aria-hidden="true"></i></a></li>
+              <li style="transform: none;" class="me-2"><a href="https://www.instagram.com/francnn__/" target="_blank"><i class="fa-brands fa-instagram fa-xl cursorz" aria-hidden="true"></i></a></li>
+              <li style="transform: none;" class="me-2"><a href="https://github.com/FrancineBelgica" target="_blank"><i class="fa-brands fa-github fa-xl cursorz" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </footer>
+
+        <script>
+          $(document).ready(function() {
+         $('#body').hide().fadeIn(1000, function() {
+             // Animation complete
+         });
+         });
+       </script>
+        
+      <script src="./main.js"></script>
+    </body>
+</html>
