@@ -52,3 +52,16 @@
 [data-theme="dark"] .text-dark {
   color: white !important;
 }
+
+[data-theme="dark"] .columnzz {
+  background-image: none !important;
+  background-color: #3E6296 !important;
+}
+/* 
+[data-theme="dark"] .tabset > label:hover::after, .tabset > input:focus + label::after, .tabset > input:checked + label::after {
+  background: #E94560 !important;
+}
+
+[data-theme="dark"] .tabset > label:hover, .tabset > input:focus + label, .tabset > input:checked + label {
+  color: #E94560 !important;
+} */

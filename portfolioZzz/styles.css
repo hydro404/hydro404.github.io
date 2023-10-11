@@ -1041,6 +1041,10 @@ and (max-device-width: 1024px) {
   margin-bottom: 0.5rem!important;
 }
 
+.m-auto{
+  margin: auto !important;
+}
+
 .mb-3 {
   margin-bottom: 1rem!important;
 }
@@ -1416,8 +1420,18 @@ input:focus-visible + label {
   background-image: linear-gradient(#FFBDA0, #FF6CD6)
 }
 
+.columnblank {
+  flex-basis: calc(33.33% - 20px);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  background-image: none !important;
+  background-color: none !important;
+}
+
 /* ANIMATION */
 .columnzz:hover {
+  z-index: 9999;
   transform: scale(1.2); /* Zoom in by 10% when hovered */
   transition: transform 0.3s ease-in-out; /* Add a smooth transition */
 }

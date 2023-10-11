@@ -45,9 +45,19 @@ function resetTheme() {
   if (darkSwitch.checked) {
     document.body.setAttribute("data-theme", "dark");
     localStorage.setItem("darkSwitch", "dark");
+
+    let paths = document.querySelectorAll("#mySVG path");
+      paths.forEach(function(path) {
+          path.setAttribute("stroke", "white");
+    });
   } else {
     document.body.removeAttribute("data-theme");
     localStorage.removeItem("darkSwitch");
+
+    let paths = document.querySelectorAll("#mySVG path");
+      paths.forEach(function(path) {
+          path.setAttribute("stroke", "black");
+    });
   }
 }
 
@@ -61,8 +71,16 @@ window.addEventListener("load", function () {
 
   if (darkThemeSelected) {
     document.body.setAttribute("data-theme", "dark");
+    let paths = document.querySelectorAll("#mySVG path");
+      paths.forEach(function(path) {
+          path.setAttribute("stroke", "white");
+    });
   } else {
     document.body.removeAttribute("data-theme");
+    let paths = document.querySelectorAll("#mySVG path");
+      paths.forEach(function(path) {
+          path.setAttribute("stroke", "black");
+    });
   }
 
   console.log(darkThemeSelected);
