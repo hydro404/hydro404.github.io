@@ -2,6 +2,14 @@
     font-family: 'Poppins' !important;
 }
 
+*{
+  font-family: 'Poppins' !important;
+}
+
+.fa-brands, .fab {
+  font-family: "Font Awesome 6 Brands"  !important;  /* Or set to whatever font family these elements should use */
+}
+
 html, body {
   height: 100%;
 }
@@ -1031,6 +1039,10 @@ and (max-device-width: 1024px) {
 
 .mt-3 {
   margin-top: 1rem!important;
+}
+
+.mt-4 {
+  margin-top: 1.25rem!important;
 }
 
 .mt-5 {

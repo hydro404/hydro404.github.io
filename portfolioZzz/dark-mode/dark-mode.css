@@ -17,6 +17,17 @@
   background-color: white !important;
 }
 
+[data-theme="dark"] h1 {
+  color: white !important;
+}
+
+[data-theme="dark"] h5 {
+  color: white !important;
+}
+[data-theme="dark"] h3 {
+  color: white !important;
+}
+
 [data-theme="dark"] .mobil-menu {
   /* background-color: #FF6CD6 !important; */
   background: -webkit-linear-gradient(#FF7686, #D72F93);
