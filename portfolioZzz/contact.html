@@ -145,13 +145,16 @@
         </div>
       </footer>
 
-        <script>
-          $(document).ready(function() {
-         $('#body').hide().fadeIn(1000, function() {
-             // Animation complete
-         });
-         });
-       </script>
+      <script>
+        function toggleMobileMenu(menu) {
+            menu.classList.toggle('open');
+        }
+         $(document).ready(function() {
+        $('#body').hide().fadeIn(1000, function() {
+            // Animation complete
+        });
+        });
+      </script>
         
       <script src="./main.js"></script>
     </body>
