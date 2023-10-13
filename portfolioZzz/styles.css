@@ -10,6 +10,10 @@
   font-family: "Font Awesome 6 Brands"  !important;  /* Or set to whatever font family these elements should use */
 }
 
+.text-decoration-none{
+  text-decoration: none !important;
+}
+
 html, body {
   height: 100%;
 }
@@ -1412,6 +1416,7 @@ input:focus-visible + label {
   box-sizing: border-box;
 }
 
+
 .tabset {
   max-width: 65em;
 }
@@ -1429,7 +1434,8 @@ input:focus-visible + label {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-  background-image: linear-gradient(#FFBDA0, #FF6CD6)
+  background-color: #3E6296 !important;
+  color: white !important;
 }
 
 .tabset > label {
@@ -1455,8 +1461,9 @@ input:focus-visible + label {
 /* ANIMATION */
 .columnzz:hover {
   z-index: 9999;
-  transform: scale(1.2); /* Zoom in by 10% when hovered */
+  transform: scale(1.1); /* Zoom in by 10% when hovered */
   transition: transform 0.3s ease-in-out; /* Add a smooth transition */
+  background-image: linear-gradient(#FF7686, #D72F93) !important;
 }
 
 /* FORM CHECK */

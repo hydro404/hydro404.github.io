@@ -64,10 +64,15 @@
   color: white !important;
 }
 
-[data-theme="dark"] .columnzz {
-  background-image: none !important;
-  background-color: #3E6296 !important;
+[data-theme="dark"] .timeline.timeline-one .timeline-item:before {
+  border: 0.0625rem solid white !important;
 }
+
+[data-theme="dark"] .timeline.timeline-one .timeline-item:after {
+  background-color:  white !important;
+}
+
+
 /* 
 [data-theme="dark"] .tabset > label:hover::after, .tabset > input:focus + label::after, .tabset > input:checked + label::after {
   background: #E94560 !important;

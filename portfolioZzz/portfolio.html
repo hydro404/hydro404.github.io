@@ -8,7 +8,9 @@
         <link rel="icon" type="image/png" href="./img/logo.png">
         <link rel="stylesheet" href="./dark-mode/dark-mode.css">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body class="poppins" id="body">
@@ -210,19 +212,22 @@
                     <!-- First Row -->
                     <div class="columnzz">
                         <img src="./img/projects/calculator.png" class="tab-content-img">
-                        <h3>Java Calculator</h3>
-                        <p class="text-justify">The Java Calculator Project is a versatile software application written in Java that provides users with a user-friendly interface for performing basic arithmetic and scientific calculations.</p>
+                        <h3 class="mt-4">Java Calculator</h3><h3>&nbsp;</h3>
+                        <p class="text-justify" id="desc1">The Java Calculator Project is a versatile software application written in Java that provides users...</p>
+                        <div style="text-align: right !important;"><a style="cursor: pointer;" class="btn btn-primary" onclick="assignValue('javaCalc')">See more</a></div>
                     </div>
                     <div class="columnzz">
                         <img src="./img/projects/zoology.png" class="tab-content-img">
-                        <h3>Interactive Learning System</h3>
-                        <p class="text-justify">The web interactive learning system is an online educational platform that offers engaging and interactive content to facilitate effective and immersive learning experiences for students of all ages.</p>
+                        <h3 class="mt-4">Interactive Learning System</h3>
+                        <p class="text-justify">The web interactive learning system is an online educational platform that offers engaging and...</p>
+                        <div style="text-align: right !important;"><a style="cursor: pointer;" class="btn btn-primary" onclick="assignValue('zoology')">See more</a></div>
                     </div>
                     <div class="columnzz">
                       <img src="./img/projects/salesinventory.png" class="tab-content-img">
-                      <h3>Sales Inventory System</h3>
+                      <h3 class="mt-4">Sales Inventory System</h3>
                       <p class="text-justify">
-                       This Sales Inventory System built with Java is a software solution for businesses that uses the Java programming language to create a robust and versatile platform for managing sales and inventory operations efficiently and effectively.</p>
+                       This Sales Inventory System built with Java is a software solution for businesses that uses the Java...</p>
+                       <div style="text-align: right !important;"><a style="cursor: pointer;" class="btn btn-primary" onclick="assignValue('salesInventory')">See more</a></div>
                     </div>
                 </div>
               </section>
@@ -233,19 +238,19 @@
                     <!-- First Row -->
                     <div class="columnzz">
                       <img src="./img/favorites/Song.png" class="tab-content-img">
-                      <h3>My Anthem</h3>
+                      <h3 class="mt-4">My Anthem</h3>
                       <p class="text-justify">
                         This song resonates with every emotion I hold dear; it's an absolute favorite of mine.
                       </p>
                     </div>
                     <div class="columnzz">
                         <img src="./img/favorites/Movie.jpg" class="tab-content-img">
-                        <h3>Film Fave</h3>
+                        <h3 class="mt-4">Film Fave</h3>
                         <p class="text-justify">A must-watch; everything in this movie is a masterpiece for me.</p>
                     </div>
                     <div class="columnzz">
                       <img src="./img/favorites/Series.jpg" class="tab-content-img">
-                      <h3>Comfort Series</h3>
+                      <h3 class="mt-4">Comfort Series</h3>
                       <p class="text-justify">I find solace in this drama. It's laid-back, yet the storyline is spot on.</p>
                     </div>
                   </div>
@@ -254,18 +259,18 @@
                     <!-- First Row -->
                     <div class="columnzz">
                       <img src="./img/favorites/Place.jpg" class="tab-content-img">
-                      <h3>Cherished City</h3>
+                      <h3 class="mt-4">Cherished City</h3>
                       <p class="text-justify">Baguio City beckons with a sense of familiarity that makes it a place I long to return to time and time again.</p>
                     </div>
                     <div class="columnzz">
                       <img src="./img/favorites/Scenery.jpg" class="tab-content-img">
-                      <h3>Top Tier Scenery</h3>
+                      <h3 class="mt-4">Top Tier Scenery</h3>
                       <p class="text-justify">Sunsets are brief yet beautiful, a perfect way to end the day.</p>
                     </div>
                     <div class="columnzz">
-                      <img src="./img/favorites/Person.jpg" class="tab-content-img">
-                      <h3>My Lifeline</h3>
-                      <p class="text-justify">My constant source of everything good in life and solace during moments of doubt and uncertainty.</p>
+                      <img src="./img/favorites/afterHrs.jpg" class="tab-content-img" style="width: 260px;">
+                      <h3 class="mt-4">After-hours</h3>
+                      <p class="text-justify">As the world quiets down, I revel in the serene after-hours, finding a tranquil haven that I wholeheartedly prefer.</p>
                     </div>
                   </div>
   
@@ -276,17 +281,17 @@
                     <!-- First Row -->
                     <div class="columnzz">
                       <img src="./img/archives/JHS.jpg" class="tab-content-img">
-                      <h3>Junior High School</h3>
+                      <h3 class="mt-4">Junior High School</h3>
                       <p class="text-justify">Completed Junior High School with High Honors.</p>
                     </div>
                     <div class="columnzz">
                       <img src="./img/archives/TVL.jpg" class="tab-content-img">
-                      <h3>SHS Track</h3>
+                      <h3 class="mt-4">SHS Track</h3>
                       <p class="text-justify">I took TVL as my track and got my National Certificate II in 11th grade.</p>
                     </div>
                     <div class="columnzz">
                       <img src="./img/archives/SHS.jpg" class="tab-content-img">
-                      <h3>Senior High School</h3>
+                      <h3 class="mt-4">Senior High School</h3>
                       <p class="text-justify">Graduated Senior High School with High Honors.</p>
                     </div>
                   </div>
@@ -296,7 +301,7 @@
                     </div>
                     <div class="columnzz">
                       <img src="./img/archives/College.jpg" class="tab-content-img">
-                      <h3>College for Keeps</h3>
+                      <h3 class="mt-4"> College for Keeps</h3>
                       <p class="text-justify">I got on the Dean’s List for two semesters.</p>
                     </div>
                     <div class="columnblank" style="border: none;background-image: none;"></div>
@@ -309,6 +314,22 @@
           </div>
           <!-- PORTFOLIO -->
         </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content p-3 text-white" style="background-color: #3E6296 !important;">
+            <img src="" id="modalImg" class="img-fluid p-2">
+            <div class="modal-header text-white">
+              <h5 class="modal-title" id="modalTitle"></h5>
+            </div>
+            <div class="modal-body text-justify text-white"  id="modalBody"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
         
         <footer class="px-md-5 social-footer bg-footer">
           <div style="display: inline-flex; padding-left: 10px;">
@@ -333,6 +354,9 @@
         </div>
       </footer>
 
+
+      
+
       <script>
         function toggleMobileMenu(menu) {
             menu.classList.toggle('open');
@@ -345,5 +369,6 @@
       </script>
         
       <script src="./main.js"></script>
+      <script src="./modal.js"></script>
     </body>
 </html>
