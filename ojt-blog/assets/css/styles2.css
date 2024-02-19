@@ -74,3 +74,7 @@ body{
   .bg-none{
     background: none !important;
   }
+
+  .card{
+    border-color: #882CFF;
+  }

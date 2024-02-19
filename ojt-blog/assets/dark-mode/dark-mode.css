@@ -5,13 +5,19 @@
  */
 
 [data-theme="dark"] {
-  background-color: #041E44 !important;
-  color: #eee !important;
+  background-color: #041e44 !important;
+  color: white !important;
 }
 
 [data-theme="dark"] nav{
   background-color: #041E44 !important;
-  color: #eee !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .card{
+  background-color: #041E44 !important;
+  color: white!important;
+  border-color: white !important;
 }
 
 [data-theme="dark"] a {
@@ -23,6 +29,10 @@
 }
 
 [data-theme="dark"] h1 {
+  color: white !important;
+}
+
+[data-theme="dark"] p {
   color: white !important;
 }
 
