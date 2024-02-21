@@ -20,6 +20,19 @@
   border-color: white !important;
 }
 
+[data-theme="dark"] {
+  .days, .hours, .minutes, .seconds {
+    background-color: #041E44;
+    color: white;
+    border-color: white;
+  }
+}
+[data-theme="dark"] .numbers {
+  color: white !important;
+}
+[data-theme="dark"] .product-gallery-thumblist-item > img {
+  border: 1px solid white !important;
+}
 [data-theme="dark"] a {
   color: white !important;
 }
