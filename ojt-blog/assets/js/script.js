@@ -45,24 +45,10 @@ let timer = setInterval(function () {
 
   const timer = document.getElementById("timer");
   if(timer){
-    document.getElementById("timer").innerHTML =
-        '<div class="days"> \
-    <div class="numbers">' +
-        days +
-        '</div>days</div> \
-    <div class="hours"> \
-    <div class="numbers">' +
-        hours +
-        '</div>hours</div> \
-    <div class="minutes"> \
-    <div class="numbers">' +
-        minutes +
-        '</div>minutes</div> \
-    <div class="seconds"> \
-    <div class="numbers">' +
-        seconds +
-        "</div>seconds</div> \
-    </div>";
+    $('#days').text(days);
+    $('#hours').text(hours);
+    $('#minutes').text(minutes);
+    $('#seconds').text(seconds);
   }
   
 }, 1000);
