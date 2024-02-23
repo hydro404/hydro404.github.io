@@ -263,3 +263,8 @@ h1 {
     margin: 0.3125rem;
   } */
 }
+
+
+.border-primary{
+  border-color: #882CFF !important;
+}

@@ -9,6 +9,12 @@
   color: white !important;
 }
 
+[data-theme="dark"] .list-group li {
+  background-color: #041E44 !important;
+  color: white !important;
+  border-color: white !important;
+}
+
 [data-theme="dark"] nav{
   background-color: #041E44 !important;
   color: white !important;
