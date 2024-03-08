@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow Rocket to Json</title>
+</head>
+<body>
+
+<textarea id="input" rows="10" cols="50"></textarea><br>
+<button onclick="processInput()">Process Input</button>
+
+<script>
+function processInput() {
+  const inputText = document.getElementById('input').value;
+  const lines = inputText.split('\n');
+  const resultArray = [];
+
+  for (const line of lines) {
+    const [ip, port, user, password] = line.split(':');
+
+    const configObject = {
+      "host": ip,
+      "file": "",
+      "obfsParam": "",
+      "alpn": "",
+      "cert": "",
+      "mtu": "",
+      "flag": "US",
+      "ping": 265,
+      "privateKey": "",
+      "hpkp": "",
+      "type": "Socks5",
+      "downmbps": "",
+      "user": user,
+      "plugin": "none",
+      "method": "",
+      "data": "",
+      "udp": 1,
+      "filter": "",
+      "protoParam": "",
+      "reserved": "",
+      "alterId": "",
+      "upmbps": "",
+      "keepalive": "",
+      "port": port,
+      "obfs": "none",
+      "dns": "",
+      "publicKey": "",
+      "peer": "",
+      "weight" : 1709911749,
+      "ip": "",
+      "title": `${ip} / ${port}`,
+      "proto": "",
+      "password": password,
+      "chain": "",
+      "shortId": ""
+    };
+
+    resultArray.push(configObject);
+  }
+
+  // Save to file.json
+  const blob = new Blob([JSON.stringify(resultArray, null, 2)], { type: 'application/json' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'file.json';
+  link.click();
+}
+</script>
+
+</body>
+</html>
