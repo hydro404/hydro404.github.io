@@ -7,12 +7,14 @@
 </head>
 <body>
 
+<input type="text" id="filename" placeholder="Input" style="width: 100%;"><br>
 <textarea id="input" rows="10" cols="50"></textarea><br>
 <button onclick="processInput()">Process Input</button>
 
 <script>
 function processInput() {
   const inputText = document.getElementById('input').value;
+  const filename = document.getElementById('filename').value;
   const lines = inputText.split('\n');
   const resultArray = [];
 
@@ -64,7 +66,7 @@ function processInput() {
   const blob = new Blob([JSON.stringify(resultArray, null, 2)], { type: 'application/json' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'file.json';
+  link.download = `${filename}.json`;
   link.click();
 }
 </script>
