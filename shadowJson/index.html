@@ -15,8 +15,9 @@
       <h1 class="text-center">ShadowRocket ProxyList to Json</h1>
       <div class="col-12">
         <div class="form-floating">
-          <input type="text" class="form-control" id="filename" placeholder="file" value="file">
-          <label for="filename">Filename</label>
+          <input type="text" class="form-control" id="numProxies" value="0">
+          <label for="numProxies">Number of Proxies per file</label>
+          <p>Type 0 if you will use all the proxies in 1 file.</p>
         </div>
       </div>
       
@@ -40,66 +41,44 @@
 <script>
 function processInput() {
   document.getElementById('input').classList.remove('is-invalid');
-  const inputText = document.getElementById('input').value;
-  const filename = document.getElementById('filename').value;
-  if(!inputText) {
-    document.getElementById('input').classList.add('is-invalid');
+  const proxyListText = document.getElementById('input').value;
+  const numProxiesPerFile = parseInt(document.getElementById('numProxies').value) || 0;
+  
+  if (!proxyListText) {
+    document.getElementById('proxyList').classList.add('is-invalid');
     return;
   }
-  const lines = inputText.split('\n');
-  const resultArray = [];
 
-  for (const line of lines) {
-    const [ip, port, user, password] = line.split(':');
+  const proxies = proxyListText.trim().split('\n');
+  const totalProxies = proxies.length;
+  const proxiesPerFile = numProxiesPerFile > 0 ? numProxiesPerFile : totalProxies;
 
-    const configObject = {
-      "host": ip,
-      "file": "",
-      "obfsParam": "",
-      "alpn": "",
-      "cert": "",
-      "mtu": "",
-      "flag": "US",
-      "ping": 265,
-      "privateKey": "",
-      "hpkp": "",
-      "type": "Socks5",
-      "downmbps": "",
-      "user": user,
-      "plugin": "none",
-      "method": "",
-      "data": "",
-      "udp": 1,
-      "filter": "",
-      "protoParam": "",
-      "reserved": "",
-      "alterId": "",
-      "upmbps": "",
-      "keepalive": "",
-      "port": port,
-      "obfs": "none",
-      "dns": "",
-      "publicKey": "",
-      "peer": "",
-      "weight" : 1709911749,
-      "ip": "",
-      "title": `${ip} / ${port}`,
-      "proto": "",
-      "password": password,
-      "chain": "",
-      "shortId": ""
-    };
+  let fileIndex = 1;
+  for (let i = 0; i < totalProxies; i += proxiesPerFile) {
+    const proxiesForThisFile = proxies.slice(i, i + proxiesPerFile);
+    const resultArray = proxiesForThisFile.map(proxy => {
+      const [ip, port, user, password] = proxy.split(':');
+      return {
+        "host": ip,
+        "port": port,
+        "user": user,
+        "password": password,
+        "type": "Socks5",
+        "flag": "US",
+        "ping": 265,
+        "weight": 1709911749,
+        "title": `${ip} / ${port}`
+      };
+    });
 
-    resultArray.push(configObject);
+    const blob = new Blob([JSON.stringify(resultArray, null, 2)], {type: 'application/json'});
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `proxies${fileIndex++}.json`;
+    link.click();
   }
-
-  // Save to file.json
-  const blob = new Blob([JSON.stringify(resultArray, null, 2)], { type: 'application/json' });
-  const link = document.createElement('a');
-  link.href = URL.createObjectURL(blob);
-  link.download = `${filename}.json`;
-  link.click();
 }
+
 </script>
 
 </body>
