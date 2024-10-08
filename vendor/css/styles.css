@@ -15,6 +15,47 @@
   font-size: 3rem !important;
 } 
 
+.ri-xl:hover{
+  color: #9055fd !important;
+}
+
+.hover-container {
+  position: relative;
+  width: 100%;
+}
+
+.hover-container .img-fluid {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark transparent overlay */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.hover-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  padding: 2rem;
+  color: white;
+  font-size: 20px;
+  text-align: start;
+}
+
 
 
 body{
