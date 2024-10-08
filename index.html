@@ -78,6 +78,22 @@
               
             </ul>
           </div>
+          <script>
+            // Get all the navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbar = document.getElementById('navbarSupportedContent');
+          
+            // Add click event to each link
+            navLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                // Check if the navbar is collapsed (open) and collapse it
+                if (navbar.classList.contains('show')) {
+                  const navbarToggler = document.querySelector('.navbar-toggler');
+                  navbarToggler.click(); // Programmatically trigger the toggle button
+                }
+              });
+            });
+          </script>
           <div class="landing-menu-overlay d-lg-none"></div>
           <!-- Menu wrapper: End -->
           <!-- Toolbar: Start -->
