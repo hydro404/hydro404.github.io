@@ -13,13 +13,13 @@
     
     <div class="row">
       <h1 class="text-center">ShadowRocket ProxyList to Json</h1>
-      <div class="col-12">
+      <!-- <div class="col-12">
         <div class="form-floating">
           <input type="text" class="form-control" id="numProxies" value="0">
           <label for="numProxies">Number of Proxies per file</label>
           <p>Type 0 if you will use all the proxies in 1 file.</p>
         </div>
-      </div>
+      </div> -->
       
       <div class="col-12 mt-2">
         <div class="form-floating">
@@ -29,9 +29,14 @@
         </div>
       </div>
       
-      <div class="col-12 text-center mt-4">
-        <button class="btn btn-primary" onclick="processInput()">Process Input</button>
+      <div class="col-6 text-center mt-4">
+        <button class="btn btn-primary" onclick="socks5Process()">Generate Socks5</button>
       </div>
+
+      <div class="col-6 text-center mt-4">
+        <button class="btn btn-secondary" onclick="httpProcess()">Generate HTTP</button>
+      </div>
+
     </div>
   </div>
   
@@ -39,10 +44,9 @@
 
 
 <script>
-function processInput() {
+function socks5Process() {
   document.getElementById('input').classList.remove('is-invalid');
   const proxyListText = document.getElementById('input').value;
-  const numProxiesPerFile = parseInt(document.getElementById('numProxies').value) || 0;
   
   if (!proxyListText) {
     document.getElementById('proxyList').classList.add('is-invalid');
@@ -50,32 +54,58 @@ function processInput() {
   }
 
   const proxies = proxyListText.trim().split('\n');
-  const totalProxies = proxies.length;
-  const proxiesPerFile = numProxiesPerFile > 0 ? numProxiesPerFile : totalProxies;
+  const resultArray = proxies.map(proxy => {
+    const [ip, port, user, password] = proxy.split(':');
+    return {
+      "host": ip,
+      "port": port,
+      "user": user,
+      "password": password,
+      "type": "Socks5",
+      "weight": 1709911749,
+      "title": `${ip} / ${port}`
+    };
+  });
 
-  let fileIndex = 1;
-  for (let i = 0; i < totalProxies; i += proxiesPerFile) {
-    const proxiesForThisFile = proxies.slice(i, i + proxiesPerFile);
-    const resultArray = proxiesForThisFile.map(proxy => {
-      const [ip, port, user, password] = proxy.split(':');
-      return {
-        "host": ip,
-        "port": port,
-        "user": user,
-        "password": password,
-        "type": "Socks5",
-        "weight": 1709911749,
-        "title": `${ip} / ${port}`
-      };
-    });
-
-    const blob = new Blob([JSON.stringify(resultArray, null, 2)], {type: 'application/json'});
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `proxies${fileIndex++}.json`;
-    link.click();
-  }
+  const blob = new Blob([JSON.stringify(resultArray, null, 2)], {type: 'application/json'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'socks5Proxies.json';
+  link.click();
 }
+
+
+
+function httpProcess() {
+  document.getElementById('input').classList.remove('is-invalid');
+  const proxyListText = document.getElementById('input').value;
+  
+  if (!proxyListText) {
+    document.getElementById('proxyList').classList.add('is-invalid');
+    return;
+  }
+
+  const proxies = proxyListText.trim().split('\n');
+  const resultArray = proxies.map(proxy => {
+    const [ip, port, user, password] = proxy.split(':');
+    return {
+      "host": ip,
+      "port": port,
+      "user": user,
+      "password": password,
+      "type": "HTTP",
+      "weight": 1709911749,
+      "title": `${ip} / ${port}`
+    };
+  });
+
+  const blob = new Blob([JSON.stringify(resultArray, null, 2)], {type: 'application/json'});
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'httpProxies.json';
+  link.click();
+}
+
 
 </script>
 
