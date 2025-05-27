@@ -1,2 +1,0 @@
-# quartech_uscReceipt
- 
