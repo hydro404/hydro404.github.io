@@ -254,35 +254,3 @@ body {
 .cta-button:hover i {
   transform: scale(1.2);
 }
-
-/* Prevent horizontal scroll on mobile */
-html,
-body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-/* Ensure all images are responsive */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Prevent rows from overflowing */
-.row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-/* Ensure containers don't overflow */
-.container,
-.container-fluid {
-  overflow-x: hidden;
-}
-
-/* Fix social icons spacing on mobile */
-@media (max-width: 768px) {
-  .social-links {
-    overflow-x: visible;
-  }
-}
