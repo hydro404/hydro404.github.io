@@ -205,7 +205,8 @@ nav.layout-navbar {
   box-shadow: 0 0.125rem 0.25rem rgba(19, 17, 32, 0.4);
 }
 .dark-style .navbar.landing-navbar .navbar-nav .nav-link {
-  color: #cfcbe5;
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 @media (max-width: 991.98px) {
   .dark-style .navbar.landing-navbar .landing-nav-menu {
