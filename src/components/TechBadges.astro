@@ -1,0 +1,68 @@
+---
+import { technologyIconUrl, visibleTechnologies } from '../data/technologies';
+
+interface Props {
+  technologies: readonly string[];
+  class?: string;
+}
+
+const { technologies, class: className } = Astro.props;
+const badges = visibleTechnologies(technologies);
+---
+
+{badges.length > 0 && (
+  <ul class:list={['technology-list', className]} role="list">
+    {badges.map(({ label, icons }) => (
+      <li class="technology-badge" data-technology={label}>
+        {icons.length > 0 && (
+          <span class="technology-marks" aria-hidden="true">
+            {icons.map((filename) => (
+              <img src={technologyIconUrl(filename)} alt="" width="20" height="20" loading="lazy" decoding="async" />
+            ))}
+          </span>
+        )}
+        <span class="technology-label">{label}</span>
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .45rem .95rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .technology-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    max-width: 100%;
+    color: var(--ink);
+    font-size: .82rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .technology-marks {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .technology-marks img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .technology-label {
+    overflow-wrap: anywhere;
+  }
+</style>

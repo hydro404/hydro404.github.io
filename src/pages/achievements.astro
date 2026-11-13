@@ -1,0 +1,33 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import AchievementEntry from '../components/AchievementEntry.astro';
+import { research, robotics } from '../data/achievements';
+---
+
+<SiteLayout title="Achievements" description="Student research and robotics competition results coached by Luis Anthony Grado at Camalig National High School.">
+  <section class="container rail hero">
+    <div class="rail-body rail-body-offset">
+      <h1>Coaching and achievements</h1>
+      <p class="hero-now">I coach student research and robotics teams at Camalig National High School. These are their results, and one of my own.</p>
+    </div>
+  </section>
+
+  <section class="container rail rail-section" id="research" aria-labelledby="research-heading">
+    <h2 class="rail-label" id="research-heading">Student research</h2>
+    <div class="rail-body">
+      <ul class="achievement-list">
+        {research.map((item) => <AchievementEntry item={item} />)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="container rail rail-section" id="robotics" aria-labelledby="robotics-heading">
+    <h2 class="rail-label" id="robotics-heading">Robotics competitions</h2>
+    <div class="rail-body">
+      <ul class="achievement-list">
+        {robotics.map((item) => <AchievementEntry item={item} />)}
+      </ul>
+      <a class="more-link" href="/#work">See my software projects</a>
+    </div>
+  </section>
+</SiteLayout>

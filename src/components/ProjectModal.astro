@@ -1,0 +1,48 @@
+---
+import type { Project } from '../data/portfolio';
+import TechBadges from './TechBadges.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const titleId = `${project.slug}-title`;
+---
+
+<dialog class="project-modal" id={project.slug} aria-labelledby={titleId}>
+  <div class="modal-inner">
+    <div class="modal-toolbar">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close project details" hidden>Close <span aria-hidden="true">×</span></button>
+      <noscript><a class="modal-close" href="#work">Close <span aria-hidden="true">×</span></a></noscript>
+    </div>
+    <div class="project-photo">
+      <picture>
+        {project.imageMobile && <source media="(max-width: 600px)" srcset={project.imageMobile} width="1448" height="1086" />}
+        <img
+          class:list={{ 'has-mobile-preview': project.imageMobile }}
+          src={project.image}
+          alt={project.imageAlt}
+          width={project.imageWidth ?? 1126}
+          height={project.imageHeight ?? 562}
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </div>
+    <div class="modal-copy">
+      <h2 id={titleId}>{project.title}</h2>
+      <p class="modal-summary">{project.summary}</p>
+      {project.liveUrl && <a class="button" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Try it <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></a>}
+      <dl class="modal-facts">
+        <div><dt>Type</dt><dd>{project.category}</dd></div>
+        <div><dt>Role</dt><dd>{project.role}</dd></div>
+      </dl>
+      <div class="modal-stack"><h3>Built with</h3><TechBadges technologies={project.technologies} /></div>
+      <h3 class="contribution-heading">My contribution</h3>
+      <ul class="modal-contribution">
+        {project.contribution.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </div>
+</dialog>

@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.astro/
+.cache/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+.claude/
+
+# Source material: lists students by name, so it stays out of the public repository.
+Portfolio.docx
+Portfolio Images/

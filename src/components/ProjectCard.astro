@@ -1,0 +1,30 @@
+---
+import type { Project } from '../data/portfolio';
+import TechBadges from './TechBadges.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<a class="project-card" href={`/#${project.slug}`} data-project-open={project.slug} aria-haspopup="dialog" aria-controls={project.slug} aria-label={`${project.title}, view project details`}>
+  <div class="project-photo">
+    <picture>
+      {project.imageMobile && <source media="(max-width: 600px)" srcset={project.imageMobile} width="1448" height="1086" />}
+      <img
+        class:list={{ 'has-mobile-preview': project.imageMobile }}
+        src={project.image}
+        alt=""
+        width={project.imageWidth ?? 1126}
+        height={project.imageHeight ?? 562}
+        loading="lazy"
+        decoding="async"
+      />
+    </picture>
+  </div>
+  <h3>{project.title}</h3>
+  <p>{project.summary}</p>
+  <TechBadges technologies={project.technologies} class="project-technologies" />
+</a>
