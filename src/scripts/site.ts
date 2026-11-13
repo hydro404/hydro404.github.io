@@ -13,13 +13,16 @@ function initMenu(signal: AbortSignal) {
   if (!toggle || !nav) return;
 
   toggle.hidden = false;
-  nav.dataset.collapsed = 'true';
   const setOpen = (open: boolean) => {
     toggle.setAttribute('aria-expanded', String(open));
     nav.dataset.collapsed = String(!open);
+    // The open menu covers the page on small screens, so hold the page still behind it.
+    document.documentElement.classList.toggle('menu-open', open);
+    document.querySelectorAll<HTMLElement>('main, .site-footer').forEach((region) => { region.inert = open; });
     const label = toggle.querySelector('.menu-label');
     if (label) label.textContent = open ? 'Close' : 'Menu';
   };
+  setOpen(false);
   toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'), { signal });
   nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setOpen(false), { signal }));
   document.addEventListener('keydown', (event) => {

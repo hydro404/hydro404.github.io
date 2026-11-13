@@ -202,8 +202,18 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .menu-toggle:not([hidden]) { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 10px 0; border: 0; color: inherit; background: transparent; font-size: .9rem; font-weight: 600; }
   .menu-lines { width: 16px; height: 8px; border-block: 1.5px solid currentColor; }
   .site-nav { flex-basis: 100%; flex-direction: column; align-items: stretch; gap: 2px; padding-bottom: 14px; }
-  .site-nav[data-collapsed='true'] { display: none; }
-  .site-nav[data-collapsed='false'] { animation: rise .28s var(--ease-out); }
+  /* With JavaScript the menu is a full-screen panel: it fades in while its links slide up in turn. */
+  html.menu-open { overflow: hidden; }
+  html.menu-open .site-header { background: var(--paper); }
+  .site-nav[data-collapsed] { position: absolute; top: 100%; left: 0; right: 0; height: calc(100dvh - 68px); gap: 0; padding: 28px 20px 40px; overflow-y: auto; background: var(--paper); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s linear .25s; }
+  .site-nav[data-collapsed='false'] { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+  .site-nav[data-collapsed] a { padding: 12px 0; font-size: 1.75rem; font-weight: 650; line-height: 1.25; letter-spacing: -.035em; opacity: 0; transform: translateY(18px); transition: color .2s ease, opacity .2s ease, transform .2s ease; }
+  .site-nav[data-collapsed='false'] a { opacity: 1; transform: none; transition: color .2s ease, opacity .45s ease, transform .55s var(--ease-out); }
+  .site-nav[data-collapsed='false'] a:nth-child(2) { transition-delay: 0s, 50ms, 50ms; }
+  .site-nav[data-collapsed='false'] a:nth-child(3) { transition-delay: 0s, 100ms, 100ms; }
+  .site-nav[data-collapsed='false'] a:nth-child(n+4) { transition-delay: 0s, 150ms, 150ms; }
+  .menu-lines { transition: height .25s var(--ease-out); }
+  .menu-toggle[aria-expanded='true'] .menu-lines { height: 0; }
   .site-nav a { padding: 10px 0; font-size: 1rem; }
   .site-nav a::after { display: none; }
   .site-nav a[aria-current='page'] { text-decoration: underline; text-underline-offset: 6px; }

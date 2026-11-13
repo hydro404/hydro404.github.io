@@ -147,7 +147,11 @@ with sync_playwright() as p:
     assert not page.get_by_role('navigation', name='Main navigation').is_visible()
     menu.click()
     assert menu.get_attribute('aria-expanded') == 'true'
+    panel = page.locator('#site-nav').bounding_box()
+    assert panel['x'] == 0 and panel['width'] == 390 and abs(panel['y'] + panel['height'] - 844) < 2, 'Open menu should fill the screen below the header'
+    assert page.evaluate('document.documentElement.classList.contains("menu-open") && document.querySelector("main").inert'), 'Page should be held still behind the menu'
     page.keyboard.press('Escape')
+    assert page.evaluate('!document.documentElement.classList.contains("menu-open") && !document.querySelector("main").inert')
     assert menu.get_attribute('aria-expanded') == 'false'
     assert menu.evaluate('(element) => element === document.activeElement')
     menu.click()

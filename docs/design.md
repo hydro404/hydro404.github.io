@@ -43,7 +43,7 @@ Projects have no pages of their own. A card opens a modal at `/#slug`, so a proj
 
 ## Motion
 
-Astro's `ClientRouter` handles route changes without a page reload. The header holds still while the page fades through the paper colour. The first screen rises 12px into place, sections below the fold fade in the first time they are reached, and hover states stay small. Animate only opacity and transform, keep durations under about 600ms, and do not hide content that is already on screen. Nothing is hidden without JavaScript, and `prefers-reduced-motion` turns the motion off.
+Astro's `ClientRouter` handles route changes without a page reload. The header holds still while the page fades through the paper colour. On small screens the menu opens as a full-screen panel: it fades in while its links slide up one after another, and the page behind is held still. The first screen rises 12px into place, sections below the fold fade in the first time they are reached, and hover states stay small. Animate only opacity and transform, keep durations under about 600ms, and do not hide content that is already on screen. Nothing is hidden without JavaScript, and `prefers-reduced-motion` turns the motion off.
 
 Page behaviour lives in `src/scripts/site.ts`, because bundled scripts run once and the router replaces the body on each navigation. Set up new behaviour from `initPage()` rather than in a page-level script.
 
