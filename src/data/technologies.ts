@@ -41,10 +41,13 @@ export const technologies: readonly Technology[] = [
   { label: 'GitHub', icons: ['github.svg'] },
   { label: 'n8n', icons: ['n8n.svg'] },
   { label: 'Tinkercad', icons: ['tinkercad.svg'] },
-  { label: 'Onshape', icons: [] },
+  { label: 'Onshape', icons: ['onshape.svg'] },
 ];
 
-/** The homepage tech stack, in display order. Each name must match a label above. */
+/** The tools named on the homepage. Each name must match a label above. */
+export const homeStack: readonly string[] = ['Laravel', 'Vue', 'Bootstrap', 'MySQL', 'Node.js', 'n8n'];
+
+/** The full tech stack on its own page, in display order. Each name must match a label above. */
 export const toolkit: readonly ToolkitGroup[] = [
   { title: 'Languages', items: ['TypeScript', 'Python', 'Java', 'VB.NET'] },
   { title: 'Frontend', items: ['React', 'Vue', 'Next.js', 'Astro', 'Tailwind CSS'] },

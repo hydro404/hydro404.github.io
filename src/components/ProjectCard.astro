@@ -4,12 +4,18 @@ import TechBadges from './TechBadges.astro';
 
 interface Props {
   project: Project;
+  /** Heading level of the project title. */
+  level?: 2 | 3;
+  /** On a page without the project dialogs, the card is a plain link to the Projects page. */
+  preview?: boolean;
 }
 
-const { project } = Astro.props;
+const { project, level = 3, preview = false } = Astro.props;
+const Heading = `h${level}` as 'h2' | 'h3';
+const dialog = preview ? {} : { 'data-project-open': project.slug, 'aria-haspopup': 'dialog' as const, 'aria-controls': project.slug };
 ---
 
-<a class="project-card" href={`/#${project.slug}`} data-project-open={project.slug} aria-haspopup="dialog" aria-controls={project.slug} aria-label={`${project.title}, view project details`}>
+<a class="project-card" href={`/projects/#${project.slug}`} aria-label={`${project.title}, view project details`} {...dialog}>
   <div class="project-photo">
     <picture>
       {project.imageMobile && <source media="(max-width: 600px)" srcset={project.imageMobile} width="1448" height="1086" />}
@@ -24,7 +30,10 @@ const { project } = Astro.props;
       />
     </picture>
   </div>
-  <h3>{project.title}</h3>
+  <div class="project-card-head">
+    <Heading class="project-card-title">{project.title}</Heading>
+    <span class="badge badge-outline">{project.category}</span>
+  </div>
   <p>{project.summary}</p>
   <TechBadges technologies={project.technologies} class="project-technologies" />
 </a>

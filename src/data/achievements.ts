@@ -11,8 +11,8 @@ import smartR from '../assets/achievements/smart-r-2025.jpg';
 import summerCup from '../assets/achievements/summer-cup-2026.jpg';
 
 /**
- * Coaching and competition results. Students are not named in the text:
- * give the event, the result, and my own role. Newest first in each list.
+ * My own results, then coaching and competition results. Students are not named
+ * in the text: give the event, the result, and my own role. Newest first in each list.
  */
 export interface AchievementPhoto {
   src: ImageMetadata;
@@ -36,7 +36,7 @@ export const research: Achievement[] = [
     date: '2026',
     results: ['1st place'],
     role: 'Adult Sponsor',
-    summary: 'A map-based web tool that estimates flood depth at any location in Camalig, Albay. Its results agreed 79% to 87% with Project NOAH flood-hazard maps.',
+    summary: 'A web map that estimates flood depth at any point in Camalig, Albay. Its estimates agreed 79% to 87% with Project NOAH flood-hazard maps.',
     photos: [{ src: hydroPin, alt: 'Division Science and Technology Fair 2026 announcement: Mathematics and Computational Science, individual, 1st place' }],
   },
   {
@@ -45,7 +45,7 @@ export const research: Achievement[] = [
     date: '2026',
     results: ['3rd place'],
     role: 'Adult Sponsor',
-    summary: 'An offline voting system for school elections.',
+    summary: 'A voting system that runs school elections without an internet connection.',
     photos: [{ src: eduvote, alt: 'Division Science and Technology Fair 2026 announcement: Science Innovation Expo, 3rd place' }],
   },
   {
@@ -57,7 +57,7 @@ export const research: Achievement[] = [
       '2nd place, Regional Science and Technology Fair',
     ],
     role: 'Coach and Adult Sponsor',
-    summary: 'A routing tool that finds the shortest safe routes for relief vehicles in flood-prone Camalig, Albay. It combines Dijkstra’s algorithm and vehicle-routing optimization in Python with flood-hazard maps.',
+    summary: 'Finds the shortest safe routes for relief vehicles in flood-prone Camalig, Albay. Built in Python, it combines Dijkstra’s algorithm and vehicle-routing optimization with flood-hazard maps.',
     photos: [{ src: smartR, alt: 'The Mathematics and Computational Science team with their coaches, holding a certificate for 1st place and Best Presenter' }],
   },
   {
@@ -66,7 +66,7 @@ export const research: Achievement[] = [
     date: '2025',
     results: ['3rd place and Best Presenter, Division Science and Technology Fair'],
     role: 'Coach and Adult Sponsor',
-    summary: 'An Arduino-based device that monitors rainfall and flood levels and sends alerts in several ways. Its sensors tested above 95% accuracy.',
+    summary: 'An Arduino-based device that monitors rainfall and flood levels and sends alerts through several channels. Its sensors tested above 95% accuracy.',
     photos: [{ src: camapa, alt: 'The Robotics and Intelligent Machines team with their coaches, holding certificates for 3rd place and Best Presenter' }],
   },
 ];
@@ -122,11 +122,26 @@ export const robotics: Achievement[] = [
   },
 ];
 
-/** The five results shown on the homepage. */
-export const highlights = [
-  { date: 'October 2026', result: 'Champion', detail: 'Z-Puck Tri-Bot Hockey, Robo Z: Philippine Robotics Innovation Cup', role: 'Coach' },
-  { date: 'October 2026', result: '2nd place, Mentors’ Edition', detail: 'Z-Puck Tri-Bot Hockey, Robo Z: Philippine Robotics Innovation Cup', role: 'Competitor' },
-  { date: '2026', result: '1st place', detail: 'Hydro-PIN, a student flood-depth research project, Division Science and Technology Fair', role: 'Adult Sponsor' },
-  { date: '2026', result: '2nd place', detail: 'RoboSoccer, Division Science and Technology Fair', role: 'Coach' },
-  { date: '2025', result: '1st place and Best Presenter', detail: 'SMART-R, a student disaster-routing research project. 2nd place at the regional fair', role: 'Coach and Adult Sponsor' },
+export interface Highlight {
+  result: string;
+  detail: string;
+  date?: string;
+  role?: string;
+}
+
+/**
+ * Competition results that are my own, newest first. Shown on both pages.
+ * Academic honors are in portfolio.ts under education.
+ */
+export const personal: Highlight[] = [
+  { date: 'October 2026', result: '2nd place, Mentors’ Edition', detail: 'Z-Puck Tri-Bot Hockey at Robo Z: Philippine Robotics Innovation Cup, competing in the coaches’ bracket.' },
+  { date: '2023', result: 'Regional Champion', detail: 'Hack4Gov 2023, the DICT capture-the-flag cybersecurity competition.' },
+];
+
+/** The coaching results shown on the homepage, newest first. */
+export const highlights: Highlight[] = [
+  { date: 'October 2026', result: 'Champion', detail: 'Z-Puck Tri-Bot Hockey, Upper Division, at Robo Z: Philippine Robotics Innovation Cup.', role: 'Coach' },
+  { date: '2026', result: '1st place', detail: 'Hydro-PIN, a web map that estimates flood depth anywhere in Camalig. Division Science and Technology Fair.', role: 'Adult Sponsor' },
+  { date: '2026', result: '2nd place', detail: 'RoboSoccer, Division Science and Technology Fair.', role: 'Coach' },
+  { date: '2025', result: '1st place and Best Presenter', detail: 'SMART-R, a Python tool that routes relief vehicles around floods. It went on to 2nd place at the regional fair.', role: 'Coach and Adult Sponsor' },
 ];

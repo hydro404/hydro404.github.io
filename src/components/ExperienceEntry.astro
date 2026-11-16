@@ -1,0 +1,50 @@
+---
+import type { Experience } from '../data/portfolio';
+import TechBadges from './TechBadges.astro';
+
+interface Props {
+  item: Experience;
+  /** Heading level of the role title: 3 directly under the section, 4 under a group heading. */
+  level?: 3 | 4;
+}
+
+const { item, level = 3 } = Astro.props;
+const Heading = `h${level}` as 'h3' | 'h4';
+const [role] = item.roles;
+const hasSteps = item.roles.length > 1;
+const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+// With several roles, each one carries its own employment type in the list below.
+const tags = [hasSteps ? undefined : role.type, item.location].filter((tag): tag is string => Boolean(tag)).map(capitalize);
+---
+
+<li class:list={['xp', { 'is-current': item.current }]}>
+  <p class="xp-when">{item.period}</p>
+  <div class="xp-body">
+    <div class="xp-head">
+      <Heading class="xp-title">{role.title}</Heading>
+      {item.current && <span class="badge badge-solid">Now</span>}
+    </div>
+    <p class="xp-org">{item.organization}</p>
+    {tags.length > 0 && (
+      <ul class="badge-row xp-tags" aria-label="Details">
+        {tags.map((tag) => <li class="badge">{tag}</li>)}
+      </ul>
+    )}
+    {hasSteps && (
+      <ol class="xp-steps" aria-label={`Roles at ${item.organization}, newest first`}>
+        {item.roles.map((step) => (
+          <li>
+            <span class="xp-step-title">{step.title}</span>
+            {step.type && <span class="badge badge-outline">{capitalize(step.type)}</span>}
+            <span class="xp-step-when">{step.period}</span>
+          </li>
+        ))}
+      </ol>
+    )}
+    <ul class="xp-points">
+      {item.highlights.map((point) => <li>{point}</li>)}
+    </ul>
+    {item.technologies && <TechBadges technologies={item.technologies} />}
+    {item.link && <a class="xp-link" href={item.link.href} data-project-link={item.link.project}>{item.link.label}</a>}
+  </div>
+</li>

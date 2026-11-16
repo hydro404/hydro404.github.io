@@ -1,33 +1,36 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AchievementEntry from '../components/AchievementEntry.astro';
-import { research, robotics } from '../data/achievements';
+import AwardRow from '../components/AwardRow.astro';
+import { personal, research, robotics } from '../data/achievements';
 ---
 
-<SiteLayout title="Achievements" description="Student research and robotics competition results coached by Luis Anthony Grado at Camalig National High School.">
-  <section class="container rail hero">
-    <div class="rail-body rail-body-offset">
-      <h1>Coaching and achievements</h1>
-      <p class="hero-now">I coach student research and robotics teams at Camalig National High School. These are their results, and one of my own.</p>
-    </div>
+<SiteLayout title="Achievements" description="Competition results earned by Luis Anthony Grado, and by the student research and robotics teams he coaches at Camalig National High School.">
+  <section class="section page-intro">
+    <h1 class="page-title">Achievements</h1>
+    <p class="lead">Results I earned myself, and results earned by the student research and robotics teams I coach at Camalig National High School.</p>
   </section>
 
-  <section class="container rail rail-section" id="research" aria-labelledby="research-heading">
-    <h2 class="rail-label" id="research-heading">Student research</h2>
-    <div class="rail-body">
-      <ul class="achievement-list">
-        {research.map((item) => <AchievementEntry item={item} />)}
-      </ul>
-    </div>
+  <section class="section" id="personal" aria-labelledby="personal-heading">
+    <h2 class="section-title" id="personal-heading">My own</h2>
+    <ul class="row-list" data-awards="personal">
+      {personal.map((item) => <AwardRow item={item} level={3} />)}
+    </ul>
   </section>
 
-  <section class="container rail rail-section" id="robotics" aria-labelledby="robotics-heading">
-    <h2 class="rail-label" id="robotics-heading">Robotics competitions</h2>
-    <div class="rail-body">
-      <ul class="achievement-list">
-        {robotics.map((item) => <AchievementEntry item={item} />)}
-      </ul>
-      <a class="more-link" href="/#work">See my software projects</a>
-    </div>
+  <section class="section" id="research" aria-labelledby="research-heading">
+    <h2 class="section-title" id="research-heading">Student research</h2>
+    <p class="group-note">Software and hardware projects built by students for the Science and Technology Fair. I advised each team as coach or adult sponsor.</p>
+    <ul class="achievement-list">
+      {research.map((item) => <AchievementEntry item={item} />)}
+    </ul>
+  </section>
+
+  <section class="section" id="robotics" aria-labelledby="robotics-heading">
+    <h2 class="section-title" id="robotics-heading">Robotics competitions</h2>
+    <ul class="achievement-list">
+      {robotics.map((item) => <AchievementEntry item={item} />)}
+    </ul>
+    <a class="more-link" href="/projects/">See my software projects</a>
   </section>
 </SiteLayout>

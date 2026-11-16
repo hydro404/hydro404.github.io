@@ -24,6 +24,7 @@ Devicon files are from commit [`32fe1d3`](https://github.com/devicons/devicon/tr
 | `nextjs.svg` | Devicon, `nextjs/nextjs-original.svg` |
 | `nginx.svg` | Devicon, `nginx/nginx-original.svg` |
 | `nodejs.svg` | Devicon, `nodejs/nodejs-original.svg` |
+| `onshape.svg` | The mark from the logo in the header of [onshape.com](https://www.onshape.com/en/), without the wordmark |
 | `php.svg` | Devicon, `php/php-original.svg` |
 | `postgresql.svg` | Devicon, `postgresql/postgresql-original.svg` |
 | `python.svg` | Devicon, `python/python-original.svg` |
@@ -36,4 +37,4 @@ Devicon files are from commit [`32fe1d3`](https://github.com/devicons/devicon/tr
 
 Devicon distributes its collection under the [MIT license](../public/icons/technologies/devicon-LICENSE.txt). Simple Icons publishes its collection under [CC0 1.0 Universal](../public/icons/technologies/simple-icons-LICENSE.txt). The upstream repository notices accompany the local assets. Brand names and marks belong to their respective owners.
 
-React and React Native use the same atom artwork with distinct text labels. Onshape has no mark in either collection, so it shows its name only. Linux uses the smaller `plain` variant because the `original` file is about 190 KB.
+React and React Native use the same atom artwork with distinct text labels. Onshape has no mark in either collection, so its mark comes from Onshape's own website; it is a trademark of PTC and is used only to name the tool. Linux uses the smaller `plain` variant because the `original` file is about 190 KB.

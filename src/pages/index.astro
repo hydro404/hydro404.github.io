@@ -1,101 +1,138 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import AwardRow from '../components/AwardRow.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import ProjectModal from '../components/ProjectModal.astro';
 import TechBadges from '../components/TechBadges.astro';
-import { highlights } from '../data/achievements';
-import { education, experience, profile, projects } from '../data/portfolio';
-import { toolkit } from '../data/technologies';
+import { highlights, personal } from '../data/achievements';
+import { education, engineeringExperience, featuredProjects, otherExperience, profile, projects } from '../data/portfolio';
+import { homeStack, toolkit } from '../data/technologies';
+
+const featured = featuredProjects.flatMap((slug) => projects.filter((project) => project.slug === slug));
+const toolCount = toolkit.reduce((count, group) => count + group.items.length, 0);
+const roleCount = engineeringExperience.length + otherExperience.length;
+const topResults = [...personal, ...highlights.slice(0, 1)];
+const currentRoles = [...engineeringExperience, ...otherExperience].filter((item) => item.current);
+const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
+
+// The career chart: every software role is a bar on one time axis, measured in months.
+const month = (value: string) => {
+  const [year, number] = value.split('-').map(Number);
+  return year * 12 + (number - 1);
+};
+const today = new Date();
+const chartStart = Math.min(...engineeringExperience.map((item) => month(item.start))) - 1;
+const chartEnd = today.getFullYear() * 12 + today.getMonth() + 1;
+const place = (value: number) => ((value - chartStart) / (chartEnd - chartStart)) * 100;
+const bars = engineeringExperience.map((item) => {
+  const left = place(month(item.start));
+  // A role runs to the end of its last month, or to today while it is current.
+  const right = item.end ? place(month(item.end) + 1) : 100;
+  return { item, left, width: right - left };
+});
+const ticks: { label: string; left: number }[] = [];
+for (let year = Math.ceil(chartStart / 12); year * 12 < chartEnd; year++) {
+  ticks.push({ label: String(year), left: place(year * 12) });
+}
 ---
 <SiteLayout title="Home">
-  <noscript slot="head"><style>.project-modal:target { display: block; position: fixed; inset: 0; z-index: 50; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; border-radius: 0; overflow: auto; }</style></noscript>
-
-  <section class="container rail hero profile-hero" aria-labelledby="profile-name">
-    <img class="hero-portrait" src="/images/luis.jpg" alt="Portrait of Luis Anthony Grado" width="2432" height="2272" fetchpriority="high" />
-    <div class="rail-body">
-      <h1 id="profile-name">{profile.name}</h1>
-      <p class="profile-role">{profile.role}</p>
-      <p class="profile-summary">I turn ideas into useful software, from web and mobile applications to business systems and automation.</p>
-      <div class="hero-actions">
-        <a class="button" href={profile.calendly} target="_blank" rel="noopener noreferrer">Schedule a meeting <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></a>
-        <ul class="link-row">
-          <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></li>
-          <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
-          <li><a href={profile.resume} download>Download résumé</a></li>
-        </ul>
-      </div>
-      <p class="profile-location">Based in the Philippines</p>
-    </div>
-  </section>
-
-  <section class="container rail rail-section" id="work" aria-labelledby="work-heading">
-    <h2 class="rail-label" id="work-heading">Work</h2>
-    <div class="rail-body project-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
-
-  <section class="container rail rail-section" id="toolkit" aria-labelledby="toolkit-heading">
-    <h2 class="rail-label" id="toolkit-heading">Tech stack</h2>
-    <div class="rail-body">
-      <ul class="row-list toolkit-list">
-        {toolkit.map((group) => (
-          <li>
-            <h3 class="row-side">{group.title}</h3>
-            <TechBadges technologies={group.items} />
-          </li>
-        ))}
+  <section class="section about" aria-label="Summary">
+    <p class="lead">For the past two years I’ve built SaaS applications across the stack at XS Enterprises. Before that I built web interfaces for a fintech startup and for Bicol University.</p>
+    <!-- Small screens only: the sidebar that normally holds these links is behind the menu. -->
+    <div class="hero-actions about-actions">
+      <a class="button" href={profile.calendly} target="_blank" rel="noopener noreferrer">Schedule a meeting <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></a>
+      <ul class="link-row">
+        <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></li>
+        <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        <li><a href={profile.resume} download>Download résumé</a></li>
       </ul>
     </div>
   </section>
 
-  <section class="container rail rail-section" id="experience" aria-labelledby="experience-heading">
-    <h2 class="rail-label" id="experience-heading">Experience</h2>
-    <div class="rail-body">
-      <ol class="row-list">
-        {experience.map((item) => (
+  <section class="section" aria-labelledby="glance-heading">
+    <h2 class="section-title" id="glance-heading">At a glance</h2>
+    <dl class="row-list glance" data-summary="glance">
+      {currentRoles.map((item, index) => (
+        <div>
+          <dt class="row-side">{index === 0 ? 'Now' : 'Also'}</dt>
+          <dd>
+            <p class="row-title">{item.roles[0].title}</p>
+            <p>{item.organization}</p>
+            <p class="badge-row">
+              {[item.roles[0].type, item.location].filter((tag): tag is string => Boolean(tag)).map((tag) => <span class="badge">{capitalize(tag)}</span>)}
+            </p>
+          </dd>
+        </div>
+      ))}
+      <div>
+        <dt class="row-side">Works with</dt>
+        <dd>
+          <TechBadges technologies={homeStack} />
+          <a class="row-link" href="/tech-stack/">See all {toolCount} tools</a>
+        </dd>
+      </div>
+      <div>
+        <dt class="row-side">Education</dt>
+        <dd>
+          <p class="row-title">{education.degree}</p>
+          <p>{education.school}, {education.period}</p>
+          <p class="badge-row">
+            <span class="badge">{education.honors}</span>
+            <span class="badge">{education.note}</span>
+          </p>
+        </dd>
+      </div>
+      <div>
+        <dt class="row-side">Based in</dt>
+        <dd><p class="row-title">{profile.location}</p></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="section" aria-labelledby="career-heading">
+    <h2 class="section-title" id="career-heading">Career so far</h2>
+    <div class="career" data-summary="career">
+      <div class="career-axis" aria-hidden="true">
+        <span></span>
+        <span class="career-years">
+          {/* A year that starts close to the right edge would run into "Now", so only its line is drawn. */}
+          {ticks.filter((tick) => tick.left < 80).map((tick) => <span style={`left: ${tick.left.toFixed(2)}%`}>{tick.label}</span>)}
+          <span class="career-now">Now</span>
+        </span>
+      </div>
+      <ol class="career-rows">
+        {bars.map(({ item, left, width }) => (
           <li>
-            <p class="row-side">{item.date}</p>
             <div>
-              <h3>{item.title}</h3>
-              <p>{item.organization}{item.type ? ` (${item.type})` : ""}</p>
-              <p class="muted row-detail">{item.description}</p>
+              <span class="career-role">
+                <strong>{item.roles[0].title}</strong>
+                {item.current && <span class="badge badge-solid">Now</span>}
+              </span>
+              <span class="career-org">{item.organization}, {item.period}</span>
             </div>
+            <span class="career-track" aria-hidden="true">
+              {ticks.map((tick) => <span class="career-tick" style={`left: ${tick.left.toFixed(2)}%`}></span>)}
+              <span class:list={['career-bar', { 'is-current': item.current }]} style={`left: ${left.toFixed(2)}%; width: ${width.toFixed(2)}%`}></span>
+            </span>
           </li>
         ))}
       </ol>
     </div>
+    <a class="more-link" href="/experience/">Read what I did in all {roleCount} roles</a>
   </section>
 
-  <section class="container rail rail-section" id="education" aria-labelledby="education-heading">
-    <h2 class="rail-label" id="education-heading">Education</h2>
-    <div class="rail-body">
-      <h3 class="plain-heading">{education.degree}</h3>
-      <p>{education.honors}</p>
-      <p>{education.note}</p>
-      <p class="muted">{education.school}</p>
+  <section class="section" aria-labelledby="work-heading" data-project-slugs={projects.map((project) => project.slug).join(' ')}>
+    <h2 class="section-title" id="work-heading">Recent projects</h2>
+    <div class="project-grid">
+      {featured.map((project) => <ProjectCard project={project} preview />)}
     </div>
+    <a class="more-link" href="/projects/">See all {projects.length} projects</a>
   </section>
 
-  <section class="container rail rail-section" id="coaching" aria-labelledby="coaching-heading">
-    <h2 class="rail-label" id="coaching-heading">Coaching</h2>
-    <div class="rail-body">
-      <p class="rail-text coaching-intro">Alongside software work, I coach student research and robotics teams at Camalig National High School.</p>
-      <ul class="row-list">
-        {highlights.map((item) => (
-          <li>
-            <p class="row-side">{item.date}</p>
-            <div>
-              <h3>{item.result}</h3>
-              <p>{item.detail}</p>
-              <p class="muted">Role: {item.role}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <a class="more-link" href="/achievements/">See all achievements with photos</a>
-    </div>
+  <section class="section" aria-labelledby="achievements-heading">
+    <h2 class="section-title" id="achievements-heading">Recognition</h2>
+    <ul class="row-list" data-summary="achievements">
+      {topResults.map((item) => <AwardRow item={item} level={3} />)}
+    </ul>
+    <a class="more-link" href="/achievements/">See every result, with photos</a>
   </section>
-
-  {projects.map((project) => <ProjectModal project={project} />)}
 </SiteLayout>

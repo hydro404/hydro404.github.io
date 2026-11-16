@@ -17,7 +17,7 @@ const badges = visibleTechnologies(technologies);
         {icons.length > 0 && (
           <span class="technology-marks" aria-hidden="true">
             {icons.map((filename) => (
-              <img src={technologyIconUrl(filename)} alt="" width="20" height="20" loading="lazy" decoding="async" />
+              <img src={technologyIconUrl(filename)} alt="" width="16" height="16" loading="lazy" decoding="async" />
             ))}
           </span>
         )}
@@ -32,21 +32,25 @@ const badges = visibleTechnologies(technologies);
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: .45rem .95rem;
+    gap: 6px;
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  /* A pill, matching .badge in global.css. */
   .technology-badge {
     display: inline-flex;
     align-items: center;
     gap: .4rem;
     max-width: 100%;
+    padding: 3px 10px 3px 8px;
+    border-radius: 999px;
+    background: var(--fill);
     color: var(--ink);
-    font-size: .82rem;
+    font-size: .78rem;
     font-weight: 600;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .technology-marks {
@@ -56,10 +60,12 @@ const badges = visibleTechnologies(technologies);
     gap: 2px;
   }
 
+  /* Logos are shown in black and white; the filter flips them for the dark theme. */
   .technology-marks img {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
+    filter: var(--icon-filter);
   }
 
   .technology-label {

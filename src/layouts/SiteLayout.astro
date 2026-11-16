@@ -1,14 +1,18 @@
 ---
 import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
+import VerifiedMark from '../components/VerifiedMark.astro';
 import { profile } from '../data/portfolio';
 
 interface Props { title: string; description?: string; noindex?: boolean }
-const { title, description = 'Luis Anthony Grado is a Full-Stack Software Engineer building web and mobile applications, business systems, and automation. Explore projects and technical experience.', noindex = false } = Astro.props;
+const { title, description = 'Luis Anthony Grado is a Full-Stack Software Engineer building SaaS products, business systems, and automation. A summary of his experience, projects, tech stack, and achievements.', noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const isHome = Astro.url.pathname === '/';
+// One page per link. The homepage is the summary; the name in the sidebar leads back to it.
 const nav = [
-  { href: '/#work', label: 'Work' },
-  { href: '/#experience', label: 'Experience' },
+  { href: '/experience/', label: 'Experience' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/tech-stack/', label: 'Tech stack' },
   { href: '/achievements/', label: 'Achievements' },
 ];
 const fullTitle = title === 'Home' ? `${profile.name} — Full-Stack Software Engineer` : `${title} — ${profile.name}`;
@@ -18,7 +22,28 @@ const fullTitle = title === 'Home' ? `${profile.name} — Full-Stack Software En
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f8f9f5" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Sets the theme before the first paint, and again on each page change, so it never flashes. -->
+    <script is:inline>
+      (() => {
+        const system = matchMedia('(prefers-color-scheme: dark)');
+        const saved = () => {
+          try { return localStorage.getItem('theme'); } catch { return null; }
+        };
+        const apply = (root) => {
+          const stored = saved();
+          const choice = stored === 'light' || stored === 'dark' ? stored : 'auto';
+          const theme = choice === 'auto' ? (system.matches ? 'dark' : 'light') : choice;
+          root.dataset.themeChoice = choice;
+          root.dataset.theme = theme;
+          root.ownerDocument.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#000000' : '#ffffff');
+        };
+        apply(document.documentElement);
+        window.__applyTheme = () => apply(document.documentElement);
+        document.addEventListener('astro:before-swap', (event) => apply(event.newDocument.documentElement));
+        system.addEventListener('change', () => apply(document.documentElement));
+      })();
+    </script>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
@@ -39,23 +64,50 @@ const fullTitle = title === 'Home' ? `${profile.name} — Full-Stack Software En
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header" transition:name="site-header" transition:animate="none">
-      <div class="container header-inner">
-        <a href="/" class="wordmark" aria-label="Luis Grado, home">luis grado<span aria-hidden="true">.</span></a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
-          <span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span>
-        </button>
+    <div class="shell" data-page={isHome ? 'home' : 'inner'}>
+      <header class="sidebar">
+        <!-- Small screens: a fixed bar with the menu button. Hidden beside the full sidebar. -->
+        <div class="sidebar-top">
+          <a href="/" class="wordmark" aria-label="Luis Grado, home">luis grado<span aria-hidden="true">.</span></a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+            <span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="identity">
+          {isHome
+            ? <img class="portrait" src="/images/luis.jpg" alt="Portrait of Luis Anthony Grado" width="800" height="800" fetchpriority="high" />
+            : <a class="portrait-link" href="/" tabindex="-1" aria-hidden="true"><img class="portrait" src="/images/luis.jpg" alt="" width="800" height="800" fetchpriority="high" /></a>}
+          {isHome
+            ? <h1 class="identity-name" id="profile-name"><span>{profile.name}</span><VerifiedMark /></h1>
+            : <p class="identity-name"><a class="wordmark" href="/" aria-label={`${profile.name}, home`}>{profile.name}</a><VerifiedMark /></p>}
+          <p class="identity-role">{profile.role}</p>
+          <p class="identity-tagline">{profile.tagline}</p>
+        </div>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-          {nav.map(({ href, label }) => <a href={href} aria-current={Astro.url.pathname.startsWith(href) ? 'page' : undefined}>{label}</a>)}
-          <a href="#contact">Let’s talk</a>
+          <div class="nav-links">
+            <span class="nav-marker" aria-hidden="true"></span>
+            {nav.map(({ href, label }) => <a href={href} aria-current={Astro.url.pathname.startsWith(href) ? 'page' : undefined}>{label}</a>)}
+          </div>
+          <div class="nav-foot">
+            <div class="theme-switch" role="group" aria-label="Appearance" hidden>
+              <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+              <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+              <button type="button" data-theme-set="auto" aria-pressed="false">Auto</button>
+            </div>
+            <a class="button" href={profile.calendly} target="_blank" rel="noopener noreferrer">Schedule a meeting <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></a>
+            <ul class="side-links">
+              <li><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></li>
+              <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
+              <li><a href={profile.resume} download>Download résumé</a></li>
+            </ul>
+            <p class="side-location">Based in the Philippines</p>
+          </div>
         </nav>
-      </div>
-    </header>
-    <main id="main" tabindex="-1"><slot /></main>
-    <footer id="contact" class="site-footer">
-      <div class="container rail">
-        <h2 class="rail-label">Let’s talk</h2>
-        <div class="rail-body">
+      </header>
+      <div class="content">
+        <main id="main" tabindex="-1"><slot /></main>
+        <footer id="contact" class="site-footer">
+          <h2 class="section-title">Let’s talk</h2>
           <p class="footer-statement">Good software starts with a conversation. Reach out about an engineering role, a project idea, or a question.</p>
           <ul class="link-row">
             <li><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></li>
@@ -70,9 +122,9 @@ const fullTitle = title === 'Home' ? `${profile.name} — Full-Stack Software En
               <li><a href="#main">Back to top</a></li>
             </ul>
           </div>
-        </div>
+        </footer>
       </div>
-    </footer>
+    </div>
     <script>
       import '../scripts/site';
     </script>

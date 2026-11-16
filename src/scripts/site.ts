@@ -18,7 +18,7 @@ function initMenu(signal: AbortSignal) {
     nav.dataset.collapsed = String(!open);
     // The open menu covers the page on small screens, so hold the page still behind it.
     document.documentElement.classList.toggle('menu-open', open);
-    document.querySelectorAll<HTMLElement>('main, .site-footer').forEach((region) => { region.inert = open; });
+    document.querySelectorAll<HTMLElement>('main, .site-footer, .identity').forEach((region) => { region.inert = open; });
     const label = toggle.querySelector('.menu-label');
     if (label) label.textContent = open ? 'Close' : 'Menu';
   };
@@ -31,7 +31,65 @@ function initMenu(signal: AbortSignal) {
       toggle.focus();
     }
   }, { signal });
-  window.matchMedia('(min-width: 761px)').addEventListener('change', () => setOpen(false), { signal });
+  window.matchMedia('(min-width: 961px)').addEventListener('change', () => setOpen(false), { signal });
+}
+
+// Light, Dark, or Auto (follow the system). The choice is kept in this browser. The
+// inline script in SiteLayout.astro applies it; this wires up the switch.
+function initTheme(signal: AbortSignal) {
+  const control = document.querySelector<HTMLElement>('.theme-switch');
+  if (!control) return;
+  const buttons = Array.from(control.querySelectorAll<HTMLButtonElement>('button[data-theme-set]'));
+  const sync = () => {
+    const choice = document.documentElement.dataset.themeChoice ?? 'auto';
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.themeSet === choice));
+  };
+  control.hidden = false;
+  sync();
+  for (const button of buttons) {
+    button.addEventListener('click', () => {
+      const choice = button.dataset.themeSet ?? 'auto';
+      try {
+        if (choice === 'auto') localStorage.removeItem('theme');
+        else localStorage.setItem('theme', choice);
+      } catch {
+        // Storage can be blocked. The choice then lasts until the page is reloaded.
+        document.documentElement.dataset.theme = choice === 'auto'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : choice;
+        document.documentElement.dataset.themeChoice = choice;
+        sync();
+        return;
+      }
+      (window as Window & { __applyTheme?: () => void }).__applyTheme?.();
+      sync();
+    }, { signal });
+  }
+}
+
+// The sidebar highlight rests on the link for the current page. On a route change the
+// browser slides it there, because the highlight has its own view-transition-name.
+function initNavMarker(signal: AbortSignal) {
+  const list = document.querySelector<HTMLElement>('.nav-links');
+  if (!list) return;
+  const place = () => {
+    const current = list.querySelector<HTMLAnchorElement>('a[aria-current="page"]');
+    list.style.setProperty('--marker-y', `${current?.offsetTop ?? 0}px`);
+    list.style.setProperty('--marker-height', `${current?.offsetHeight ?? 0}px`);
+  };
+  place();
+  list.dataset.spy = '';
+  window.addEventListener('resize', place, { signal });
+  document.fonts?.ready.then(() => { if (!signal.aborted) place(); });
+}
+
+// Projects used to open on the homepage at /#slug. Send those links to the Projects page.
+function redirectLegacyProjectLink() {
+  const slugs = document.querySelector<HTMLElement>('[data-project-slugs]')?.dataset.projectSlugs?.split(' ') ?? [];
+  const slug = location.hash.slice(1);
+  if (location.pathname !== '/' || !slug || !slugs.includes(slug)) return false;
+  navigate(`/projects/#${slug}`, { history: 'replace' });
+  return true;
 }
 
 // Moves the photo between its card and the modal. Falls back to an instant change.
@@ -59,6 +117,8 @@ function morphPhoto(from: HTMLElement | null, to: HTMLElement | null, update: ()
     update();
   });
   transition.finished.then(cleanUp, cleanUp);
+  // A hidden tab skips the animation and rejects this promise; the update itself still runs.
+  transition.ready.catch(() => {});
   return () => {
     if (finished) return;
     transition.skipTransition();
@@ -78,8 +138,10 @@ function initProjectModals(signal: AbortSignal) {
   const pageSearch = location.search;
   const isCurrentPage = () => location.pathname === pagePath && location.search === pageSearch;
   const linkedDialog = () => dialogs.get(location.hash.slice(1));
-  const cards = document.querySelectorAll<HTMLAnchorElement>('[data-project-open]');
-  const triggers = new Map(Array.from(cards, (card) => [card.dataset.projectOpen, card]));
+  // A project opens from its card, or from a link elsewhere on the page such as an experience entry.
+  const slugOf = (opener: HTMLAnchorElement) => opener.dataset.projectOpen ?? opener.dataset.projectLink ?? '';
+  const cards = document.querySelectorAll<HTMLAnchorElement>('[data-project-open], [data-project-link]');
+  const triggers = new Map(Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-project-open]'), (card) => [card.dataset.projectOpen, card]));
   let selected: HTMLDialogElement | undefined;
   let waitingForBack = false;
   let cancelPhoto: (() => void) | undefined;
@@ -143,7 +205,7 @@ function initProjectModals(signal: AbortSignal) {
   cards.forEach((card) => {
     card.addEventListener('click', async (event) => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-      const dialog = dialogs.get(card.dataset.projectOpen ?? '');
+      const dialog = dialogs.get(slugOf(card));
       if (!dialog) return;
       event.preventDefault();
       if (selected || waitingForBack) return;
@@ -197,7 +259,7 @@ function initReveal() {
   revealObserver = undefined;
   if (prefersReducedMotion()) return;
 
-  const targets = Array.from(document.querySelectorAll<HTMLElement>('.rail-section, .site-footer'))
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('.section, .site-footer'))
     .filter((element) => element.getBoundingClientRect().top > window.innerHeight);
   if (!targets.length) return;
 
@@ -228,7 +290,10 @@ let pageListeners: AbortController | undefined;
 function initPage() {
   pageListeners?.abort();
   pageListeners = new AbortController();
+  if (redirectLegacyProjectLink()) return;
   initMenu(pageListeners.signal);
+  initTheme(pageListeners.signal);
+  initNavMarker(pageListeners.signal);
   initProjectModals(pageListeners.signal);
   initReveal();
 }

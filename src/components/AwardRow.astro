@@ -1,0 +1,21 @@
+---
+import type { Highlight } from '../data/achievements';
+
+interface Props {
+  item: Highlight;
+  /** Heading level of the result. */
+  level?: 3 | 4;
+}
+
+const { item, level = 4 } = Astro.props;
+const Heading = `h${level}` as 'h3' | 'h4';
+---
+
+<li>
+  <p class="row-side">{item.date}</p>
+  <div>
+    <Heading class="row-title">{item.result}</Heading>
+    <p>{item.detail}</p>
+    {item.role && <p class="badge-row"><span class="badge"><span class="visually-hidden">Role: </span>{item.role}</span></p>}
+  </div>
+</li>

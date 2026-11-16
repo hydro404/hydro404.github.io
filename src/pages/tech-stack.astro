@@ -1,0 +1,24 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import TechBadges from '../components/TechBadges.astro';
+import { toolkit } from '../data/technologies';
+---
+
+<SiteLayout title="Tech stack" description="Languages, frameworks, databases, cloud services, and tools Luis Anthony Grado works with.">
+  <section class="section page-intro">
+    <h1 class="page-title">Tech stack</h1>
+    <p class="lead">The languages, frameworks, and tools I’ve worked with, grouped by what they’re for.</p>
+  </section>
+
+  <section class="section" id="toolkit" aria-label="Tools by category">
+    <ul class="row-list toolkit-list">
+      {toolkit.map((group) => (
+        <li>
+          <h2 class="row-side toolkit-title">{group.title}</h2>
+          <TechBadges technologies={group.items} />
+        </li>
+      ))}
+    </ul>
+    <a class="more-link" href="/projects/">See what I’ve built with them</a>
+  </section>
+</SiteLayout>

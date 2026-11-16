@@ -8,20 +8,51 @@ Keep the homepage centered on Full-Stack Software Engineering. Use specific proj
 | --- | --- |
 | Name, professional title, location, social links, résumé URL | `src/data/portfolio.ts` → `profile` |
 | Projects and their modals | `src/data/portfolio.ts` → `projects` |
-| Career timeline | `src/data/portfolio.ts` → `experience` |
+| Sidebar tagline | `src/data/portfolio.ts` → `profile.tagline` |
+| Software roles | `src/data/portfolio.ts` → `engineeringExperience` |
+| Teaching and support roles | `src/data/portfolio.ts` → `otherExperience` |
 | Education | `src/data/portfolio.ts` → `education` |
+| Sidebar page links | `src/layouts/SiteLayout.astro` → `nav` |
+| Projects shown on the homepage | `src/data/portfolio.ts` → `featuredProjects` |
+| Tools shown on the homepage | `src/data/technologies.ts` → `homeStack` |
 | Homepage tech stack groups and technology label/logo registry | `src/data/technologies.ts` |
-| Student research and robotics results, and homepage highlights | `src/data/achievements.ts` |
+| My own results, student research and robotics results, and homepage highlights | `src/data/achievements.ts` |
 | Achievement photos | `src/assets/achievements/` |
 | Homepage introduction | `src/pages/index.astro` |
 | Project card and modal layout | `src/components/ProjectCard.astro`, `src/components/ProjectModal.astro` |
 | Downloadable résumé | `public/Grado_Resume.pdf` |
 
+## Experience
+
+Experience has its own page at `/experience/`, and the homepage lists the software roles in one line each. Software roles are in `engineeringExperience` and come first; teaching and support roles are in `otherExperience` and follow under their own heading. Both lists are newest first and use the `Experience` interface in `portfolio.ts`:
+
+- `organization`, `location`, and `period`: the employer, where the work happened, and the whole time there.
+- `start` and `end`: the first and last month as `YYYY-MM`, matching `period`. The homepage career chart uses them. Leave `end` out for a current role.
+- `current`: set to `true` while the role is ongoing. The entry's dot on the timeline turns blue.
+- `roles`: newest first. One role shows as the entry title. Two or more also show as a short list with each role's employment type and dates, which is how a change of title inside one employer appears.
+- `highlights`: one to three sentences. Start each with what you built or did. Use only facts you can explain in an interview; do not add metrics you cannot back.
+- `technologies`: optional, the tools used in that role. They show as the same badges projects use.
+- `link`: optional. Give `project` the slug of a homepage project to open its dialog, or leave `project` out for a plain link to another page.
+
+Each sidebar link opens its own page. To add a page, create it in `src/pages/`, add it to `nav` in `SiteLayout.astro`, and add its path to `src/pages/sitemap.xml.ts`.
+
+## Homepage
+
+The homepage summarises the other pages, in this order:
+
+- **Introduction:** two sentences written in `src/pages/index.astro`.
+- **At a glance:** rows for each role marked `current`, the `homeStack` tools, education, and location. They are filled from the data, so they update when a role starts or ends.
+- **Career so far:** a chart with one bar per role in `engineeringExperience`. Each bar is placed from the role's `start` and `end` months; a role without `end` runs to today. The axis starts at the earliest role and ends at the month the site was last built.
+- **Recent projects:** the `featuredProjects`.
+- **Recognition:** your own results, then the first coaching highlight.
+
+Each part links to its full page, and the counts in those links are worked out from the data.
+
 ## Projects
 
-Each project appears as a photo on the homepage and opens in a modal. A record uses the `Project` interface in `portfolio.ts`:
+Each project appears as a photo on the Projects page and opens in a modal. The two listed in `featuredProjects` also appear on the homepage, where they link to their dialog on the Projects page. A record uses the `Project` interface in `portfolio.ts`:
 
-- `slug`: unique, stable name, such as `bu-csm`. The modal opens at `/#bu-csm`, so this is also the project's shareable link.
+- `slug`: unique, stable name, such as `bu-csm`. The modal opens at `/projects/#bu-csm`, so this is also the project's shareable link.
 - `title`, `category`, and `summary`: a readable project name, software category, and concise explanation.
 - `role` and `contribution`: your personal responsibilities. Distinguish your work from the rest of a team’s work.
 - `technologies`: tools actually used on that project. These are historical facts, independent of the tools featured in the homepage toolkit.
@@ -38,9 +69,17 @@ Do not use `#` links, fictional client results, invented performance metrics, or
 
 Preserve existing slugs when possible, because changing one breaks links that were already shared.
 
+## Appearance
+
+The site is black and white in both themes. Colours are the custom properties at the top of `src/styles/global.css`: one set for light, one for `data-theme="dark"`, and a copy of the dark set for visitors without JavaScript whose system is dark. Change a colour in all three places. The inline script in `src/layouts/SiteLayout.astro` picks the theme before the page paints; the switch in the sidebar stores the choice under `theme` in the browser's local storage.
+
+Small facts appear as badges: add `class="badge"` for a filled pill, plus `badge-outline` or `badge-solid` for the other two styles. Employment type, place, role, project category, and technologies already use them.
+
+Logo files stay in full colour on disk. The `--icon-filter` property turns them gray, and inverts them in the dark theme. Photos use `filter: grayscale(1)`; to show them in colour everywhere, remove that filter from `.portrait`, `.project-card .project-photo img`, and `.achievement-photos img`.
+
 ## Tech stack and technology logos
 
-The homepage tech stack is the `toolkit` list in `src/data/technologies.ts`: six groups, each a title and an ordered list of names. Every name must match a `label` in the `technologies` registry in the same file. The shared `TechBadges.astro` component renders the tech stack, project cards, and project dialogs.
+The Tech stack page is the `toolkit` list in `src/data/technologies.ts`: six groups, each a title and an ordered list of names. Every name must match a `label` in the `technologies` registry in the same file. The shared `TechBadges.astro` component renders the tech stack, project cards, and project dialogs.
 
 List only tools you have used and can discuss in an interview. Put a tool in the group that describes what it is: a language under Languages, a mobile framework under Mobile, and so on.
 
@@ -50,15 +89,15 @@ HTML, CSS, and JavaScript badges are hidden globally through the shared display 
 
 ## Dialog behavior
 
-Shareable project links use `/#<slug>`. With JavaScript enabled, the native dialog contains the photo, summary, role, recorded stack, contributions, and optional **Try it** action. Close, Escape, and backdrop clicks return to the card without losing the page's scroll position. Browser Back/Forward follows modal history, while navigation to a different page must still work. Ctrl/Cmd-click retains normal new-tab behavior.
+Shareable project links use `/projects/#<slug>`. Older `/#<slug>` links are sent there by `redirectLegacyProjectLink()` in `src/scripts/site.ts`. With JavaScript enabled, the native dialog contains the photo, summary, role, recorded stack, contributions, and optional **Try it** action. Close, Escape, and backdrop clicks return to the card without losing the page's scroll position. Browser Back/Forward follows modal history, while navigation to a different page must still work. Ctrl/Cmd-click retains normal new-tab behavior.
 
 Without JavaScript, the hash link still reveals the project details and a close anchor returns to `#work`. Keep that fallback when changing the modal template. A modal's regular close control should remain a labeled button, with a usable touch target.
 
 ## Achievements
 
-Results are in `src/data/achievements.ts`, in two lists: `research` and `robotics`, newest first. A third list, `highlights`, holds the five lines shown on the homepage.
+Results are in `src/data/achievements.ts`. `personal` holds competition results that are your own; it shows first on both pages, without photos. `research` and `robotics` hold the coached results, newest first, with photos. `highlights` holds the main coaching results; the homepage shows the first one after your own results. A `personal` or `highlights` line has a `result`, a one-sentence `detail`, and optionally a `date` and `role`.
 
-Each record has:
+Each `research` or `robotics` record has:
 
 - `title`: the project name for research, or the event name for a competition.
 - `event` and `date`: the category or venue, and the month and year or just the year.

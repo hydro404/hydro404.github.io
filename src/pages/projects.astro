@@ -1,0 +1,23 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ProjectModal from '../components/ProjectModal.astro';
+import { projects } from '../data/portfolio';
+---
+
+<SiteLayout title="Projects" description="Software projects by Luis Anthony Grado: web applications, a desktop point-of-sale system, and client websites, with his role and the tools used in each.">
+  <noscript slot="head"><style>.project-modal:target { display: block; position: fixed; inset: 0; z-index: 50; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; border-radius: 0; overflow: auto; }</style></noscript>
+
+  <section class="section page-intro">
+    <h1 class="page-title">Projects</h1>
+    <p class="lead">Seven things I’ve built, for clients, a university, and my own province. Open one for my role and the tools behind it.</p>
+  </section>
+
+  <section class="section" id="work" aria-label="All projects">
+    <div class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} level={2} />)}
+    </div>
+  </section>
+
+  {projects.map((project) => <ProjectModal project={project} />)}
+</SiteLayout>

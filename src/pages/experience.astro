@@ -1,0 +1,43 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ExperienceEntry from '../components/ExperienceEntry.astro';
+import { education, engineeringExperience, otherExperience } from '../data/portfolio';
+---
+
+<SiteLayout title="Experience" description="Work history of Luis Anthony Grado: full-stack and front-end software roles, then teaching and support roles, with what he built in each.">
+  <section class="section page-intro">
+    <h1 class="page-title">Experience</h1>
+    <p class="lead">Software roles first, then the teaching and support work I’ve done alongside them.</p>
+  </section>
+
+  <section class="section" id="engineering" aria-labelledby="engineering-heading">
+    <h2 class="section-title" id="engineering-heading">Software engineering</h2>
+    <ol class="xp-list">
+      {engineeringExperience.map((item) => <ExperienceEntry item={item} />)}
+    </ol>
+  </section>
+
+  <section class="section" id="other-roles" aria-labelledby="other-roles-heading">
+    <h2 class="section-title" id="other-roles-heading">Teaching and support roles</h2>
+    <ol class="xp-list">
+      {otherExperience.map((item) => <ExperienceEntry item={item} />)}
+    </ol>
+  </section>
+
+  <section class="section" id="education" aria-labelledby="education-heading">
+    <h2 class="section-title" id="education-heading">Education</h2>
+    <ul class="row-list">
+      <li>
+        <p class="row-side">{education.period}</p>
+        <div>
+          <h3 class="row-title">{education.degree}</h3>
+          <p>{education.school}</p>
+          <p class="badge-row">
+            <span class="badge">{education.honors}</span>
+            <span class="badge">{education.note}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</SiteLayout>

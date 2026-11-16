@@ -34,10 +34,10 @@ const titleId = `${project.slug}-title`;
       <h2 id={titleId}>{project.title}</h2>
       <p class="modal-summary">{project.summary}</p>
       {project.liveUrl && <a class="button" href={project.liveUrl} target="_blank" rel="noopener noreferrer">Try it <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></a>}
-      <dl class="modal-facts">
-        <div><dt>Type</dt><dd>{project.category}</dd></div>
-        <div><dt>Role</dt><dd>{project.role}</dd></div>
-      </dl>
+      <p class="badge-row modal-facts">
+        <span class="badge"><span class="visually-hidden">Type: </span>{project.category}</span>
+        <span class="badge"><span class="visually-hidden">Role: </span>{project.role}</span>
+      </p>
       <div class="modal-stack"><h3>Built with</h3><TechBadges technologies={project.technologies} /></div>
       <h3 class="contribution-heading">My contribution</h3>
       <ul class="modal-contribution">

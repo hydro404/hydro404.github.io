@@ -12,16 +12,19 @@ const { item } = Astro.props;
 <li class="achievement">
   <div class="achievement-photos">
     {item.photos.map((photo) => (
-      <Image src={photo.src} alt={photo.alt} width={720} widths={[360, 720]} sizes="(max-width: 760px) 100vw, 320px" />
+      <Image src={photo.src} alt={photo.alt} width={720} widths={[360, 720]} sizes="(max-width: 600px) 100vw, 280px" />
     ))}
   </div>
   <div class="achievement-copy">
     <h3>{item.title}</h3>
-    <p class="muted achievement-event">{item.event}, {item.date}</p>
+    <p class="muted achievement-event">{item.event}</p>
     <ul class="achievement-results">
       {item.results.map((result) => <li>{result}</li>)}
     </ul>
-    <p class="achievement-role">Role: {item.role}</p>
+    <p class="badge-row achievement-role">
+      <span class="badge"><span class="visually-hidden">Role: </span>{item.role}</span>
+      <span class="badge badge-outline">{item.date}</span>
+    </p>
     {item.summary && <p class="achievement-summary">{item.summary}</p>}
   </div>
 </li>
