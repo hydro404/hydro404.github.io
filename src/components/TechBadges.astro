@@ -12,12 +12,12 @@ const badges = visibleTechnologies(technologies);
 
 {badges.length > 0 && (
   <ul class:list={['technology-list', className]} role="list">
-    {badges.map(({ label, icons }) => (
+    {badges.map(({ label, icons, mono }) => (
       <li class="technology-badge" data-technology={label}>
         {icons.length > 0 && (
           <span class="technology-marks" aria-hidden="true">
             {icons.map((filename) => (
-              <img src={technologyIconUrl(filename)} alt="" width="16" height="16" loading="lazy" decoding="async" />
+              <img src={technologyIconUrl(filename)} alt="" width="16" height="16" loading="lazy" decoding="async" data-mono={mono ? '' : undefined} />
             ))}
           </span>
         )}
@@ -60,12 +60,15 @@ const badges = visibleTechnologies(technologies);
     gap: 2px;
   }
 
-  /* Logos are shown in black and white; the filter flips them for the dark theme. */
+  /* Logos keep their own colours. A plain-black logo turns white in the dark theme. */
   .technology-marks img {
     width: 14px;
     height: 14px;
     object-fit: contain;
-    filter: var(--icon-filter);
+  }
+
+  .technology-marks img[data-mono] {
+    filter: var(--mono-icon-filter);
   }
 
   .technology-label {

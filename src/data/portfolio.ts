@@ -6,7 +6,7 @@ export const profile = {
   name: 'Luis Anthony Grado',
   shortName: 'Luis Anthony',
   role: 'Full-Stack Software Engineer',
-  tagline: 'I build SaaS products, business systems, and automation.',
+  tagline: 'I build SaaS products, business systems, and automation. Off the clock, I build and compete with robots.',
   location: 'Philippines',
   github: 'https://github.com/hydro404',
   linkedin: 'https://www.linkedin.com/in/luis-anthony-grado/',
@@ -31,9 +31,27 @@ export interface Project {
 }
 
 /** Slugs of the projects shown on the homepage, in order. */
-export const featuredProjects = ['brownout-baga', 'bu-csm'];
+export const featuredProjects = ['hydrobot', 'brownout-baga'];
 
 export const projects: Project[] = [
+  {
+    slug: 'hydrobot',
+    title: 'hydroBot',
+    category: 'Product website',
+    summary: 'The website for my robotics startup. It presents Striker, a RoboHockey competition robot, with a 3D model you can turn, full specifications, and a colour picker.',
+    role: 'Founder and developer',
+    technologies: ['Three.js', 'Vite', 'JavaScript'],
+    image: '/images/projects/hydrobot.webp',
+    imageWidth: 1408,
+    imageHeight: 704,
+    imageAlt: 'The hydroBot website: the headline Speed meets strength beside a 3D model of the Striker RoboHockey robot',
+    contribution: [
+      'Designed Striker, the RoboHockey robot the site presents: a 3D-printed chassis, 980 rpm rear-wheel drive, and weighted arms that work either way up.',
+      'Built the website with Three.js and Vite, including an interactive 3D model of the robot, a colour picker for its arms and tyres, and the full specifications.',
+      'Set up ordering through Facebook inquiries; every robot is printed, assembled, and tested before delivery.',
+    ],
+    liveUrl: 'https://hydrobot.shop',
+  },
   {
     slug: 'brownout-baga',
     title: 'BrownoutBaga',
@@ -160,8 +178,11 @@ export interface Experience {
   location?: string;
   /** The whole time at the organization. */
   period: string;
-  /** First and last month as YYYY-MM, for the homepage career chart. Leave `end` out while current. */
-  start: string;
+  /**
+   * First and last month as YYYY-MM, for the homepage career chart. Every software role needs
+   * `start`; leave `end` out while current. Roles outside the chart may leave both out.
+   */
+  start?: string;
   end?: string;
   current?: boolean;
   /** Newest first. More than one role shows the progression inside the organization. */
@@ -205,6 +226,22 @@ export const engineeringExperience: Experience[] = [
     link: { label: 'See the BU CSM project', href: '/projects/#bu-csm', project: 'bu-csm' },
   },
   {
+    organization: 'SC DigitalDynamo S.R.L',
+    location: 'Remote',
+    period: 'Dec 2023–Feb 2025',
+    start: '2023-12',
+    end: '2025-02',
+    roles: [
+      { title: 'Software Developer / Virtual Assistant', type: 'part-time', period: 'Oct 2024–Feb 2025' },
+      { title: 'Software Developer / Virtual Assistant', type: 'full-time', period: 'Dec 2023–Sep 2024' },
+    ],
+    highlights: [
+      'Built custom software tools that automated the employer’s daily operational tasks.',
+      'Managed the automation of the company’s social media accounts.',
+      'Handled schedules, data entry, and customer communications.',
+    ],
+  },
+  {
     organization: 'Quarta',
     period: 'May 2023–Jul 2024',
     start: '2023-05',
@@ -230,6 +267,24 @@ export const engineeringExperience: Experience[] = [
   },
 ];
 
+/** My own ventures. Shown after the software roles. */
+export const startupExperience: Experience[] = [
+  {
+    organization: 'hydroBot',
+    period: 'Nov 2026–Present',
+    start: '2026-11',
+    current: true,
+    roles: [{ title: 'Founder', type: 'self-employed', period: 'Nov 2026–Present' }],
+    highlights: [
+      'My early-stage robotics startup: I design, build, and sell competition robots, mainly for RoboHockey, to schools, students, and fellow competitors.',
+      'Our first robot, Striker, has a 3D-printed chassis, 980 rpm rear-wheel drive, and weighted arms, and keeps playing when flipped over. Every robot is printed, assembled, and tested before delivery.',
+      'Design custom parts in Onshape, Autodesk Fusion, and Tinkercad, and built the website, hydrobot.shop.',
+    ],
+    technologies: ['Onshape', 'Autodesk Fusion', 'Tinkercad', 'Three.js'],
+    link: { label: 'See the hydroBot project', href: '/projects/#hydrobot', project: 'hydrobot' },
+  },
+];
+
 /** Teaching and support roles, ordered by start date with the newest first. Shown after the software roles. */
 export const otherExperience: Experience[] = [
   {
@@ -244,21 +299,6 @@ export const otherExperience: Experience[] = [
       'Serving my return of service as a DOST JLSS scholar.',
     ],
     link: { label: 'See the coaching results', href: '/achievements/' },
-  },
-  {
-    organization: 'SC DigitalDynamo S.R.L',
-    location: 'Remote',
-    period: 'Dec 2023–Feb 2025',
-    start: '2023-12',
-    end: '2025-02',
-    roles: [
-      { title: 'Virtual Assistant', type: 'part-time', period: 'Oct 2024–Feb 2025' },
-      { title: 'Virtual Assistant', type: 'full-time', period: 'Dec 2023–Sep 2024' },
-    ],
-    highlights: [
-      'Built custom software tools that automated the employer’s daily operational tasks.',
-      'Managed schedules, data entry, and customer communications.',
-    ],
   },
   {
     organization: 'Wyndale Hotel',

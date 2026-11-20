@@ -1,19 +1,26 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ExperienceEntry from '../components/ExperienceEntry.astro';
-import { education, engineeringExperience, otherExperience } from '../data/portfolio';
+import { education, engineeringExperience, otherExperience, startupExperience } from '../data/portfolio';
 ---
 
 <SiteLayout title="Experience" description="Work history of Luis Anthony Grado: full-stack and front-end software roles, then teaching and support roles, with what he built in each.">
   <section class="section page-intro">
     <h1 class="page-title">Experience</h1>
-    <p class="lead">Software roles first, then the teaching and support work I’ve done alongside them.</p>
+    <p class="lead">Software roles first, then my own startup, then the teaching and support work I’ve done alongside them.</p>
   </section>
 
   <section class="section" id="engineering" aria-labelledby="engineering-heading">
     <h2 class="section-title" id="engineering-heading">Software engineering</h2>
     <ol class="xp-list">
       {engineeringExperience.map((item) => <ExperienceEntry item={item} />)}
+    </ol>
+  </section>
+
+  <section class="section" id="startups" aria-labelledby="startups-heading">
+    <h2 class="section-title" id="startups-heading">Startups</h2>
+    <ol class="xp-list">
+      {startupExperience.map((item) => <ExperienceEntry item={item} />)}
     </ol>
   </section>
 

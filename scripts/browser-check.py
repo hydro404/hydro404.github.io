@@ -21,8 +21,8 @@ artifacts = Path(args.artifacts)
 artifacts.mkdir(parents=True, exist_ok=True)
 routes = ['/', '/experience/', '/projects/', '/tech-stack/', '/achievements/', '/404/']
 widths = [320, 390, 640, 768, 1024, 1440]
-slugs = ['brownout-baga', 'bu-csm', 'pasubli', 'java-pos', 'nadira', 'bu-e-receipt', 'curio-4502']
-live_urls = {'brownout-baga': 'https://brownoutbaga.online', 'bu-csm': 'https://survey.bicol-u.edu.ph'}
+slugs = ['hydrobot', 'brownout-baga', 'bu-csm', 'pasubli', 'java-pos', 'nadira', 'bu-e-receipt', 'curio-4502']
+live_urls = {'hydrobot': 'https://hydrobot.shop', 'brownout-baga': 'https://brownoutbaga.online', 'bu-csm': 'https://survey.bicol-u.edu.ph'}
 home_stack = [
     'TypeScript', 'Python', 'Java', 'VB.NET',
     'React', 'Vue', 'Next.js', 'Astro', 'Tailwind CSS',
@@ -86,7 +86,7 @@ with sync_playwright() as p:
           .copy{{max-width:650px}}h1{{font-size:47px;line-height:1.13;letter-spacing:-2.4px;margin:0 0 24px;font-weight:650}}
           .role{{font-size:35px;line-height:1.25;letter-spacing:-1.1px;font-weight:550;margin-bottom:23px;color:#6e6e73}}
           .summary{{font-size:20px;line-height:1.65;max-width:43ch;color:#6e6e73;margin:0 0 37px}}
-          .url{{font-size:18px}}img{{width:280px;height:315px;object-fit:cover;border-radius:14px;filter:grayscale(1)}}
+          .url{{font-size:18px}}img{{width:280px;height:315px;object-fit:cover;border-radius:14px}}
           </style><div class="canvas"><div class="copy"><h1>Luis Anthony Grado</h1><div class="role">Full-Stack<br>Software Engineer</div><p class="summary">SaaS products, business systems, and automation.</p><div class="url">hydro404.github.io</div></div><img src="{base}/images/luis.jpg" alt="Portrait of Luis Anthony Grado"></div>''')
         page.wait_for_load_state('networkidle')
         page.evaluate('document.fonts.ready')
@@ -116,9 +116,9 @@ with sync_playwright() as p:
             if route == '/':
                 assert page.locator('h1').inner_text() == 'Luis Anthony Grado'
                 assert page.locator('.sidebar .portrait').is_visible(), 'The homepage always shows the portrait'
-                assert page.locator('[data-summary="glance"] > div').count() == 5
+                assert page.locator('[data-summary="glance"] > div').count() == 6, 'Three current roles, then tools, education, and location'
                 assert page.locator('[data-summary="glance"] [data-technology]').count() == 6
-                assert page.locator('.career-rows > li').count() == 4, 'The career chart has one row per software role'
+                assert page.locator('.career-rows > li').count() == 5, 'The career chart has one row per software role'
                 bars = page.locator('.career-bar').evaluate_all('(bars) => bars.map(bar => { const track = bar.parentElement.getBoundingClientRect(); const box = bar.getBoundingClientRect(); return box.left >= track.left - 1 && box.right <= track.right + 1 && box.width >= 8; })')
                 assert all(bars), 'Every career bar sits inside its track'
                 assert page.locator('.career-bar.is-current').count() == 1
@@ -129,8 +129,9 @@ with sync_playwright() as p:
                 assert page.locator('dialog').count() == 0, 'Project dialogs live on the Projects page'
             if route == '/experience/':
                 assert page.locator('h1').inner_text() == 'Experience'
-                assert page.locator('.xp').count() == 7, 'Experience lists seven employers'
-                assert page.locator('.xp.is-current').count() == 2
+                assert page.locator('.xp').count() == 8, 'Experience lists eight roles, hydroBot included'
+                assert page.locator('.xp.is-current').count() == 3
+                assert page.locator('#startups .xp').count() == 1
             if route == '/projects/':
                 assert page.locator('.project-card').count() == len(slugs)
                 assert page.locator('dialog.project-modal').count() == len(slugs)
@@ -142,8 +143,9 @@ with sync_playwright() as p:
                         assert item.locator('img').count() >= 1, 'Every technology needs a logo'
                 assert page.locator('#toolkit .toolkit-list > li').count() == 6, 'Tech stack has six categories'
             if route == '/achievements/':
-                assert page.locator('.achievement').count() == 9
-                assert page.locator('#personal [data-awards="personal"] > li').count() == 2
+                assert page.locator('.achievement').count() == 11
+                assert page.locator('#personal .achievement').count() == 2, 'My own results come first, with photos'
+                assert page.locator('a[data-lightbox]').count() == 12, 'Every achievement photo opens in the viewer'
                 for entry in page.locator('.achievement').all():
                     assert entry.locator('img').count() >= 1, 'Every achievement needs a photo'
                     assert entry.locator('.achievement-results li').count() >= 1
@@ -156,6 +158,21 @@ with sync_playwright() as p:
             if width == 390 and route == '/':
                 page.screenshot(path=str(artifacts / 'home-mobile.png'), full_page=True)
         print(f'Checked {len(routes)} routes at {width}px', flush=True)
+
+    # Achievement photos open full screen, step with the arrow keys, and close back to the photo last shown.
+    page.set_viewport_size({'width': 1440, 'height': 1000})
+    visit(page, '/achievements/')
+    viewer = page.locator('dialog.lightbox')
+    thumbs = page.locator('a[data-lightbox]')
+    thumbs.nth(0).click()
+    page.wait_for_function('document.querySelector("dialog.lightbox").open')
+    page.wait_for_function('(() => { const image = document.querySelector(".lightbox-image"); return image.complete && image.naturalWidth > 0; })()')
+    assert viewer.locator('.lightbox-count').inner_text() == '1 of 12'
+    page.keyboard.press('ArrowRight')
+    assert viewer.locator('.lightbox-count').inner_text() == '2 of 12'
+    page.keyboard.press('Escape')
+    page.wait_for_function('!document.querySelector("dialog.lightbox").open')
+    assert thumbs.nth(1).evaluate('(link) => link === document.activeElement'), 'Closing the viewer returns to the photo last shown'
 
     # Mobile menu and repeated route swaps must retain their page behavior.
     page.set_viewport_size({'width': 390, 'height': 844})
@@ -338,7 +355,7 @@ with sync_playwright() as p:
     visit(fallback, '/projects/')
     assert fallback.locator('.project-card:visible').count() == len(slugs)
     visit(fallback, '/achievements/')
-    assert fallback.locator('.achievement:visible').count() == 9
+    assert fallback.locator('.achievement:visible').count() == 11
     visit(fallback, '/projects/')
     assert fallback.get_by_role('navigation', name='Main navigation').is_visible()
     fallback.locator('[data-project-open="bu-csm"]').click()
@@ -351,4 +368,4 @@ with sync_playwright() as p:
 
 (artifacts / 'results.json').write_text(json.dumps({'routes': len(routes), 'widths': widths, 'projects': len(slugs), 'issues': issues}, indent=2), encoding='utf-8')
 assert not issues, '\n'.join(issues)
-print('PASS: six responsive pages, sidebar and page highlight, light and dark themes, experience entries, labeled local logos, achievements with photos, seven modals, direct links/history, focus and scroll restoration, modified clicks, résumé, motion preferences, and no-JS fallback.')
+print('PASS: six responsive pages, sidebar and page highlight, achievement photo viewer, light and dark themes, experience entries, labeled local logos, achievements with photos, eight modals, direct links/history, focus and scroll restoration, modified clicks, résumé, motion preferences, and no-JS fallback.')

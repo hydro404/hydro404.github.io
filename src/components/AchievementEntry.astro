@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import type { Achievement } from '../data/achievements';
 
 interface Props {
@@ -7,12 +7,21 @@ interface Props {
 }
 
 const { item } = Astro.props;
+// A larger copy of each photo for the full-screen viewer, never wider than the original.
+const photos = await Promise.all(item.photos.map(async (photo) => {
+  const width = Math.min(1600, photo.src.width);
+  const full = await getImage({ src: photo.src, width, format: 'webp' });
+  return { ...photo, full: full.src, width, height: Math.round((photo.src.height * width) / photo.src.width) };
+}));
 ---
 
 <li class="achievement">
   <div class="achievement-photos">
-    {item.photos.map((photo) => (
-      <Image src={photo.src} alt={photo.alt} width={720} widths={[360, 720]} sizes="(max-width: 600px) 100vw, 280px" />
+    {photos.map((photo) => (
+      <a class="achievement-photo" href={photo.full} data-lightbox data-caption={item.title} data-width={photo.width} data-height={photo.height}>
+        <Image src={photo.src} alt={photo.alt} width={720} widths={[360, 720]} sizes="(max-width: 600px) 100vw, 280px" />
+        <span class="visually-hidden">(view full size)</span>
+      </a>
     ))}
   </div>
   <div class="achievement-copy">
@@ -26,5 +35,6 @@ const { item } = Astro.props;
       <span class="badge badge-outline">{item.date}</span>
     </p>
     {item.summary && <p class="achievement-summary">{item.summary}</p>}
+    {item.story?.map((paragraph) => <p class="achievement-summary">{paragraph}</p>)}
   </div>
 </li>

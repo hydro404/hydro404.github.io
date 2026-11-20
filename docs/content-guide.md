@@ -10,6 +10,7 @@ Keep the homepage centered on Full-Stack Software Engineering. Use specific proj
 | Projects and their modals | `src/data/portfolio.ts` → `projects` |
 | Sidebar tagline | `src/data/portfolio.ts` → `profile.tagline` |
 | Software roles | `src/data/portfolio.ts` → `engineeringExperience` |
+| Startups | `src/data/portfolio.ts` → `startupExperience` |
 | Teaching and support roles | `src/data/portfolio.ts` → `otherExperience` |
 | Education | `src/data/portfolio.ts` → `education` |
 | Sidebar page links | `src/layouts/SiteLayout.astro` → `nav` |
@@ -24,7 +25,7 @@ Keep the homepage centered on Full-Stack Software Engineering. Use specific proj
 
 ## Experience
 
-Experience has its own page at `/experience/`, and the homepage lists the software roles in one line each. Software roles are in `engineeringExperience` and come first; teaching and support roles are in `otherExperience` and follow under their own heading. Both lists are newest first and use the `Experience` interface in `portfolio.ts`:
+Experience has its own page at `/experience/`, and the homepage lists the software roles in one line each. Software roles are in `engineeringExperience` and come first; your own ventures, such as hydroBot, are in `startupExperience` under Startups; teaching and support roles are in `otherExperience` and follow under their own heading. A current role in any list also appears in the homepage "At a glance" panel. All three lists are newest first and use the `Experience` interface in `portfolio.ts`:
 
 - `organization`, `location`, and `period`: the employer, where the work happened, and the whole time there.
 - `start` and `end`: the first and last month as `YYYY-MM`, matching `period`. The homepage career chart uses them. Leave `end` out for a current role.
@@ -59,7 +60,7 @@ Each project appears as a photo on the Projects page and opens in a modal. The t
 - `image` and `imageAlt`: public asset URL and a useful description.
 - `imageWidth` and `imageHeight`: optional intrinsic dimensions when a cover differs from the retained screenshots.
 - `imageMobile`: optional 4:3 cover selected at viewport widths up to 600px. Current responsive covers use a 2:1 desktop composition and a 1448 × 1086 mobile composition.
-- `liveUrl`: optional real public project URL, shown as **Try it** in the modal. Omit it if there is no suitable destination; the action is omitted rather than replaced by a disabled link or filler text. BrownoutBaga and BU CSM currently have public URLs.
+- `liveUrl`: optional real public project URL, shown as **Try it** in the modal. Omit it if there is no suitable destination; the action is omitted rather than replaced by a disabled link or filler text. hydroBot, BrownoutBaga, and BU CSM currently have public URLs.
 
 All projects use a balanced two-column desktop grid and one column on mobile. Put the projects you most want seen first in the data list. Clicking a card opens its native dialog; there are no individual project pages and no automatic redirects to external demos.
 
@@ -71,11 +72,13 @@ Preserve existing slugs when possible, because changing one breaks links that we
 
 ## Appearance
 
-The site is black and white in both themes. Colours are the custom properties at the top of `src/styles/global.css`: one set for light, one for `data-theme="dark"`, and a copy of the dark set for visitors without JavaScript whose system is dark. Change a colour in all three places. The inline script in `src/layouts/SiteLayout.astro` picks the theme before the page paints; the switch in the sidebar stores the choice under `theme` in the browser's local storage.
+The interface is black and white in both themes, with one blue accent (`--verified`) for the check beside the name. Photos and technology logos keep their own colours. Colours are the custom properties at the top of `src/styles/global.css`: one set for light, one for `data-theme="dark"`, and a copy of the dark set for visitors without JavaScript whose system is dark. Change a colour in all three places. The inline script in `src/layouts/SiteLayout.astro` picks the theme before the page paints; the switch in the sidebar stores the choice under `theme` in the browser's local storage.
 
 Small facts appear as badges: add `class="badge"` for a filled pill, plus `badge-outline` or `badge-solid` for the other two styles. Employment type, place, role, project category, and technologies already use them.
 
-Logo files stay in full colour on disk. The `--icon-filter` property turns them gray, and inverts them in the dark theme. Photos use `filter: grayscale(1)`; to show them in colour everywhere, remove that filter from `.portrait`, `.project-card .project-photo img`, and `.achievement-photos img`.
+Logos are shown in their own colours. A logo that is plain black would disappear in the dark theme, so mark it `mono: true` in `src/data/technologies.ts`; the `--mono-icon-filter` property turns it white in the dark theme only. Next.js, Expo, Linux, GitHub, n8n, and Tinkercad are marked.
+
+Achievement photos open full screen in a photo viewer on the Achievements page. Each thumbnail links to a larger copy (up to 1600px wide) that is made at build time, so without JavaScript the link opens that file.
 
 ## Tech stack and technology logos
 
@@ -95,7 +98,7 @@ Without JavaScript, the hash link still reveals the project details and a close 
 
 ## Achievements
 
-Results are in `src/data/achievements.ts`. `personal` holds competition results that are your own; it shows first on both pages, without photos. `research` and `robotics` hold the coached results, newest first, with photos. `highlights` holds the main coaching results; the homepage shows the first one after your own results. A `personal` or `highlights` line has a `result`, a one-sentence `detail`, and optionally a `date` and `role`.
+Results are in `src/data/achievements.ts`. `own` holds competition results that are your own, with photos; they open the Achievements page, and an entry may add `story`, a list of paragraphs, for a longer account. `personal` holds the matching one-line versions shown on the homepage, so update both together. `research` and `robotics` hold the coached results, newest first, with photos. `highlights` holds the main coaching results; the homepage shows the first one after your own results. A `personal` or `highlights` line has a `result`, a one-sentence `detail`, and optionally a `date` and `role`.
 
 Each `research` or `robotics` record has:
 
@@ -106,7 +109,7 @@ Each `research` or `robotics` record has:
 - `summary`: optional, at most two sentences. Cut an abstract down to what the project does and one figure.
 - `photos`: one or two images from `src/assets/achievements/`, each with alt text.
 
-Do not name students in the text or in alt text. Attribute a team's award to the team and state your contribution separately. Photos are resized at build time, so save the original file and import it at the top of `achievements.ts`.
+Do not name the students you coach in the text or in alt text. Attribute a team's award to the team and state your contribution separately. Your own team results may name your teammates, as the HackForGov entry does. Photos are resized at build time, so save the original file and import it at the top of `achievements.ts`.
 
 There is no Certifications page. If you earn a credential worth showing, add a short section to the homepage rather than a page with one entry.
 

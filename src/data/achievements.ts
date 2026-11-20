@@ -2,6 +2,8 @@ import type { ImageMetadata } from 'astro';
 import camapa from '../assets/achievements/camapa-2025.jpg';
 import dlsmhsi from '../assets/achievements/dlsmhsi-2026.jpg';
 import eduvote from '../assets/achievements/eduvote-2026.jpg';
+import hackForGovStage from '../assets/achievements/hackforgov-2023-stage.jpg';
+import hackForGovTeam from '../assets/achievements/hackforgov-2023-team.jpg';
 import hydroPin from '../assets/achievements/hydro-pin-2026.jpg';
 import roboZ2025 from '../assets/achievements/robo-z-2025.jpg';
 import roboZChampion from '../assets/achievements/robo-z-2026-champion.jpg';
@@ -11,8 +13,9 @@ import smartR from '../assets/achievements/smart-r-2025.jpg';
 import summerCup from '../assets/achievements/summer-cup-2026.jpg';
 
 /**
- * My own results, then coaching and competition results. Students are not named
- * in the text: give the event, the result, and my own role. Newest first in each list.
+ * My own results, then coaching and competition results. Coached students are not
+ * named in the text: give the event, the result, and my own role. My own team results
+ * may name my teammates. Newest first in the coaching lists.
  */
 export interface AchievementPhoto {
   src: ImageMetadata;
@@ -26,8 +29,42 @@ export interface Achievement {
   results: string[];
   role: string;
   summary?: string;
+  /** A longer account, one paragraph per item. Used for my own results. */
+  story?: string[];
   photos: AchievementPhoto[];
 }
+
+/** Results I earned myself, with photos. The cybersecurity result comes first, as the one closest to software work. */
+export const own: Achievement[] = [
+  {
+    title: 'HackForGov 2 Cyber Challenge 2023',
+    event: 'Bicol regional qualifying round, organized by DICT and CERT-PH',
+    date: 'September 2023',
+    results: [
+      'Champion, Bicol regional round, as Team Initiatex',
+      'Represented Bicol at the national finals in Manila, October 2023',
+    ],
+    role: 'Competitor, team of four',
+    summary: 'HackForGov is the national capture-the-flag competition run by the Department of Information and Communications Technology through CERT-PH, the Philippines’ computer emergency response team. Teams hunt for hidden “flags” inside deliberately vulnerable programs and websites, in challenges covering cryptography, web and network security, exploitation, investigation, and programming.',
+    story: [
+      'I competed as Team Initiatex with my former classmates Benedick Binlayo, Gairus Niel Legaspi, and Menchie Belarmino, all of us fourth-year BS Information Technology students at Bicol University. We placed first among 10 teams from schools across the region, which sent us to the national finals in Manila on October 16, 2023.',
+      'The 2023 theme was “Build Cyber Champions: Stronger Nation through Cyber Awareness and Action.” The competition sets out to build cybersecurity skills among students and to find players to represent the Philippines in international capture-the-flag events.',
+    ],
+    photos: [
+      { src: hackForGovStage, alt: 'The four members of Team Initiatex on stage holding their plaques under a screen reading HackForGov Champion' },
+      { src: hackForGovTeam, alt: 'Team Initiatex taking a selfie with a HackForGov 2 champion plaque, wearing Cyber Challenge 2023 lanyards' },
+    ],
+  },
+  {
+    title: 'Robo Z: Philippine Robotics Innovation Cup, Mentors’ Edition',
+    event: 'De La Salle Santiago Zobel School, Muntinlupa',
+    date: 'October 2026',
+    results: ['2nd place, Z-Puck Tri-Bot Hockey 1 kg RC, Mentors’ Edition'],
+    role: 'Competitor',
+    summary: 'The coaches’ own bracket, played on the same day as the student divisions.',
+    photos: [{ src: roboZMentors, alt: 'Three coaches with medals: 2nd place, Z-Puck Tri-Bot Hockey, Mentors’ Edition' }],
+  },
+];
 
 export const research: Achievement[] = [
   {
@@ -78,14 +115,12 @@ export const robotics: Achievement[] = [
     date: 'October 2026',
     results: [
       'Champion, Z-Puck Tri-Bot Hockey 1 kg RC, Upper Division',
-      '2nd place, Z-Puck Tri-Bot Hockey 1 kg RC, Mentors’ Edition, as a competitor',
       '5th place, Z-Puck Tri-Bot Hockey 1 kg RC, Upper Division',
       '8th place overall for the school, Upper Division',
     ],
-    role: 'Coach and competitor',
+    role: 'Coach',
     photos: [
       { src: roboZChampion, alt: 'Three students with gold medals and a certificate: Champion, Z-Puck Tri-Bot Hockey, Upper Division' },
-      { src: roboZMentors, alt: 'Three coaches with medals: 2nd place, Z-Puck Tri-Bot Hockey, Mentors’ Edition' },
     ],
   },
   {
@@ -130,12 +165,12 @@ export interface Highlight {
 }
 
 /**
- * Competition results that are my own, newest first. Shown on both pages.
+ * The homepage lines for my own results in `own` above, in the same order.
  * Academic honors are in portfolio.ts under education.
  */
 export const personal: Highlight[] = [
+  { date: 'September 2023', result: 'Regional Champion', detail: 'HackForGov 2 Cyber Challenge 2023, the DICT and CERT-PH capture-the-flag competition. Bicol round, with Team Initiatex.' },
   { date: 'October 2026', result: '2nd place, Mentors’ Edition', detail: 'Z-Puck Tri-Bot Hockey at Robo Z: Philippine Robotics Innovation Cup, competing in the coaches’ bracket.' },
-  { date: '2023', result: 'Regional Champion', detail: 'Hack4Gov 2023, the DICT capture-the-flag cybersecurity competition.' },
 ];
 
 /** The coaching results shown on the homepage, newest first. */

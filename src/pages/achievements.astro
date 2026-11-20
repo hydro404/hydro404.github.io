@@ -1,8 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import AchievementEntry from '../components/AchievementEntry.astro';
-import AwardRow from '../components/AwardRow.astro';
-import { personal, research, robotics } from '../data/achievements';
+import { own, research, robotics } from '../data/achievements';
 ---
 
 <SiteLayout title="Achievements" description="Competition results earned by Luis Anthony Grado, and by the student research and robotics teams he coaches at Camalig National High School.">
@@ -13,8 +12,8 @@ import { personal, research, robotics } from '../data/achievements';
 
   <section class="section" id="personal" aria-labelledby="personal-heading">
     <h2 class="section-title" id="personal-heading">My own</h2>
-    <ul class="row-list" data-awards="personal">
-      {personal.map((item) => <AwardRow item={item} level={3} />)}
+    <ul class="achievement-list" data-awards="personal">
+      {own.map((item) => <AchievementEntry item={item} />)}
     </ul>
   </section>
 
@@ -33,4 +32,18 @@ import { personal, research, robotics } from '../data/achievements';
     </ul>
     <a class="more-link" href="/projects/">See my software projects</a>
   </section>
+
+  <!-- One full-screen viewer for every photo on the page. scripts/site.ts fills it in. -->
+  <dialog class="lightbox" aria-label="Photo viewer">
+    <div class="lightbox-bar">
+      <p class="lightbox-caption" aria-live="polite"></p>
+      <span class="lightbox-count"></span>
+      <button class="modal-close" type="button" data-lightbox-close>Close <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="lightbox-stage">
+      <img class="lightbox-image" alt="" width="1600" height="1200" decoding="async" />
+    </div>
+    <button class="lightbox-step lightbox-prev" type="button" data-lightbox-step="-1" aria-label="Previous photo"><span aria-hidden="true">‹</span></button>
+    <button class="lightbox-step lightbox-next" type="button" data-lightbox-step="1" aria-label="Next photo"><span aria-hidden="true">›</span></button>
+  </dialog>
 </SiteLayout>

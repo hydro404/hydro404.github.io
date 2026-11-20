@@ -93,9 +93,11 @@ function redirectLegacyProjectLink() {
 }
 
 // Moves the photo between its card and the modal. Falls back to an instant change.
-function morphPhoto(from: HTMLElement | null, to: HTMLElement | null, update: () => void) {
+// `update` may return a promise, for example to wait for a larger image to load before the
+// new snapshot is taken.
+function morphPhoto(from: HTMLElement | null, to: HTMLElement | null, update: () => void | Promise<void>) {
   if (!document.startViewTransition || prefersReducedMotion() || !from || !to) {
-    update();
+    void update();
     return;
   }
   const root = document.documentElement;
@@ -114,7 +116,7 @@ function morphPhoto(from: HTMLElement | null, to: HTMLElement | null, update: ()
     if (finished) return;
     from.style.viewTransitionName = '';
     to.style.viewTransitionName = 'project-photo';
-    update();
+    return update();
   });
   transition.finished.then(cleanUp, cleanUp);
   // A hidden tab skips the animation and rejects this promise; the update itself still runs.
@@ -285,6 +287,86 @@ function initReveal() {
   revealObserver = observer;
 }
 
+// Achievement photos open full screen. The photo grows out of its thumbnail, the arrow
+// keys and buttons step through every photo on the page, and Close, Escape, or a click
+// beside the photo shrinks it back. Without JavaScript each thumbnail links to the file.
+function initLightbox(signal: AbortSignal) {
+  const viewer = document.querySelector<HTMLDialogElement>('dialog.lightbox');
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('a[data-lightbox]'));
+  const image = viewer?.querySelector<HTMLImageElement>('.lightbox-image');
+  if (!viewer || !image || !links.length) return;
+  const caption = viewer.querySelector<HTMLElement>('.lightbox-caption');
+  const count = viewer.querySelector<HTMLElement>('.lightbox-count');
+  const thumbnail = (index: number) => links[index]?.querySelector<HTMLImageElement>('img') ?? null;
+  let current = 0;
+  let cancel: (() => void) | undefined;
+
+  // Shows photo `index`, and resolves once it can be drawn (or after a short wait on a slow connection).
+  const show = async (index: number) => {
+    current = (index + links.length) % links.length;
+    const link = links[current];
+    image.src = link.href;
+    image.alt = thumbnail(current)?.alt ?? '';
+    image.width = Number(link.dataset.width) || image.width;
+    image.height = Number(link.dataset.height) || image.height;
+    if (caption) caption.textContent = link.dataset.caption ?? '';
+    if (count) count.textContent = `${current + 1} of ${links.length}`;
+    await Promise.race([image.decode().catch(() => {}), new Promise((resolve) => setTimeout(resolve, 700))]);
+  };
+
+  const open = (index: number) => {
+    cancel?.();
+    const root = document.documentElement;
+    root.style.setProperty('--scrollbar-width', `${window.innerWidth - root.clientWidth}px`);
+    if (!document.startViewTransition || prefersReducedMotion()) {
+      void show(index);
+      viewer.showModal();
+      return;
+    }
+    cancel = morphPhoto(thumbnail(index), image, async () => {
+      await show(index);
+      if (!viewer.open) viewer.showModal();
+    });
+  };
+
+  const close = () => {
+    if (!viewer.open) return;
+    cancel?.();
+    const link = links[current];
+    cancel = morphPhoto(image, thumbnail(current), () => {
+      viewer.close();
+      // The viewer may have moved on to a photo further down the page; return to that one.
+      link.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+      link.focus({ preventScroll: true });
+    });
+  };
+
+  links.forEach((link, index) => {
+    link.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      open(index);
+    }, { signal });
+  });
+  viewer.querySelector('[data-lightbox-close]')?.addEventListener('click', close, { signal });
+  viewer.querySelectorAll<HTMLButtonElement>('[data-lightbox-step]').forEach((button) => {
+    button.addEventListener('click', () => void show(current + Number(button.dataset.lightboxStep)), { signal });
+  });
+  viewer.addEventListener('click', (event) => {
+    const target = event.target as Element;
+    if (target === viewer || target.classList.contains('lightbox-stage')) close();
+  }, { signal });
+  viewer.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    close();
+  }, { signal });
+  viewer.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') void show(current + 1);
+    else if (event.key === 'ArrowLeft') void show(current - 1);
+  }, { signal });
+  signal.addEventListener('abort', () => cancel?.(), { once: true });
+}
+
 let pageListeners: AbortController | undefined;
 
 function initPage() {
@@ -295,6 +377,7 @@ function initPage() {
   initTheme(pageListeners.signal);
   initNavMarker(pageListeners.signal);
   initProjectModals(pageListeners.signal);
+  initLightbox(pageListeners.signal);
   initReveal();
 }
 

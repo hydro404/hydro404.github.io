@@ -4,7 +4,7 @@ Audience: recruiters and engineering hiring teams evaluating a Full-Stack Softwa
 
 ## Tokens
 
-Black and white only, in a light and a dark theme. The values are custom properties at the top of `src/styles/global.css`.
+A black and white interface, in a light and a dark theme, with one blue accent. The values are custom properties at the top of `src/styles/global.css`.
 
 | Token | Light | Dark | Used for |
 | --- | --- | --- | --- |
@@ -16,8 +16,9 @@ Black and white only, in a light and a dark theme. The values are custom propert
 | `--muted` | `#6e6e73` | `#a1a1a6` | Secondary text |
 | `--line` | `#d9d9de` | `#333336` | Hairlines |
 | `--fill` | black at 6% | white at 10% | Badges, the sidebar highlight |
+| `--verified` | `#0071e3` | `#2997ff` | The check beside the name, the only accent |
 
-There is no accent colour. Emphasis comes from weight, the solid ink badge, and the solid ink button. Technology logos and photos are turned gray with CSS filters; the source files keep their colours.
+Blue is used only for the check beside the name. Other emphasis comes from weight, the solid ink badge, and the solid ink button. Photos and technology logos keep their own colours, so the work and the tools are what stand out against the neutral interface. Plain-black logos turn white in the dark theme.
 
 Apple devices use their system font. Everything else uses the bundled Manrope. No fabricated product UI, skill percentages, rotating job titles, or employment availability.
 
@@ -64,6 +65,6 @@ Page behaviour lives in `src/scripts/site.ts`, because bundled scripts run once 
 
 ## Achievements
 
-My own results come first, as rows without photos. Each coached entry puts one photo beside the event, the result, my role, and at most two sentences. Photos are shown whole, never cropped, because several have the result printed on them. Text does not name students. Newest results come first, research before robotics.
+My own results come first, as rows without photos. Each coached entry puts one photo beside the event, the result, my role, and at most two sentences. Photos are shown whole, never cropped, because several have the result printed on them. A photo opens full screen in a viewer that grows out of the thumbnail; the arrow keys step through every photo on the page. Text does not name students. Newest results come first, research before robotics.
 
 The site uses the existing portrait, real project images, and real event photos instead of decorative illustration. This keeps the portfolio personal and presents evidence of work.

@@ -4,14 +4,15 @@ import AwardRow from '../components/AwardRow.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TechBadges from '../components/TechBadges.astro';
 import { highlights, personal } from '../data/achievements';
-import { education, engineeringExperience, featuredProjects, otherExperience, profile, projects } from '../data/portfolio';
+import { education, engineeringExperience, featuredProjects, otherExperience, profile, projects, startupExperience } from '../data/portfolio';
+import type { Experience } from '../data/portfolio';
 import { homeStack, toolkit } from '../data/technologies';
 
 const featured = featuredProjects.flatMap((slug) => projects.filter((project) => project.slug === slug));
 const toolCount = toolkit.reduce((count, group) => count + group.items.length, 0);
-const roleCount = engineeringExperience.length + otherExperience.length;
+const roleCount = engineeringExperience.length + startupExperience.length + otherExperience.length;
 const topResults = [...personal, ...highlights.slice(0, 1)];
-const currentRoles = [...engineeringExperience, ...otherExperience].filter((item) => item.current);
+const currentRoles = [...engineeringExperience, ...startupExperience, ...otherExperience].filter((item) => item.current);
 const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1);
 
 // The career chart: every software role is a bar on one time axis, measured in months.
@@ -20,10 +21,12 @@ const month = (value: string) => {
   return year * 12 + (number - 1);
 };
 const today = new Date();
-const chartStart = Math.min(...engineeringExperience.map((item) => month(item.start))) - 1;
+// Only software roles go on the chart, and each of them has a start month.
+const charted = engineeringExperience.filter((item): item is Experience & { start: string } => Boolean(item.start));
+const chartStart = Math.min(...charted.map((item) => month(item.start))) - 1;
 const chartEnd = today.getFullYear() * 12 + today.getMonth() + 1;
 const place = (value: number) => ((value - chartStart) / (chartEnd - chartStart)) * 100;
-const bars = engineeringExperience.map((item) => {
+const bars = charted.map((item) => {
   const left = place(month(item.start));
   // A role runs to the end of its last month, or to today while it is current.
   const right = item.end ? place(month(item.end) + 1) : 100;
@@ -36,7 +39,8 @@ for (let year = Math.ceil(chartStart / 12); year * 12 < chartEnd; year++) {
 ---
 <SiteLayout title="Home">
   <section class="section about" aria-label="Summary">
-    <p class="lead">For the past two years I’ve built SaaS applications across the stack at XS Enterprises. Before that I built web interfaces for a fintech startup and for Bicol University.</p>
+    <p class="lead">I’ve been building software since 2022: client websites, interfaces for a fintech startup, a university feedback system, and tools that automate day-to-day operations. Since 2024 I’ve built SaaS applications across the stack at XS Enterprises.</p>
+    <p class="about-more">I also spent a year in IT support, looking after a hotel’s network, VoIP phones, and IP cameras, which gave me hands-on networking experience.</p>
     <!-- Small screens only: the sidebar that normally holds these links is behind the menu. -->
     <div class="hero-actions about-actions">
       <a class="button" href={profile.calendly} target="_blank" rel="noopener noreferrer">Schedule a meeting <span aria-hidden="true">↗</span><span class="visually-hidden">(opens in a new tab)</span></a>

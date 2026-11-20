@@ -2,6 +2,8 @@ export interface Technology {
   label: string;
   icons: readonly string[];
   aliases?: readonly string[];
+  /** The logo is plain black. It is shown white in the dark theme so it stays visible. */
+  mono?: boolean;
 }
 
 export interface ToolkitGroup {
@@ -20,7 +22,7 @@ export const technologies: readonly Technology[] = [
   { label: 'PHP', icons: ['php.svg'] },
   { label: 'React', icons: ['react.svg'], aliases: ['React.js', 'ReactJS'] },
   { label: 'Vue', icons: ['vue.svg'], aliases: ['Vue.js', 'VueJS'] },
-  { label: 'Next.js', icons: ['nextjs.svg'], aliases: ['NextJS'] },
+  { label: 'Next.js', icons: ['nextjs.svg'], mono: true, aliases: ['NextJS'] },
   { label: 'Astro', icons: ['astro.svg'] },
   { label: 'Tailwind CSS', icons: ['tailwindcss.svg'], aliases: ['Tailwind'] },
   { label: 'Bootstrap', icons: ['bootstrap.svg'] },
@@ -30,22 +32,22 @@ export const technologies: readonly Technology[] = [
   { label: 'MySQL', icons: ['mysql.svg'] },
   { label: 'PostgreSQL', icons: ['postgresql.svg'], aliases: ['Postgres'] },
   { label: 'React Native', icons: ['react.svg'], aliases: ['React-Native', 'ReactNative'] },
-  { label: 'Expo', icons: ['expo.svg'], aliases: ['Expo Go'] },
+  { label: 'Expo', icons: ['expo.svg'], mono: true, aliases: ['Expo Go'] },
   { label: 'AWS', icons: ['aws.svg'], aliases: ['Amazon Web Services'] },
   { label: 'Microsoft Azure', icons: ['azure.svg'], aliases: ['Azure'] },
   { label: 'Google Cloud', icons: ['googlecloud.svg'], aliases: ['GCP'] },
   { label: 'Docker', icons: ['docker.svg'] },
   { label: 'Nginx', icons: ['nginx.svg'] },
   { label: 'Apache', icons: ['apache.svg'] },
-  { label: 'Linux', icons: ['linux.svg'] },
-  { label: 'GitHub', icons: ['github.svg'] },
-  { label: 'n8n', icons: ['n8n.svg'] },
-  { label: 'Tinkercad', icons: ['tinkercad.svg'] },
+  { label: 'Linux', icons: ['linux.svg'], mono: true },
+  { label: 'GitHub', icons: ['github.svg'], mono: true },
+  { label: 'n8n', icons: ['n8n.svg'], mono: true },
+  { label: 'Tinkercad', icons: ['tinkercad.svg'], mono: true },
   { label: 'Onshape', icons: ['onshape.svg'] },
 ];
 
 /** The tools named on the homepage. Each name must match a label above. */
-export const homeStack: readonly string[] = ['Laravel', 'Vue', 'Bootstrap', 'MySQL', 'Node.js', 'n8n'];
+export const homeStack: readonly string[] = ['Laravel', 'Tailwind CSS', 'React Native', 'Python', 'Node.js', 'n8n'];
 
 /** The full tech stack on its own page, in display order. Each name must match a label above. */
 export const toolkit: readonly ToolkitGroup[] = [
